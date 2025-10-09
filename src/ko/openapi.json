@@ -1,0 +1,1610 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "DV Merchant",
+        "description": "This is an API for DV Merchant",
+        "contact": {
+            "name": "DV Support",
+            "email": "support@dv.net"
+        },
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
+    "paths": {
+        "/v1/external/exchange-balances": {
+            "get": {
+                "tags": [
+                    "Exchange"
+                ],
+                "summary": "외부 거래소 잔액 가져오기",
+                "description": "외부 거래소 잔액 가져오기",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Store API key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-ExternalExchangeBalanceResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ]
+            }
+        },
+        "/v1/external/processing-wallet-balances": {
+            "get": {
+                "tags": [
+                    "Withdrawal"
+                ],
+                "summary": "외부 처리 지갑 잔액 가져오기",
+                "description": "외부 처리 지갑 잔액 가져오기",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Store API key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "blockchains",
+                        "in": "query",
+                        "style": "form",
+                        "explode": false,
+                        "schema": {
+                            "uniqueItems": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "arbitrum",
+                                    "bitcoin",
+                                    "bitcoincash",
+                                    "bsc",
+                                    "dogecoin",
+                                    "ethereum",
+                                    "litecoin",
+                                    "polygon",
+                                    "tron"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "currencies",
+                        "in": "query",
+                        "style": "form",
+                        "explode": false,
+                        "schema": {
+                            "uniqueItems": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-ExternalProcessingWalletBalanceResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ]
+            }
+        },
+        "/v1/external/store/currencies": {
+            "get": {
+                "tags": [
+                    "Store"
+                ],
+                "summary": "상점 통화 목록 가져오기",
+                "description": "상점 통화 목록 가져오기",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Store API key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-array_GetCurrencyResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ]
+            }
+        },
+        "/v1/external/store/currencies/{id}/rate": {
+            "get": {
+                "tags": [
+                    "Store"
+                ],
+                "summary": "상점 통화 환율 가져오기",
+                "description": "상점 통화 환율 가져오기",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Currency ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Store API key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-CurrencyRate"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ]
+            }
+        },
+        "/v1/external/wallet": {
+            "get": {
+                "tags": [
+                    "Store"
+                ],
+                "summary": "결제자를 위한 결제 지갑 생성",
+                "description": "결제자를 위한 결제 지갑 생성",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Store API key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "amount",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "currency",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "format": "email"
+                        }
+                    },
+                    {
+                        "name": "ip",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "format": "ipv4"
+                        }
+                    },
+                    {
+                        "name": "locale",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "store_external_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-CreateWalletExternalResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Wallet"
+                ],
+                "summary": "결제자를 위한 결제 지갑 생성",
+                "description": "결제자를 위한 결제 지갑 생성",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Store API key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Create wallet",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateWalletExternalRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-CreateWalletExternalResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ],
+                "x-codegen-request-body-name": "register"
+            }
+        },
+        "/v1/external/wallet/balance/hot": {
+            "get": {
+                "tags": [
+                    "Store"
+                ],
+                "summary": "외부 핫 월렛 잔액 가져오기",
+                "description": "외부 핫 월렛 잔액 가져오기",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Store API key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "min_balance",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-array_SummaryDTO"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ]
+            }
+        },
+        "/v1/external/withdrawal-from-processing": {
+            "post": {
+                "tags": [
+                    "Withdrawal"
+                ],
+                "summary": "처리에서 출금 초기화",
+                "description": "처리에서 출금 초기화",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Store API key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Init withdrawal",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateProcessingWithdrawRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-ProcessingWithdrawalResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "423": {
+                        "description": "Locked",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ],
+                "x-codegen-request-body-name": "register"
+            }
+        },
+        "/v1/external/withdrawal-from-processing/{id}": {
+            "get": {
+                "tags": [
+                    "Withdrawal"
+                ],
+                "summary": "처리에서 출금 정보 가져오기",
+                "description": "처리에서 출금 정보 가져오기",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Store API key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Withdrawal ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-WithdrawalFromProcessingDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "406": {
+                        "description": "Not Acceptable",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Withdrawal"
+                ],
+                "summary": "처리에서 출금 삭제",
+                "description": "처리에서 출금 삭제",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Store API key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Withdrawal ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "APIError": {
+                "type": "object",
+                "properties": {
+                    "field": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "APIErrors": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/APIError"
+                        }
+                    }
+                }
+            },
+            "Asset": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "string"
+                    },
+                    "amount_usd": {
+                        "type": "string"
+                    },
+                    "currency_id": {
+                        "type": "string"
+                    },
+                    "identity": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Balance": {
+                "type": "object",
+                "properties": {
+                    "native_token": {
+                        "type": "string"
+                    },
+                    "native_token_usd": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Blockchain": {
+                "type": "string",
+                "enum": [
+                    "arbitrum",
+                    "bitcoin",
+                    "bitcoincash",
+                    "bsc",
+                    "dogecoin",
+                    "ethereum",
+                    "litecoin",
+                    "polygon",
+                    "tron"
+                ],
+                "x-enum-varnames": [
+                    "BlockchainArbitrum",
+                    "BlockchainBitcoin",
+                    "BlockchainBitcoinCash",
+                    "BlockchainBinanceSmartChain",
+                    "BlockchainDogecoin",
+                    "BlockchainEthereum",
+                    "BlockchainLitecoin",
+                    "BlockchainPolygon",
+                    "BlockchainTron"
+                ]
+            },
+            "BlockchainAdditionalData": {
+                "type": "object",
+                "properties": {
+                    "evm_data": {
+                        "$ref": "#/components/schemas/wallet.EVMData"
+                    },
+                    "tron_data": {
+                        "$ref": "#/components/schemas/TronData"
+                    }
+                }
+            },
+            "CreateProcessingWithdrawRequest": {
+                "required": [
+                    "address_to",
+                    "amount",
+                    "currency_id",
+                    "request_id"
+                ],
+                "type": "object",
+                "properties": {
+                    "address_to": {
+                        "maxLength": 255,
+                        "minLength": 16,
+                        "type": "string"
+                    },
+                    "amount": {
+                        "type": "number"
+                    },
+                    "currency_id": {
+                        "type": "string"
+                    },
+                    "request_id": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                }
+            },
+            "CreateWalletExternalRequest": {
+                "required": [
+                    "store_external_id"
+                ],
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number"
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "ip": {
+                        "type": "string",
+                        "format": "ipv4"
+                    },
+                    "locale": {
+                        "type": "string"
+                    },
+                    "store_external_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                }
+            },
+            "CreateWalletExternalResponse": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/WalletAddressResponse"
+                        }
+                    },
+                    "amount_usd": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "pay_url": {
+                        "type": "string"
+                    },
+                    "rates": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "store_external_id": {
+                        "type": "string"
+                    },
+                    "store_id": {
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "CurrencyDTO": {
+                "type": "object",
+                "properties": {
+                    "blockchain": {
+                        "$ref": "#/components/schemas/Blockchain"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "sort_order": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "CurrencyIcon": {
+                "type": "object",
+                "properties": {
+                    "icon_128": {
+                        "type": "string"
+                    },
+                    "icon_512": {
+                        "type": "string"
+                    },
+                    "icon_svg": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CurrencyRate": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "rate": {
+                        "type": "string"
+                    },
+                    "rate_source": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CurrencyShort": {
+                "type": "object",
+                "properties": {
+                    "blockchain": {
+                        "$ref": "#/components/schemas/Blockchain"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "is_bitcoin_like": {
+                        "type": "boolean"
+                    },
+                    "is_evm_like": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "precision": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "ExchangeAsset": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number"
+                    },
+                    "amount_usd": {
+                        "type": "number"
+                    },
+                    "currency": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ExternalExchangeBalanceResponse": {
+                "type": "object",
+                "properties": {
+                    "balances": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ExchangeAsset"
+                        }
+                    },
+                    "total_usd": {
+                        "type": "number"
+                    }
+                }
+            },
+            "GetCurrencyResponse": {
+                "type": "object",
+                "properties": {
+                    "blockchain": {
+                        "type": "string"
+                    },
+                    "blockchain_icon": {
+                        "$ref": "#/components/schemas/CurrencyIcon"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "contract_address": {
+                        "type": "string"
+                    },
+                    "explorer_link": {
+                        "type": "string"
+                    },
+                    "has_balance": {
+                        "type": "boolean"
+                    },
+                    "icon": {
+                        "$ref": "#/components/schemas/CurrencyIcon"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "is_fiat": {
+                        "type": "boolean"
+                    },
+                    "min_confirmation": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "precision": {
+                        "type": "integer"
+                    },
+                    "status": {
+                        "type": "boolean"
+                    },
+                    "withdrawal_min_balance": {
+                        "type": "number"
+                    }
+                }
+            },
+            "JSONResponse-CreateWalletExternalResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/CreateWalletExternalResponse"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "JSONResponse-CurrencyRate": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/CurrencyRate"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "JSONResponse-ExternalExchangeBalanceResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/ExternalExchangeBalanceResponse"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "JSONResponse-ExternalProcessingWalletBalanceResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ProcessingWalletWithAssets"
+                        }
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "JSONResponse-ProcessingWithdrawalResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/ProcessingWithdrawalResponse"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "JSONResponse-WithdrawalFromProcessingDto": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/WithdrawalFromProcessingDto"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "JSONResponse-array_GetCurrencyResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetCurrencyResponse"
+                        }
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "JSONResponse-array_SummaryDTO": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SummaryDTO"
+                        }
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "JSONResponse-string": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ProcessingWalletWithAssets": {
+                "type": "object",
+                "properties": {
+                    "additional_data": {
+                        "$ref": "#/components/schemas/BlockchainAdditionalData"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "assets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Asset"
+                        }
+                    },
+                    "balance": {
+                        "$ref": "#/components/schemas/Balance"
+                    },
+                    "blockchain": {
+                        "$ref": "#/components/schemas/Blockchain"
+                    },
+                    "currency": {
+                        "$ref": "#/components/schemas/CurrencyShort"
+                    }
+                }
+            },
+            "ProcessingWithdrawalResponse": {
+                "type": "object",
+                "properties": {
+                    "address_from": {
+                        "type": "string"
+                    },
+                    "address_to": {
+                        "type": "string"
+                    },
+                    "amount": {
+                        "type": "string"
+                    },
+                    "amount_usd": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "currency_id": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "store_id": {
+                        "type": "string"
+                    },
+                    "transfer_id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ShortTransferDto": {
+                "type": "object",
+                "properties": {
+                    "kind": {
+                        "$ref": "#/components/schemas/TransferKind"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "stage": {
+                        "$ref": "#/components/schemas/TransferStage"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/TransferStatus"
+                    }
+                }
+            },
+            "SummaryDTO": {
+                "type": "object",
+                "properties": {
+                    "balance": {
+                        "type": "string"
+                    },
+                    "balance_usd": {
+                        "type": "string"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "count_with_balance": {
+                        "type": "integer"
+                    },
+                    "currency": {
+                        "$ref": "#/components/schemas/CurrencyDTO"
+                    }
+                }
+            },
+            "TransferKind": {
+                "type": "string",
+                "enum": [
+                    "from_address",
+                    "from_processing"
+                ],
+                "x-enum-varnames": [
+                    "TransferKindFromAddress",
+                    "TransferKindFromProcessing"
+                ]
+            },
+            "TransferStage": {
+                "type": "string",
+                "enum": [
+                    "in_progress",
+                    "failed",
+                    "completed"
+                ],
+                "x-enum-varnames": [
+                    "TransferStageInProgress",
+                    "TransferStageFailed",
+                    "TransferStageCompleted"
+                ]
+            },
+            "TransferStatus": {
+                "type": "string",
+                "enum": [
+                    "new",
+                    "pending",
+                    "processing",
+                    "in_mempool",
+                    "unconfirmed",
+                    "completed",
+                    "failed",
+                    "frozen"
+                ],
+                "x-enum-varnames": [
+                    "TransferStatusNew",
+                    "TransferStatusPending",
+                    "TransferStatusProcessing",
+                    "TransferStatusInMempool",
+                    "TransferStatusUnconfirmed",
+                    "TransferStatusCompleted",
+                    "TransferStatusFailed",
+                    "TransferStatusFrozen"
+                ]
+            },
+            "TronData": {
+                "type": "object",
+                "properties": {
+                    "available_bandwidth_for_use": {
+                        "type": "string"
+                    },
+                    "available_energy_for_use": {
+                        "type": "string"
+                    },
+                    "stacked_bandwidth": {
+                        "type": "string"
+                    },
+                    "stacked_bandwidth_trx": {
+                        "type": "string"
+                    },
+                    "stacked_energy": {
+                        "type": "string"
+                    },
+                    "stacked_energy_trx": {
+                        "type": "string"
+                    },
+                    "stacked_trx": {
+                        "type": "string"
+                    },
+                    "total_bandwidth": {
+                        "type": "string"
+                    },
+                    "total_energy": {
+                        "type": "string"
+                    },
+                    "total_used_bandwidth": {
+                        "type": "string"
+                    },
+                    "total_used_energy": {
+                        "type": "string"
+                    },
+                    "tron_transfer_data": {
+                        "$ref": "#/components/schemas/TronTransferData"
+                    }
+                }
+            },
+            "TronTransferData": {
+                "type": "object",
+                "properties": {
+                    "max_transfers_native": {
+                        "type": "string"
+                    },
+                    "max_transfers_trc20": {
+                        "type": "string"
+                    }
+                }
+            },
+            "WalletAddressResponse": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "type": "string"
+                    },
+                    "blockchain": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "currency_id": {
+                        "type": "string"
+                    },
+                    "deleted_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "dirty": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "user_id": {
+                        "type": "string"
+                    },
+                    "wallet_id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "WithdrawalFromProcessingDto": {
+                "type": "object",
+                "properties": {
+                    "address_from": {
+                        "type": "string"
+                    },
+                    "address_to": {
+                        "type": "string"
+                    },
+                    "amount": {
+                        "type": "number"
+                    },
+                    "amount_usd": {
+                        "type": "number"
+                    },
+                    "created_at": {
+                        "type": "string"
+                    },
+                    "currency_id": {
+                        "type": "string"
+                    },
+                    "store_id": {
+                        "type": "string"
+                    },
+                    "transfer": {
+                        "$ref": "#/components/schemas/ShortTransferDto"
+                    },
+                    "tx_hash": {
+                        "type": "string"
+                    }
+                }
+            },
+            "wallet.EVMData": {
+                "type": "object",
+                "properties": {
+                    "cost_per_erc20": {
+                        "type": "string",
+                        "description": "Cost in Wei for single ERC20 transfer"
+                    },
+                    "cost_per_native": {
+                        "type": "string",
+                        "description": "Cost in Wei for single native transfer"
+                    },
+                    "is_l2": {
+                        "type": "boolean",
+                        "description": "Whether this is an L2 chain"
+                    },
+                    "l1_data_fee_estimate": {
+                        "type": "string",
+                        "description": "Estimated L1 data fee for L2 chains"
+                    },
+                    "max_transfers_erc20": {
+                        "type": "string"
+                    },
+                    "max_transfers_native": {
+                        "type": "string"
+                    },
+                    "suggested_gas_price": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "BearerAuth": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            },
+            "XApiKey": {
+                "type": "apiKey",
+                "description": "Store API key",
+                "name": "X-Api-Key",
+                "in": "header"
+            }
+        }
+    },
+    "x-original-swagger-version": "2.0"
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "name":"\uD83C\uDDEC\uD83C\uDDE7 English",
+    "slug":"en"
+  },
+  {
+    "name":"\uD83C\uDDF7\uD83C\uDDFA Русский",
+    "slug":"ru"
+  },
+  {
+    "name":"\uD83C\uDDE8\uD83C\uDDF3 中国人",
+    "slug":"zh"
+  },
+  {
+    "name":"\uD83C\uDDEE\uD83C\uDDF3 हिंदी",
+    "slug":"hi"
+  },
+  {
+    "name":"\uD83C\uDDEA\uD83C\uDDF8 Español",
+    "slug":"es"
+  },
+  {
+    "name":"\uD83C\uDDE9\uD83C\uDDEA German",
+    "slug":"de"
+  },
+  {
+    "name":"\uD83C\uDDE6\uD83C\uDDEA العربية",
+    "slug":"ar"
+  },
+  {
+    "name":"\uD83C\uDDF0\uD83C\uDDF7 한국어",
+    "slug":"ko"
+  }
+]
