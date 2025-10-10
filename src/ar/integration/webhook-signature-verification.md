@@ -2,6 +2,9 @@
 
 - ستجد في إعدادات التاجر "Secret key for verification" (مفتاح سري للتحقق). يُستخدم هذا المفتاح للتحقق من صحة خطافات الويب الواردة.
 
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)
+
+
 - مثال على التحقق في PHP:
 
   ```php

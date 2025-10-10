@@ -2,6 +2,9 @@
 
 - احصل على مفتاح API (`x-api-key`) في قسم إعدادات التاجر (كما هو موضح في لقطة الشاشة "Your API key").
 
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)
+
+
 - أرسل طلبًا إلى API، مع تحديد هذا المفتاح في العنوان. مثال على cURL:
 
   ```bash

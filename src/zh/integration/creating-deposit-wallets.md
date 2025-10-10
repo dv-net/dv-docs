@@ -2,6 +2,8 @@
 
 - 在商户设置部分获取 API 密钥 (`x-api-key`)（如“Your API key”截图中所示）。
 
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)
+
 - 向 API 发送请求，并在标头中指定此密钥。cURL 示例：
 
   ```bash

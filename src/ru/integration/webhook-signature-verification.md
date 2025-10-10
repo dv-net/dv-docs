@@ -1,6 +1,10 @@
 # Проверка подписи веб-хуков
 
-- В настройках мерчанта вы найдёте Secret key for verification. Он используется для проверки подлинности входящих вебхуков.
+- В настройках мерчанта вы найдёте Secret key for verification (как на скриншоте). Он используется для проверки подлинности входящих вебхуков.
+ 
+
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)
+
 
 - Пример валидации на PHP:
 

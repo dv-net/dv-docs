@@ -1,6 +1,9 @@
 # Erstellung von Aufladungs-Wallets
 
 - Besorgen Sie sich den API-Schlüssel (`x-api-key`) im Einstellungsbereich des Merchants (wie im Screenshot "Your API key").
+  
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)
+
 
 - Senden Sie eine Anfrage an die API und geben Sie diesen Schlüssel im Header an. Beispiel mit cURL:
 

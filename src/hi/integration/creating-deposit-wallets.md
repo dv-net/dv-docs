@@ -2,6 +2,8 @@
 
 - व्यापारी सेटिंग्स अनुभाग में एपीआई कुंजी (`x-api-key`) प्राप्त करें (जैसा कि "आपका एपीआई कुंजी" स्क्रीनशॉट में है)।
 
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)
+
 - एपीआई को अनुरोध भेजें, इस कुंजी को हेडर में इंगित करें। cURL उदाहरण:
 
   ```bash

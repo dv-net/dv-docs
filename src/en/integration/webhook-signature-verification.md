@@ -1,6 +1,9 @@
 # Checking the signature of webhooks
 
-- In the merchant settings you will find Secret key for verification. It is used to verify the authenticity of incoming webhooks.
+- In the merchant settings you will find Secret key for verification (as shown in the screenshot). It is used to verify the authenticity of incoming webhooks.
+
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)
+
 
 - PHP validation example:
 

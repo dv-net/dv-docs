@@ -2,6 +2,9 @@
 
 - In den Merchant-Einstellungen finden Sie einen geheimen Schlüssel zur Verifizierung ("Secret key for verification"). Dieser wird verwendet, um die Authentizität eingehender Webhooks zu überprüfen.
 
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)
+
+
 - Beispiel für die Validierung in PHP:
 
   ```php

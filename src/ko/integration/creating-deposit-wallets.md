@@ -1,6 +1,9 @@
 # 충전을 위한 지갑 생성
 
 - 판매자 설정 섹션에서 API 키(`x-api-key`)를 얻으십시오("Your API key" 스크린샷과 같이).
+
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)
+
 - 헤더에 이 키를 지정하여 API에 요청을 보냅니다. cURL 예시:
 
   ```bash
