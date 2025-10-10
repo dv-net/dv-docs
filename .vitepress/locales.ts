@@ -13,11 +13,19 @@ regions.forEach((region: RegionsType) => {
   sidebarItemsMap.set(`/${region.slug}/`, [
     { text: tHandler(region.slug, 'Introduction'), link: `/${region.slug}/` },
     {
+      text: tHandler(region.slug, "Description"),
+      collapsible: true,
+      collapsed: false,
+      items: [
+        { text: tHandler(region.slug, "Cloud vs on-premises"), link: `/${region.slug}/description/cloud-and-on-premises.md` },
+        { text: tHandler(region.slug, "Modules"), link: `/${region.slug}/description/modules.md` },
+      ],
+    },
+    {
       text: tHandler(region.slug, "Installation"),
       collapsible: true,
       collapsed: false,
       items: [
-        { text: tHandler(region.slug, "Modules"), link: `/${region.slug}/installation/modules.md` },
         { text: tHandler(region.slug, "System requirements"), link: `/${region.slug}/installation/system-requirements.md` },
         { text: tHandler(region.slug, "Installation"), link: `/${region.slug}/installation/installation.md` },
         { text: tHandler(region.slug, "Domain linking"), link: `/${region.slug}/installation/domain-linking.md` },

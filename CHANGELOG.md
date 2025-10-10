@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.0.11] - 2025-10-10
+
+- Added cloud and on-premises info
+
 ## [0.0.10] - 2025-10-08
 
 - Added integration examples [DV-3369]
