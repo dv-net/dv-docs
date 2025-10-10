@@ -1,4 +1,4 @@
-## Einrichtung des DV.net Crypto Merchant: Cloud vs. On-Premise-Server
+# Einrichtung des DV.net Crypto Merchant: Cloud vs. On-Premise-Server
 
 Die Entscheidung, wie ein Dienst zur Annahme von Kryptowährungszahlungen (Crypto Merchant) integriert wird, gehört zu den wichtigsten Fragen beim Aufbau eines Online-Geschäfts. Die Wahl zwischen **Bereitstellung auf dem eigenen Server (On-Premise)** und **Nutzung der Cloud-Version** bestimmt nicht nur die Anfangskosten, sondern auch den Grad an Kontrolle, Sicherheit und Skalierbarkeit Ihres Projekts.
 

@@ -1,4 +1,4 @@
-## Configuración de DV.net Crypto Merchant: nube vs. servidor local
+# Configuración de DV.net Crypto Merchant: nube vs. servidor local
 
 La decisión sobre cómo integrar un servicio para aceptar pagos en criptomonedas (crypto merchant) es una de las preguntas clave al crear un negocio en línea. La elección entre **el despliegue en su propio servidor (on-premise)** y **usar la versión en la nube** determina no solo los costos iniciales, sino también el nivel de control, seguridad y escalabilidad de su proyecto.
 

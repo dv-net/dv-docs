@@ -1,4 +1,4 @@
-## Setting Up the DV.net Crypto Merchant: Cloud vs. On-Premise Server
+# Setting Up the DV.net Crypto Merchant: Cloud vs. On-Premise Server
 
 The decision on how to integrate a service for accepting cryptocurrency payments (crypto merchant) is one of the key 
 questions when creating an online business. The choice between **deployment on your own server (on-premise)** and 

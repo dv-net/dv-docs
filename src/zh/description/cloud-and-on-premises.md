@@ -1,4 +1,4 @@
-## 设置 DV.net Crypto Merchant：云端 vs. 本地服务器
+# 设置 DV.net Crypto Merchant：云端 vs. 本地服务器
 
 在创建在线业务时，如何集成加密货币支付受理服务（crypto merchant）是一个关键问题。选择在自有服务器上部署（本地部署）还是使用云版本，不仅决定初始成本，还关系到项目的控制权、安全性与可扩展性。
 
