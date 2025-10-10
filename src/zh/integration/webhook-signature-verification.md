@@ -2,6 +2,9 @@
 
 - 在商户设置中，您将找到“Secret key for verification”（用于验证的密钥）。它用于验证传入 Webhook 的真实性。
 
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)
+
+
 - PHP 验证示例：
 
   ```php

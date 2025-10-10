@@ -1,6 +1,8 @@
 # Creating deposit wallets
 
 - Get the API key (`x-api-key`) in the merchant settings section (as in the screenshot «Your API key»).
+  
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)
 - Send a request to the API, specifying this key in the header. cURL example:
 
 ```bash

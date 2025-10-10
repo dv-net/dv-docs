@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.0.12] - 2025-10-10
+
+- Minor fixes
+
 ## [0.0.11] - 2025-10-10
 
 - Added cloud and on-premises info

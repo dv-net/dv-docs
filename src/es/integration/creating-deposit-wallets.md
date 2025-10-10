@@ -2,6 +2,8 @@
 
 - Obtén la clave API (`x-api-key`) en la sección de configuración del comerciante (como se muestra en la captura de pantalla «Your API key»).
 
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)
+
 - Envía una solicitud a la API, especificando esta clave en el encabezado. Ejemplo con cURL:
 
   ```bash
