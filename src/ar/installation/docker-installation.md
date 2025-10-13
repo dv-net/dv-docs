@@ -18,7 +18,7 @@ docker compose up -d
 ```
 
 **تمّ\!** سيكون تاجر العملات المشفّرة الخاص بك متاحًا على:
-🔗 [http://localhost:80](https://www.google.com/search?q=http://localhost:80)
+🔗 `http://localhost:80`
 
 
 ## 🐳 ⚙️ إعداد Docker Desktop (Windows / macOS)

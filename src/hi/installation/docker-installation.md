@@ -18,7 +18,7 @@ docker compose up -d
 ```
 
 **हो गया\!** आपका क्रिप्टो मर्चेंट यहाँ उपलब्ध होगा:
-🔗 [http://localhost:80](https://www.google.com/search?q=http://localhost:80)
+🔗 `http://localhost:80`
 
 
 ## 🐳 ⚙️ Docker Desktop कॉन्फ़िगरेशन (Windows / macOS)

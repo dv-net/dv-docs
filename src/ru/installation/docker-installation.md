@@ -18,7 +18,7 @@ docker compose up -d
 ```
 
 **Готово!** Ваш криптомерчант будет доступен по адресу:  
-🔗 [http://localhost:80](http://localhost:80)
+🔗 `http://localhost:80`
 
 
 ## 🐳 ⚙️ Настройка Docker Desktop (Windows / macOS)

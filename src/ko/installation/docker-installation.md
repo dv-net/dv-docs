@@ -18,7 +18,7 @@ docker compose up -d
 ```
 
 **완료\!** 귀하의 암호화폐 머천트는 다음에서 이용할 수 있습니다:
-🔗 [http://localhost:80](https://www.google.com/search?q=http://localhost:80)
+🔗 `http://localhost:80`
 
 
 ## 🐳 ⚙️ Docker Desktop 설정(Windows / macOS)

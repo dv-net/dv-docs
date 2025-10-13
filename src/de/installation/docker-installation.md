@@ -18,7 +18,7 @@ docker compose up -d
 ```
 
 **Fertig\!** Ihr Krypto-Händler ist erreichbar unter:
-🔗 [http://localhost:80](https://www.google.com/search?q=http://localhost:80)
+🔗 `http://localhost:80`
 
 
 ## 🐳 ⚙️ Docker Desktop-Konfiguration (Windows / macOS)

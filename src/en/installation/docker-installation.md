@@ -18,7 +18,7 @@ docker compose up -d
 ```
 
 **Done\!** Your crypto merchant will be available at:
-🔗 [http://localhost:80](https://www.google.com/search?q=http://localhost:80)
+🔗 `http://localhost:80`
 
 
 ## 🐳 ⚙️ Docker Desktop Configuration (Windows / macOS)
