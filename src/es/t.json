@@ -85,5 +85,6 @@
   "But if you don't change your direction, and if you keep looking, you may end up where you are heading.": "Pero si no cambias de dirección y sigues buscando, podrías terminar donde te diriges.",
   "Go home": "Ir al inicio",
   "Cloud vs on-premises": "Nube versus local",
-  "Description": "Descripción"
+  "Description": "Descripción",
+  "Installation with docker": "Instalación con ventana acoplable"
 }

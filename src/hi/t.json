@@ -85,5 +85,6 @@
   "But if you don't change your direction, and if you keep looking, you may end up where you are heading.": "लेकिन यदि आप अपनी दिशा नहीं बदलते और खोजते रहते हैं, तो आप वहीं पहुँच सकते हैं जहाँ आप जा रहे हैं।",
   "Go home": "मुखपृष्ठ पर जाएँ",
   "Cloud vs on-premises": "क्लाउड बनाम ऑन-प्रिमाइसेस",
-  "Description": "विवरण"
+  "Description": "विवरण",
+  "Installation with docker": "डोकर के साथ स्थापना"
 }
