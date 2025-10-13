@@ -85,5 +85,6 @@
   "But if you don't change your direction, and if you keep looking, you may end up where you are heading.": "방향을 바꾸지 않고 계속 찾는다면, 결국 당신이 향하는 곳에 도달할 것입니다.",
   "Go home": "홈으로 가기",
   "Cloud vs on-premises": "클라우드와 온프레미스",
-  "Description": "설명"
+  "Description": "설명",
+  "Installation with docker": "도커로 설치"
 }

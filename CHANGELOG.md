@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.0.13] - 2025-10-13
+
+- Add docker setup instructions 
+
 ## [0.0.12] - 2025-10-10
 
 - Minor fixes

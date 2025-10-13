@@ -84,5 +84,6 @@
   "But if you don't change your direction, and if you keep looking, you may end up where you are heading.": "Но если ты не изменишь направление и продолжишь искать, ты можешь оказаться там, куда направляешься.",
   "Go home": "На главную",
   "Cloud vs on-premises": "Сравнение установки на сервер и Cloud решения",
-  "Description": "Описание"
+  "Description": "Описание",
+  "Installation with docker": "Установка с docker"
 }
