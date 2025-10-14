@@ -146,8 +146,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**© 2025 DV.net** • [DV Technologies Ltd.](https://dv.net)
+**Made with ❤️ for the developer community**
 
-*Built with ❤️ for the crypto community*
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/dv-net/dv-docs)
 
 </div>
