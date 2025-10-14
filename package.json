@@ -1,7 +1,15 @@
 {
   "name": "dv-docs",
-  "type": "module",
+  "private": false,
   "version": "0.0.10",
+  "type": "module",
+  "repository": {
+		"type": "git",
+		"url": "git+https://github.com/dv-net/dv-docs.git"
+	},
+	"engines": {
+		"node": "^20.19.0 || >=22.12.0"
+	},
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
