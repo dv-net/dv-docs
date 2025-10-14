@@ -135,3 +135,19 @@ env VITE_GA_ID=G-XXXXXXXXXX
 | `npm run docs:genTranslation` | 🔤 Generate English translations from OpenAPI |
 | `npm run docs:genDoc` | 📄 Generate documentation for all languages |
 | `npm run preview` | 👁️ Preview the production build |
+
+<br>
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+<br>
+
+<div align="center">
+
+**© 2025 DV.net** • [DV Technologies Ltd.](https://dv.net)
+
+*Built with ❤️ for the crypto community*
+
+</div>
