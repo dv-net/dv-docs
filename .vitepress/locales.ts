@@ -47,6 +47,16 @@ regions.forEach((region: RegionsType) => {
       ],
     },
     {
+        text: tHandler(region.slug, "SDK"),
+        collapsible: true,
+        collapsed: false,
+        items: [
+            { text: tHandler(region.slug, "Opencart"), link: `/${region.slug}/sdk/opencart.md` },
+            { text: tHandler(region.slug, "Woocommerce"), link: `/${region.slug}/sdk/woocommerce.md` },
+            { text: tHandler(region.slug, "Python"), link: `/${region.slug}/sdk/python.md` },
+        ],
+    },
+    {
       text: tHandler(region.slug, "Security"),
       collapsible: true,
       collapsed: false,
