@@ -162,8 +162,7 @@ server {
     ```bash
     sudo systemctl restart nginx
     ```
-3. تحقّق من إعدادات DNS: تأكد من أن النطاقات الثلاثة (`pay.some-domain.com`, `integration.some-domain.com`, و
-4. `panel.some-domain.com`) تشير إلى عنوان IP الخاص بخادمك.
+3. تحقّق من إعدادات DNS: تأكد من أن النطاقات الثلاثة (`pay.some-domain.com`, `integration.some-domain.com`, `panel.some-domain.com`) تشير إلى عنوان IP الخاص بخادمك.
 
 أصبحت لوحة الإدارة (المسارات $/dv-admin/*$ و$/api/v1/dv-admin/*$) الآن **مخفية** ومتاحة فقط عبر نطاق
 `panel.some-domain.com` ومن مجموعة محدودة من عناوين IP، بينما تتمتع واجهة الدفع والواجهة البرمجية الخارجية بوصول

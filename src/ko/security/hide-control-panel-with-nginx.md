@@ -161,7 +161,6 @@ server {
     ```bash
     sudo systemctl restart nginx
     ```
-3. DNS 확인: 세 도메인(`pay.some-domain.com`, `integration.some-domain.com`, 그리고
-4. `panel.some-domain.com`)이 모두 서버의 IP 주소를 가리키는지 확인합니다.
+3. DNS 확인: 세 도메인(`pay.some-domain.com`, `integration.some-domain.com`, `panel.some-domain.com`)이 모두 서버의 IP 주소를 가리키는지 확인합니다.
 
 관리 패널(라우트 $/dv-admin/*$ 및 $/api/v1/dv-admin/*$)은 이제 **숨겨져** 있으며 제한된 IP 주소 집합에서 `panel.some-domain.com` 도메인으로만 접근할 수 있습니다. 한편 결제 폼과 외부 API는 명확히 분리되어 제한된 접근 정책이 적용됩니다.

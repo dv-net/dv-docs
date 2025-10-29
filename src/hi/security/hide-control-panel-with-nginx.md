@@ -168,8 +168,7 @@ server {
     ```bash
     sudo systemctl restart nginx
     ```
-3.  **DNS चेक करें:** सुनिश्चित करें कि ये तीनों डोमेन (`pay.some-domain.com`, `integration.some-domain.com`, और
-4. `panel.some-domain.com`) आपके सर्वर के IP पते की ओर पॉइंट कर रहे हों।
+3.  **DNS चेक करें:** सुनिश्चित करें कि ये तीनों डोमेन (`pay.some-domain.com`, `integration.some-domain.com`, `panel.some-domain.com`) आपके सर्वर के IP पते की ओर पॉइंट कर रहे हों।
 
 अब प्रशासन पैनल (रूट्स $/dv-admin/*$ और $/api/v1/dv-admin/*$) **छिपा** दिया गया है और केवल
 सीमित IP पतों के सेट से `panel.some-domain.com` डोमेन के माध्यम से ही एक्सेस किया जा सकता है, जबकि भुगतान फॉर्म
