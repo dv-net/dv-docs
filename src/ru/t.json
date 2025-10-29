@@ -85,5 +85,6 @@
   "Go home": "На главную",
   "Cloud vs on-premises": "Сравнение установки на сервер и Cloud решения",
   "Description": "Описание",
-  "Installation with docker": "Установка с docker"
+  "Installation with docker": "Установка с docker",
+  "DV.net Api request logging": "Логирование запросов к API DV.net"
 }

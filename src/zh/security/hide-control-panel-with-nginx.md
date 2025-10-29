@@ -161,7 +161,6 @@ server {
     ```bash
     sudo systemctl restart nginx
     ```
-3. 检查 DNS：确保三个域名（`pay.some-domain.com`、`integration.some-domain.com`，以及
-4. `panel.some-domain.com`）都指向你服务器的 IP 地址。
+3. 检查 DNS：确保三个域名（`pay.some-domain.com`、`integration.some-domain.com`，`panel.some-domain.com`）都指向你服务器的 IP 地址。
 
 现在，管理面板（路由 $/dv-admin/*$ 和 $/api/v1/dv-admin/*$）已被隐藏，只能通过 `panel.some-domain.com` 且来自受限的 IP 地址集合访问；同时，支付表单与外部 API 的访问被清晰分离并受到限制。

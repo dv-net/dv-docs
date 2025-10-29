@@ -178,8 +178,7 @@ server {
     ```bash
     sudo systemctl restart nginx
     ```
-3.  **Проверьте DNS:** Убедитесь, что все три домена (`pay.some-domain.com`, `integration.some-domain.com`, 
-4. `panel.some-domain.com`) указывают на IP-адрес вашего сервера.
+3.  **Проверьте DNS:** Убедитесь, что все три домена (`pay.some-domain.com`, `integration.some-domain.com`, `panel.some-domain.com`) указывают на IP-адрес вашего сервера.
 
 Теперь Панель управления (маршруты $/dv-admin/*$ и $/api/v1/dv-admin/*$) **скрыта** и доступна только через домен 
 `panel.some-domain.com` с ограниченного набора IP-адресов, а Платежная форма и Внешнее API имеют четко разграниченный 

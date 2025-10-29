@@ -169,8 +169,7 @@ After creating all configuration files:
     ```bash
     sudo systemctl restart nginx
     ```
-3.  **Check DNS:** Make sure all three domains (`pay.some-domain.com`, `integration.some-domain.com`, and 
-4. `panel.some-domain.com`) point to your server's IP address.
+3.  **Check DNS:** Make sure all three domains (`pay.some-domain.com`, `integration.some-domain.com`, `panel.some-domain.com`) point to your server's IP address.
 
 The Administration Panel (routes $/dv-admin/*$ and $/api/v1/dv-admin/*$) is now **hidden** and accessible only via the 
 `panel.some-domain.com` domain from a limited set of IP addresses, while the Payment Form and External API have clearly 
