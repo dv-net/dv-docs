@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-- Improved Russian documentation: fixed typos, text wrapping, and formatting
+- Improved documentation: fixed typos, text wrapping, and formatting
 
 ## [0.0.13] - 2025-10-13
 
