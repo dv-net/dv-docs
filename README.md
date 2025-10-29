@@ -128,13 +128,13 @@ env VITE_GA_ID=G-XXXXXXXXXX
 
 ## 📝 Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | 🔥 Start the dev server with hot reload |
-| `npm run build` | 📦 Build the production version |
+| Command                       | Description                                   |
+|-------------------------------|-----------------------------------------------|
+| `npm run dev`                 | 🔥 Start the dev server with hot reload       |
+| `npm run build`               | 📦 Build the production version               |
 | `npm run docs:genTranslation` | 🔤 Generate English translations from OpenAPI |
-| `npm run docs:genDoc` | 📄 Generate documentation for all languages |
-| `npm run preview` | 👁️ Preview the production build |
+| `npm run docs:genDoc`         | 📄 Generate documentation for all languages   |
+| `npm run preview`             | 👁️ Preview the production build              |
 
 <br>
 
