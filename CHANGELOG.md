@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [0.0.14] - 2025-11-06
+
+- add sd js-sdk and php sdk
 - Improved documentation: fixed typos, text wrapping, and formatting
 
 ## [0.0.13] - 2025-10-13
