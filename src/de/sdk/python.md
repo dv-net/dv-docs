@@ -1,37 +1,38 @@
-# **DV.net in Ihre Python-Anwendung integrieren mit dv-net-client**
+# **Integration von DV.net in Ihre Python-Anwendung mit dv-net-client**
 
-Die Bibliothek dv-net-client bietet eine komfortable Möglichkeit, direkt aus Ihren Python-Anwendungen mit der DV.net-API zu interagieren. Ob Sie ein Web-Backend, ein Skript oder ein anderes Python-basiertes System entwickeln – dieser Client vereinfacht Aufgaben wie das Erstellen von Zahlungsanforderungen (Rechnungen) und die Verarbeitung von Status-Updates per Webhooks.  
-Diese Anleitung führt Sie durch die wichtigsten Schritte, um mit dem dv-net-client zu starten.  
+Die Bibliothek dv-net-client bietet eine bequeme Möglichkeit, direkt aus Ihren Python-Anwendungen mit der DV.net-API zu interagieren. Egal, ob Sie ein Web-Backend, ein Skript oder ein anderes Python-basiertes System entwickeln – dieser Client vereinfacht Aufgaben wie das Erstellen von Zahlungsanforderungen (Rechnungen) und das Verarbeiten von Statusaktualisierungen über Webhooks.  
+Dieser Leitfaden führt Sie durch die wichtigsten Schritte, um mit dem dv-net-client zu starten.  
 **Voraussetzungen:**
 
-* Installiertes Python 3.8 oder höher.
+* Python 3.8 oder höher installiert.
 * pip (Python-Paketmanager).
 * Ein aktives DV.net-Konto.
-* Grundverständnis von Python (einschließlich asyncio, wenn der Async-Client verwendet wird).
+* Grundlegendes Verständnis von Python (einschließlich asyncio bei Verwendung des Async-Clients).
 
-### **Schritt 1: DV.net-Clientbibliothek installieren**
+### **Schritt 1: DV.net-Client-Bibliothek installieren**
 
-Zuerst installieren Sie das Paket mit pip. Öffnen Sie Ihr Terminal oder die Eingabeaufforderung und führen Sie aus:  
-pip install dv-net-client
+Installieren Sie das Paket zuerst mit pip. Öffnen Sie Ihr Terminal oder die Eingabeaufforderung und führen Sie aus:  
 
-Dieser Befehl lädt die neueste Version der Clientbibliothek und ihre Abhängigkeiten herunter und installiert sie.
+`pip install dv-net-client`
 
-### **Schritt 2: Ihre DV.net-API-Zugangsdaten abrufen**
+Dieser Befehl lädt die neueste Version der Client-Bibliothek samt Abhängigkeiten herunter und installiert sie.
+
+### **Schritt 2: DV.net-API-Zugangsdaten abrufen**
 
 Für die Kommunikation mit der DV.net-API benötigen Sie drei Informationen aus Ihrem DV.net-Konto:
 
-1. **API URL:** Die Basis-URL Ihrer DV.net-Instanz (z. B. https://api.your-dv-instance.com).
-2. **API Key:** Ihren öffentlichen API-Schlüssel.
-3. **API Secret:** Ihr privates API-Secret.
+1. **API-URL:** Die Basis-URL Ihrer DV.net-Instanz (z. B. https://api.your-dv-instance.com).
+2. **API Key:** Ihr öffentlicher API-Schlüssel.
+3. **API Secret:** Ihr privater API-Secret.
 
-Sie können diese Zugangsdaten in Ihrem DV.net-Dashboard generieren, typischerweise im Bereich „API Keys“ oder „Developer“.  
+Diese Zugangsdaten können Sie im Dashboard Ihres DV.net-Kontos generieren, üblicherweise im Bereich "API Keys" oder "Developer".  
 **Wichtig:** Bewahren Sie Ihr API Secret sicher auf und veröffentlichen Sie es nicht in Client-seitigem Code oder öffentlichen Repositories.
 
-### **Schritt 3: Den Client initialisieren**
+### **Schritt 3: Client initialisieren**
 
-Die Bibliothek bietet sowohl synchrone als auch asynchrone Clients. Wählen Sie denjenigen, der zur Architektur Ihrer Anwendung passt.  
+Die Bibliothek bietet sowohl synchrone als auch asynchrone Clients. Wählen Sie den Ansatz, der zur Architektur Ihrer Anwendung passt.  
 **Synchroner Client:**  
-Geeignet für traditionelle Skripte oder Webframeworks wie Flask/Django, sofern keine Async-Views verwendet werden.
+Geeignet für klassische Skripte oder Webframeworks wie Flask/Django, sofern keine Async-Views verwendet werden.
 
 ```python
 from dv_net_client import Client
@@ -53,7 +54,7 @@ print(f"An error occurred: {e}")
 ```
 
 **Asynchroner Client:**  
-Ideal für Anwendungen mit asyncio, z. B. FastAPI, Starlette oder asynchrone Skripte.  
+Ideal für Anwendungen mit asyncio, etwa FastAPI, Starlette oder asynchrone Skripte.  
 
 ```python
 import asyncio  
@@ -114,18 +115,17 @@ invoice_response = client.create_invoice(invoice_data)
 except Exception as e:  
 print(f"Failed to create invoice: {e}")
 ```
-*(Für den Async-Client verwenden Sie innerhalb einer asynchronen Funktion await async_client.create_invoice(invoice_data).)*
+*(Für den Async-Client verwenden Sie await async_client.create_invoice(invoice_data) innerhalb einer asynchronen Funktion.)*
 
 ### **Schritt 5: Webhooks verarbeiten**
 
-Webhooks sind entscheidend, um Echtzeit-Updates zu Zahlungsstatus zu erhalten (z. B. wenn eine Rechnung bezahlt wird). DV.net sendet POST-Anfragen an eine URL, die Sie in Ihrem DV.net-Konto konfigurieren.  
-**Sicherheit:** Es ist wichtig zu verifizieren, dass eingehende Webhook-Anfragen tatsächlich von DV.net stammen. Der dv-net-client stellt hierfür ein Hilfswerkzeug bereit, das das von Ihnen definierte Webhook Secret verwendet.
+Webhooks sind unerlässlich, um Echtzeit-Updates zu Zahlungsstatus zu erhalten (z. B. wenn eine Rechnung bezahlt wurde). DV.net sendet POST-Anfragen an eine URL, die Sie in Ihrem DV.net-Konto konfigurieren.  
+**Sicherheit:** Es ist entscheidend zu überprüfen, dass eingehende Webhook-Anfragen tatsächlich von DV.net stammen. Der dv-net-client stellt hierzu ein Hilfswerkzeug bereit, das Ihr definiertes Webhook-Secret verwendet.
 
 1. **Webhook in DV.net konfigurieren:**
-    * Gehen Sie zum Bereich Webhooks in Ihrem DV.net-Dashboard.
-    * Setzen Sie die **Payload URL** auf den Endpunkt in Ihrer Anwendung, der diese Anfragen verarbeitet (z. B. https://yourdomain.com/webhooks/dvnet).
-    * Erstellen Sie ein starkes, eindeutiges **Webhook Secret** und speichern Sie es sicher.
-    * Konfigurieren Sie die Ereignisse, die Sie erhalten möchten (z. B. payment.completed, payment.failed).
+    * Gehen Sie zu Project -> Ihr Projekt -> Edit.
+    * Entnehmen Sie der Seite den API Key und den Secret Key.
+    * Richten Sie Webhook-URLs für die Ereignisse ein, die Sie erhalten möchten (z. B. Confirmed transactions, Unconfirmed transaction und Withdrawal).
 2. **Webhook in Ihrer Anwendung verifizieren und verarbeiten:**
 
 ```python
@@ -205,8 +205,8 @@ raise HTTPException(status_code=400, detail="Missing X-DV-Signature header")
 #     uvicorn.run(app, host="0.0.0.0", port=8000)  
 # Remember to run this behind a proper web server (like Nginx) and use HTTPS in production.
 ```
-*(Dieses Beispiel verwendet FastAPI, aber die Funktionen verify_webhook_signature und WebhookMapper.map_webhook können mit Flask, Django oder jedem anderen Python-Framework verwendet werden. Sie müssen lediglich anpassen, wie Sie auf Request-Body und Header zugreifen.)*
+*(Dieses Beispiel verwendet FastAPI, aber die Funktionen verify_webhook_signature und WebhookMapper.map_webhook können auch mit Flask, Django oder jedem anderen Python-Framework genutzt werden. Sie müssen lediglich den Zugriff auf Request-Body und Header entsprechend anpassen.)*
 
 ### **Fazit**
 
-Die Bibliothek dv-net-client bietet synchrone und asynchrone Schnittstellen zur Interaktion mit der DV.net-API sowie wichtige Hilfsfunktionen zur Webhook-Verifizierung. Mit diesen Schritten integrieren Sie DV.net-Krypto­zahlungen effizient und sicher in Ihre Python-Anwendung. Konsultieren Sie den Quellcode oder die Dokumentation der Bibliothek für Details zu allen verfügbaren Methoden und DTOs.
+Die Bibliothek dv-net-client bietet synchrone und asynchrone Schnittstellen zur Interaktion mit der DV.net-API sowie wichtige Hilfsfunktionen zur Webhook-Verifizierung. Wenn Sie diese Schritte befolgen, integrieren Sie DV.net-Kryptozahlungen effizient und sicher in Ihre Python-Anwendung. Konsultieren Sie die Quelltexte oder die Dokumentation der Bibliothek für Details zu allen verfügbaren Methoden und DTOs.
