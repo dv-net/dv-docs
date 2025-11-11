@@ -1,7 +1,7 @@
-# Acepta pagos con criptomonedas en WordPress con el plugin de WooCommerce de DV.net
+# Acepta pagos en criptomonedas en WordPress con el plugin DV.net para WooCommerce
 
-Integrar una pasarela de pago en criptomonedas en tu tienda en línea es una excelente manera de ampliar tu base de clientes y ofrecer opciones de pago modernas y seguras. DV.net proporciona una solución potente para gestionar estas transacciones, y su plugin dedicado para WooCommerce hace que el proceso de integración sea sencillo.
-Esta guía te acompañará, paso a paso, en la instalación y configuración del plugin de WooCommerce de DV.net en tu sitio de WordPress.
+Integrar una pasarela de pago con criptomonedas en tu tienda de comercio electrónico es una excelente manera de ampliar tu base de clientes y ofrecer opciones de pago modernas y seguras. DV.net proporciona una solución potente para gestionar estas transacciones, y su plugin dedicado para WooCommerce hace que el proceso de integración sea sencillo.
+Esta guía te llevará, paso a paso, por la instalación y configuración del plugin DV.net para WooCommerce en tu sitio de WordPress.
 
 ## Requisitos previos:
 
@@ -9,80 +9,77 @@ Esta guía te acompañará, paso a paso, en la instalación y configuración del
 - El plugin WooCommerce instalado y activado.
 - Una cuenta activa de DV.net.
 
-## Paso 1: Obtén el plugin de WooCommerce de DV.net
+## Paso 1: Obtener el plugin DV.net para WooCommerce
 
 El primer paso es descargar los archivos del plugin. A diferencia de los plugins del repositorio oficial de WordPress, este lo obtendrás desde la página de GitHub de DV.net.
 
-Navega al repositorio oficial del plugin de WooCommerce de DV.net: https://github.com/dv-net/dv-woocommerce (Esto se proporcionó en tus archivos).
+Navega al repositorio oficial del plugin DV.net para WooCommerce: https://github.com/dv-net/dv-woocommerce (Esto fue proporcionado en tus archivos).
 - Haz clic en la sección Releases en el menú de la derecha.
-- Selecciona "Source code (zip)" en el menú de la última versión.
-- Guarda el archivo .zip en tu computadora. No lo descomprimas.
+- Selecciona "Source code (zip)" del menú de la última versión.
+- Guarda el archivo .zip en tu ordenador. No lo descomprimas.
 
-## Paso 2: Instala el plugin en tu sitio de WordPress
+## Paso 2: Instalar el plugin en tu sitio de WordPress
 
-Ahora vas a subir el archivo ZIP descargado a tu panel de administración de WordPress.
-1. Inicia sesión en el área de administración de WordPress (p. ej., tudominio.com/wp-admin).
-2. En el menú de la izquierda, ve a Plugins > Añadir nuevo.
-3. En la parte superior de la página "Añadir plugins", haz clic en el botón Upload Plugin.
+Ahora subirás el archivo ZIP descargado al panel de administración de WordPress.
+1. Inicia sesión en tu área de administración de WordPress (por ejemplo, tudominio.com/wp-admin).
+2. En el menú de la izquierda, ve a Plugins > Add New.
+3. En la parte superior de la página "Add Plugins", haz clic en el botón Upload Plugin.
 4. Haz clic en el botón "Choose File" y selecciona el archivo dv-woocommerce-main.zip que acabas de descargar.
 5. Haz clic en Install Now.
 6. Cuando WordPress termine de instalar el plugin, haz clic en el botón Activate Plugin.
 Ahora verás "DV.net WooCommerce Plugin" en tu lista de plugins activos.
 
-## Paso 3: Obtén tus credenciales de API de DV.net
+## Paso 3: Obtener tus credenciales de API de DV.net
 
-Antes de que el plugin funcione, necesitas conectarlo con tu cuenta de DV.net usando claves de API.
+Para conectar tu tienda con DV.net, necesitas tu API Key, API Secret y API URL.
 
-1. Inicia sesión en el panel de tu cuenta de DV.net.
-2. Navega a la sección API Keys (según el archivo obtaining-api-key-and-secret.md).
-3. Haz clic en el botón "Create New Key".
-4. Dale a tu clave un nombre descriptivo (p. ej., "WooCommerce Store").
-5. El sistema generará una API Key y una API Secret.
-6. Importante: Copia tanto la API Key como la API Secret y guárdalas en un lugar seguro, como un gestor de contraseñas. No podrás volver a ver el secreto después de abandonar esta página.
-7. Además, toma nota de tu API URL. Esta es la URL principal de tu instancia de DV.net (p. ej., https://api.your-dv-instance.com).
+- Inicia sesión en el panel de tu cuenta de DV.net.
+- Busca tu proyecto o crea uno nuevo.
+- Ve a la sección API Keys en Projects -> botón Edit del proyecto específico (consulta obtaining-api-key-and-secret.md de los archivos de documentación).
+- Verás la API key y la secret key. Puedes regenerarlas si es necesario.
+- En la sección inferior, proporciona las URL para los webhooks. Básicamente necesitarás el webhook solo para el pago exitoso.
 
-## Paso 4: Configura la pasarela de DV.net en WooCommerce
+## Paso 4: Configurar la pasarela de DV.net en WooCommerce
 
-Con tus claves de API a mano, ahora puedes configurar los ajustes del plugin dentro de WooCommerce.
+Con tus claves de API en mano, ahora puedes configurar los ajustes del plugin dentro de WooCommerce.
 
-1. En tu panel de WordPress, ve a WooCommerce > Ajustes.
+1. En el escritorio de WordPress, ve a WooCommerce > Settings.
 2. Haz clic en la pestaña Payments en la parte superior de la página.
 3. Verás "DV.net" en la lista de métodos de pago. Haz clic en el botón Manage a la derecha.
-4. Se abrirá la página de ajustes de DV.net. Completa los siguientes campos (que encontramos en el archivo class-dv-gateway.php):
+4. Se abrirá la página de ajustes de DV.net. Completa los siguientes campos:
    1. Enable/Disable: Marca la casilla "Enable DV.net" para que este método de pago esté disponible en el checkout.
-   2. Title: Este es el texto que los clientes verán al elegir un método de pago. Por ejemplo: "Pagar con cripto a través de DV.net".
-   3. Description: Este es el texto corto que aparece debajo del título. Por ejemplo: "Paga de forma segura con criptomonedas."
-   4. API URL: Pega la API URL que anotaste en el Paso 3.
-   5. API Key: Pega la API Key que generaste en el Paso 3.
+   2. Title: Este es el texto que verán los clientes al elegir el método de pago. Por ejemplo: "Paga con criptomonedas vía DV.net".
+   3. Description: Este es el texto corto mostrado bajo el título. Por ejemplo: "Paga de forma segura con criptomonedas."
+   4. API URL: Pega la API URL.
+   5. API Key: Pega la API Key que guardaste en el Paso 3.
    6. API Secret: Pega la API Secret que guardaste en el Paso 3.
-   7. Webhook Secret: Este es un campo crucial para la seguridad. Debes crear una frase secreta fuerte y única (p. ej., usando un generador de contraseñas). Piensa en ella como una contraseña que compartirán DV.net y tu tienda. Guarda este secreto, ya que lo necesitarás en el siguiente paso.
-5. Haz clic en el botón Save changes al final de la página.
+5. Haz clic en el botón Save changes en la parte inferior de la página.
 
-## Paso 5: Configura el webhook en tu cuenta de DV.net
+## Paso 5: Configurar el Webhook en tu cuenta de DV.net
 
-Tu tienda ya está configurada para enviar solicitudes de pago a DV.net. El paso final es configurar un webhook para que DV.net pueda enviar actualizaciones de estado de pago (como "Paid" o "Failed") de vuelta a tu tienda.
+Tu tienda ya está configurada para enviar solicitudes de pago a DV.net. El paso final es configurar un webhook para que DV.net pueda enviar las actualizaciones de estado del pago (como "Paid" o "Failed") de vuelta a tu tienda.
 
 1. Vuelve al panel de tu cuenta de DV.net.
-2. Navega a la sección Webhooks o Developer.
+2. Ve a la sección Webhooks o Developer.
 3. Crea un nuevo webhook.
-4. Payload URL: Esta es la parte más importante. La URL única del webhook de tu tienda es: https://yourdomain.com/wc-api/dv_gateway/ (Recuerda reemplazar yourdomain.com con la dirección real de tu sitio web. Asegúrate de que use https://).
-5. Secret: Pega exactamente el mismo Webhook Secret que creaste y guardaste en el Paso 4. Se utiliza para verificar que las solicitudes entrantes provienen realmente de DV.net (como se menciona en webhook-signature-verification.md).
-6. Events: Si se solicita, selecciona los eventos a los que debe suscribirse este webhook. Debes habilitar todos los eventos relacionados con pagos, como:
-   1. payment.completed
-   2. payment.failed
-   3. invoice.paid (Nota: Los nombres exactos de los eventos pueden variar. Selecciona todos los que se relacionen con cambios en el estado del pago).
+4. Payload URL: Esta es la parte más importante. La URL de webhook única de tu tienda es: `https://example.com/wc-api/dv_gateway/` (Recuerda reemplazar example.com con la dirección real de tu sitio web. Asegúrate de que use https://).
+5. Coloca aquí la dirección de tu webhook (para Woo es algo como `https://example.com/?wc-api=dv_gateway`)
+6. Events: Si se solicita, selecciona los eventos a los que este webhook debe suscribirse. Deberías habilitar todos los eventos relacionados con pagos, tales como:
+   1. Confirmed payment
+   2. Unconfirmed payment (es decir, cuando el cliente envíe su pago vía BTC and )
+   3. Processing withdrawal (actualmente no compatible con esta integración)
 7. Guarda y activa el webhook en tu panel de DV.net.
 
-Paso 6: ¡Todo listo! (No olvides hacer pruebas)
+## Paso 6: ¡Todo listo! (No olvides hacer pruebas)
 
-¡Felicidades! La pasarela de pago de DV.net ya está completamente integrada con tu tienda de WooCommerce.
+¡Enhorabuena! La pasarela de pago de DV.net ahora está totalmente integrada con tu tienda WooCommerce.
 
-Lo último que debes hacer es realizar una prueba en vivo. La mejor forma de hacerlo es:
+Lo último que debes hacer es realizar una prueba real. La mejor manera de hacerlo es:
 1. Entra en tu tienda como si fueras un cliente.
 2. Añade un producto real a tu carrito.
-3. Ve a la página de checkout.
-4. Selecciona "Pagar con cripto a través de DV.net" (o el título que configuraste).
+3. Ve a la página de pago.
+4. Selecciona "Paga con criptomonedas vía DV.net" (o el título que definiste).
 5. Realiza el pedido y asegúrate de que eres redirigido correctamente a la página de pago de DV.net.
-6. Te recomendamos encarecidamente completar una pequeña transacción de prueba para confirmar que el estado del pedido se actualiza automáticamente en la sección Pedidos de WooCommerce de "Pending payment" a "Processing" o "Completed" después de que el pago se complete correctamente.
+6. Te recomendamos encarecidamente completar una transacción pequeña para confirmar que el estado del pedido se actualiza automáticamente en la sección Pedidos de WooCommerce de "Pago pendiente" a "Procesando" o "Completado" después de que el pago se realice con éxito.
 
 Si el estado del pedido se actualiza automáticamente, ¡tu integración ha sido un éxito!

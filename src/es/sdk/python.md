@@ -1,36 +1,37 @@
-# **Integrating DV.net with Your Python Application using dv-net-client**
+# **Integrando DV.net con tu aplicación de Python usando dv-net-client**
 
-La biblioteca dv-net-client ofrece una forma conveniente de interactuar con la API de DV.net directamente desde tus aplicaciones de Python. Ya sea que estés creando un backend web, un script u otro sistema basado en Python, este cliente simplifica tareas como crear solicitudes de pago (facturas) y gestionar actualizaciones de estado mediante webhooks.  
-Esta guía te llevará por los pasos esenciales para comenzar con dv-net-client.  
+La biblioteca dv-net-client proporciona una forma práctica de interactuar con la API de DV.net directamente desde tus aplicaciones Python. Ya sea que estés creando un backend web, un script u otro sistema basado en Python, este cliente simplifica tareas como crear solicitudes de pago (facturas) y manejar actualizaciones de estado mediante webhooks.  
+Esta guía te llevará a través de los pasos esenciales para comenzar con dv-net-client.  
 **Requisitos previos:**
 
 * Python 3.8 o superior instalado.
-* pip (instalador de paquetes de Python).
+* pip (el instalador de paquetes de Python).
 * Una cuenta activa de DV.net.
 * Conocimientos básicos de Python (incluido asyncio si usas el cliente asíncrono).
 
-### **Step 1: Install the DV.net Client Library**
+### **Paso 1: Instalar la biblioteca del cliente de DV.net**
 
 El primer paso es instalar el paquete usando pip. Abre tu terminal o símbolo del sistema y ejecuta:  
-pip install dv-net-client
 
-Este comando descarga e instala la versión más reciente de la biblioteca cliente y sus dependencias.
+`pip install dv-net-client`
 
-### **Step 2: Obtain Your DV.net API Credentials**
+Este comando descarga e instala la versión más reciente de la biblioteca del cliente y sus dependencias.
 
-Para comunicarte con la API de DV.net, necesitas tres piezas de información de tu cuenta de DV.net:
+### **Paso 2: Obtén tus credenciales de la API de DV.net**
 
-1. **API URL:** La URL base de tu instancia de DV.net (p. ej., https://api.your-dv-instance.com).
-2. **API Key:** Tu clave pública de la API.
-3. **API Secret:** Tu secreto privado de la API.
+Para comunicarte con la API de DV.net, necesitas tres elementos de tu cuenta de DV.net:
+
+1. **URL de la API:** La URL base de tu instancia de DV.net (por ejemplo, https://api.your-dv-instance.com).
+2. **API Key:** Tu clave pública de API.
+3. **API Secret:** Tu secreto privado de API.
 
 Puedes generar estas credenciales en el panel de tu cuenta de DV.net, normalmente en una sección "API Keys" o "Developer".  
-**Importante:** Mantén tu Secreto de API seguro y no lo expongas en código del lado del cliente ni en repositorios públicos.
+**Importante:** Mantén tu API Secret segura y no la expongas en código del lado del cliente ni en repositorios públicos.
 
-### **Step 3: Initialize the Client**
+### **Paso 3: Inicializa el cliente**
 
-La biblioteca ofrece clientes sincrónicos y asincrónicos. Elige el que se ajuste a la arquitectura de tu aplicación.  
-**Synchronous Client:**  
+La biblioteca ofrece clientes sincrónicos y asíncronos. Elige el que se ajuste a la arquitectura de tu aplicación.  
+**Cliente sincrónico:**  
 Adecuado para scripts tradicionales o frameworks web como Flask/Django si no usas vistas asíncronas.
 
 ```python
@@ -52,8 +53,8 @@ except Exception as e:
 print(f"An error occurred: {e}")
 ```
 
-**Asynchronous Client:**  
-Ideal para aplicaciones que utilizan asyncio, como FastAPI, Starlette o scripts asíncronos.  
+**Cliente asíncrono:**  
+Ideal para aplicaciones que usan asyncio, como FastAPI, Starlette o scripts asíncronos.  
 
 ```python
 import asyncio  
@@ -81,9 +82,9 @@ async_client = AsyncClient(host=API_URL, api_key=API_KEY, api_secret=API_SECRET)
 if __name__ == "__main__":  
 asyncio.run(main())
 ```
-### **Step 4: Creating a Payment Request (Invoice)**
+### **Paso 4: Crear una solicitud de pago (factura)**
 
-Crear una factura es un caso de uso común. Debes proporcionar detalles como el monto, la moneda y, opcionalmente, un ID de pedido de tu sistema.  
+Crear una factura es un caso de uso común. Deberás proporcionar detalles como el importe, la moneda y, opcionalmente, un ID de pedido de tu sistema.  
 
 ```python
 from dv_net_client import Client  
@@ -114,19 +115,18 @@ invoice_response = client.create_invoice(invoice_data)
 except Exception as e:  
 print(f"Failed to create invoice: {e}")
 ```
-*(Para el cliente asíncrono, usa await async_client.create_invoice(invoice_data) dentro de una función asíncrona).*
+*(Para el cliente asíncrono, usa await async_client.create_invoice(invoice_data) dentro de una función async).*
 
-### **Step 5: Handling Webhooks**
+### **Paso 5: Manejo de webhooks**
 
-Los webhooks son esenciales para recibir actualizaciones en tiempo real sobre los estados de pago (p. ej., cuando se paga una factura). DV.net envía solicitudes POST a una URL que configuras en tu cuenta de DV.net.  
-**Seguridad:** Es fundamental verificar que las solicitudes de webhook entrantes provienen realmente de DV.net. dv-net-client proporciona una utilidad para ello usando el Webhook Secret que definas.
+Los webhooks son esenciales para recibir actualizaciones en tiempo real sobre estados de pago (por ejemplo, cuando se paga una factura). DV.net envía solicitudes POST a una URL que configuras en tu cuenta de DV.net.  
+**Seguridad:** Es crucial verificar que las solicitudes entrantes de webhook provienen realmente de DV.net. dv-net-client proporciona una utilidad para esto usando el Webhook Secret que definas.
 
-1. **Configure Webhook in DV.net:**
-    * Ve a la sección Webhooks en tu panel de DV.net.
-    * Establece la **Payload URL** en el endpoint de tu aplicación que manejará estas solicitudes (p. ej., https://yourdomain.com/webhooks/dvnet).
-    * Crea un **Webhook Secret** fuerte y único y guárdalo de forma segura.
-    * Configura los eventos que deseas recibir (p. ej., payment.completed, payment.failed).
-2. **Verify and Process Webhook in Your Application:**
+1. **Configurar el webhook en DV.net:**
+    * Ve a Project -> Your project -> Edit.
+    * Obtén una API key y una secret key de la página.
+    * Configura URLs de webhook para los eventos que quieres recibir (por ejemplo, Confirmed transactions, Unconfirmed transaction y Withdrawal).
+2. **Verificar y procesar el webhook en tu aplicación:**
 
 ```python
 from fastapi import FastAPI, Request, Header, HTTPException # Example using FastAPI  
@@ -205,8 +205,8 @@ raise HTTPException(status_code=400, detail="Missing X-DV-Signature header")
 #     uvicorn.run(app, host="0.0.0.0", port=8000)  
 # Remember to run this behind a proper web server (like Nginx) and use HTTPS in production.
 ```
-*(Este ejemplo usa FastAPI, pero las funciones verify_webhook_signature y WebhookMapper.map_webhook pueden usarse con Flask, Django o cualquier otro framework de Python. Deberás adaptar cómo accedes al cuerpo de la solicitud y a las cabeceras).*
+*(Este ejemplo usa FastAPI, pero las funciones verify_webhook_signature y WebhookMapper.map_webhook pueden usarse con Flask, Django o cualquier otro framework de Python. Debes adaptar cómo accedes al cuerpo y los encabezados de la solicitud).*
 
-### **Conclusion**
+### **Conclusión**
 
-La biblioteca dv-net-client proporciona interfaces sincrónicas y asincrónicas para interactuar con la API de DV.net, junto con utilidades esenciales para la verificación de webhooks. Siguiendo estos pasos, puedes integrar pagos cripto de DV.net en tu aplicación de Python de forma eficiente y segura. Recuerda consultar el código fuente o la documentación de la biblioteca para conocer los detalles de todos los métodos y DTO disponibles.
+La biblioteca dv-net-client proporciona interfaces sincrónicas y asíncronas para interactuar con la API de DV.net, junto con utilidades esenciales para la verificación de webhooks. Siguiendo estos pasos, puedes integrar pagos cripto de DV.net en tu aplicación de Python de forma eficiente y segura. Recuerda consultar el código fuente o la documentación de la biblioteca para ver los detalles de todos los métodos y DTO disponibles.

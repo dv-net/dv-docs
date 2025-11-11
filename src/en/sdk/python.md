@@ -12,7 +12,8 @@ This guide will walk you through the essential steps to get started with the dv-
 ### **Step 1: Install the DV.net Client Library**
 
 The first step is to install the package using pip. Open your terminal or command prompt and run:  
-pip install dv-net-client
+
+`pip install dv-net-client`
 
 This command downloads and installs the latest version of the client library and its dependencies.
 
@@ -122,10 +123,9 @@ Webhooks are essential for receiving real-time updates about payment statuses (e
 **Security:** It's crucial to verify that incoming webhook requests are genuinely from DV.net. The dv-net-client provides a utility for this using the Webhook Secret you define.
 
 1. **Configure Webhook in DV.net:**
-    * Go to the Webhooks section in your DV.net dashboard.
-    * Set the **Payload URL** to the endpoint in your application that will handle these requests (e.g., https://yourdomain.com/webhooks/dvnet).
-    * Create a strong, unique **Webhook Secret** and save it securely.
-    * Configure the events you want to receive (e.g., payment.completed, payment.failed).
+    * Go to the Project -> Your project -> Edit.
+    * Grab an API key and secret key from the page
+    * Setup an webhook URLs the events you want to receive (e.g., Confirmed transactions, Unconfirmed transaction and Withdrawal one).
 2. **Verify and Process Webhook in Your Application:**
 
 ```python

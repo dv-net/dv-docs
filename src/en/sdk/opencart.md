@@ -34,12 +34,10 @@ OpenCart uses an Extension Installer to handle uploads.
 To connect your store to DV.net, you need your API Key, API Secret, and API URL.
 
 - Log in to your DV.net account dashboard.
-- Navigate to the API Keys section (referencing obtaining-api-key-and-secret.md from the documentation files).
-- Click "Create New Key".
-- Give the key a relevant name (e.g., "OpenCart Store").
-- The system will display your API Key and API Secret.
-- Critical: Copy both the API Key and API Secret immediately and store them securely (e.g., in a password manager). The secret will not be shown again.
-- Note down your API URL, which is the base URL for your DV.net instance (e.g., https://api.your-dv-instance.com).
+- Find your project or create a new one.
+- Navigate to the API Keys section to Projects -> Edit button for specific project (referencing obtaining-api-key-and-secret.md from the documentation files).
+- You will see API key and secret key. You can regenerate if needed.
+- In section below provide URLs for webhooks. Basically you will need webhook on successful payment only.
 
 ## Step 4: Configure the DV.net Gateway in OpenCart
 
@@ -48,12 +46,27 @@ Now, configure the payment method within your OpenCart admin panel.
 - In your OpenCart dashboard, go to Extensions > Extensions.
 - From the dropdown menu labeled "Choose the extension type", select Payments.
 - Scroll down the list until you find "DV.net Gateway". Click the green Install (+) button if it's not already installed, and then click the blue Edit (pencil) button.
-- This opens the DV.net configuration page. Fill in the following details (based on admin/controller/extension/payment/dv_gateway.php and associated language/template files):
+- This opens the DV.net configuration page. Fill in the following details:
 - API URL: Paste the API URL from Step 3.
 - API Key: Paste the API Key from Step 3.
 - API Secret: Paste the API Secret from Step 3.
+- 
+## Step 5: Configure the Webhook in Your DV.net Account
 
-## Step 5: Test Your Integration!
+Your store is now set up to send payment requests to DV.net. The final step is to set up a webhook so DV.net can send payment status updates (like "Paid" or "Failed") back to your store.
+
+1. Go back to your DV.net account dashboard.
+2. Navigate to the Webhooks or Developer section.
+3. Create a new webhook.
+4. Payload URL: This is the most important part. Your store's unique webhook URL is: `https://example.com/wc-api/dv_gateway/` (Remember to replace example.com with your actual website address. Make sure it uses https://).
+5. Place address for your webhook here (for woo it's kinda like `https://example.com/index.php?route=extension/payment/dv_gateway/callback`) and press Create
+6. Events: If prompted, select the events this webhook should listen for. You should enable all payment-related events, such as:
+    1. Confirmed payment
+    2. Unconfirmed payment (i.e when customer will send their payment via BTC and )
+    3. Processing withdrawal (currently unsupported by this integration)
+7. Save and activate the webhook in your DV.net dashboard.
+
+## Step 6: Test Your Integration!
 
 - Your DV.net OpenCart integration should now be complete! It's vital to perform a test transaction.
 - Visit your OpenCart store's front end.

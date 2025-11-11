@@ -31,15 +31,13 @@ You will now see "DV.net WooCommerce Plugin" in your list of active plugins.
 
 ## Step 3: Obtain Your DV.net API Credentials
 
-Before the plugin can work, you need to connect it to your DV.net account using API keys.
+To connect your store to DV.net, you need your API Key, API Secret, and API URL.
 
-1. Log in to your DV.net account dashboard.
-2. Navigate to the API Keys section (based on the obtaining-api-key-and-secret.md file).
-3. Click the "Create New Key" button.
-4. Give your key a descriptive name (e.g., "WooCommerce Store").
-5. The system will generate an API Key and an API Secret.
-6. Important: Copy both the API Key and API Secret and save them somewhere secure, like a password manager. You will not be able to see the secret again after you leave this page.
-7. Also, take note of your API URL. This is the main URL of your DV.net instance (e.g., https://api.your-dv-instance.com).
+- Log in to your DV.net account dashboard.
+- Find your project or create a new one.
+- Navigate to the API Keys section to Projects -> Edit button for specific project (referencing obtaining-api-key-and-secret.md from the documentation files).
+- You will see API key and secret key. You can regenerate if needed.
+- In section below provide URLs for webhooks. Basically you will need webhook on successful payment only.
 
 ## Step 4: Configure the DV.net Gateway in WooCommerce
 
@@ -48,14 +46,13 @@ With your API keys in hand, you can now configure the plugin's settings inside W
 1. In your WordPress dashboard, go to WooCommerce > Settings.
 2. Click on the Payments tab at the top of the page.
 3. You will see "DV.net" in the list of payment methods. Click the Manage button on the far right.
-4. This will open the DV.net settings page. Fill out the following fields (which we found in the class-dv-gateway.php file):
+4. This will open the DV.net settings page. Fill out the following fields:
    1. Enable/Disable: Check the box for "Enable DV.net" to make this payment method available at checkout.
    2. Title: This is the text customers will see when choosing a payment method. For example: "Pay with Crypto via DV.net".
    3. Description: This is the short text shown under the title. For example: "Securely pay with cryptocurrency."
-   4. API URL: Paste the API URL you noted in Step 3.
-   5. API Key: Paste the API Key you generated in Step 3.
+   4. API URL: Paste the API URL.
+   5. API Key: Paste the API Key you saved in Step 3.
    6. API Secret: Paste the API Secret you saved in Step 3.
-   7. Webhook Secret: This is a crucial field for security. You must create a strong, unique secret phrase (e.g., using a password generator). Think of it as a password that DV.net and your store will share. Save this secret, as you will need it in the next step.
 5. Click the Save changes button at the bottom of the page.
 
 ## Step 5: Configure the Webhook in Your DV.net Account
@@ -65,15 +62,15 @@ Your store is now set up to send payment requests to DV.net. The final step is t
 1. Go back to your DV.net account dashboard.
 2. Navigate to the Webhooks or Developer section.
 3. Create a new webhook.
-4. Payload URL: This is the most important part. Your store's unique webhook URL is: https://yourdomain.com/wc-api/dv_gateway/ (Remember to replace yourdomain.com with your actual website address. Make sure it uses https://).
-5. Secret: Paste the exact same Webhook Secret that you created and saved in Step 4. This is used to verify that the incoming requests are genuinely from DV.net (as mentioned in webhook-signature-verification.md).
+4. Payload URL: This is the most important part. Your store's unique webhook URL is: `https://example.com/wc-api/dv_gateway/` (Remember to replace example.com with your actual website address. Make sure it uses https://).
+5. Place address for your webhook here (for woo it's kinda like `https://example.com/?wc-api=dv_gateway`)
 6. Events: If prompted, select the events this webhook should listen for. You should enable all payment-related events, such as:
-   1. payment.completed
-   2. payment.failed
-   3. invoice.paid (Note: The exact event names may vary. Select all that relate to payment status changes.)
+   1. Confirmed payment
+   2. Unconfirmed payment (i.e when customer will send their payment via BTC and )
+   3. Processing withdrawal (currently unsupported by this integration)
 7. Save and activate the webhook in your DV.net dashboard.
 
-Step 6: You're All Set! (Don't Forget to Test)
+## Step 6: You're All Set! (Don't Forget to Test)
 
 Congratulations! The DV.net payment gateway is now fully integrated with your WooCommerce store.
 
