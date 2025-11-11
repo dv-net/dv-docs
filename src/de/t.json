@@ -86,5 +86,17 @@
   "Go home": "Zur Startseite",
   "Cloud vs on-premises": "Cloud vs. On-Premises",
   "Description": "Beschreibung",
-  "Installation with docker": "Installation mit Docker"
+  "Installation with docker": "Installation mit Docker",
+  "jsonTitles": {
+    "Get external exchange balances": "Externe Börsensalden abrufen",
+    "Get external processing wallet balances": "Externe Verarbeitungsguthaben abrufen",
+    "Get store currencies list": "Liste der Shop-Währungen abrufen",
+    "Get store currency rate": "Shop-Währungskurs abrufen",
+    "Create wallet with address": "Zahlungs-Wallets für den Zahler erstellen",
+    "Get external hot wallet balances": "Externe Hot-Wallet-Salden abrufen",
+    "Initialize withdrawal from processing": "Auszahlung von der Verarbeitung initiieren",
+    "Get withdrawal from processing": "Auszahlungsinformationen von der Verarbeitung abrufen",
+    "Delete withdrawal from processing": "Abhebung aus der Verarbeitung löschen",
+    "Get unconfirmed transfer transactions": "Erhalten Sie unbestätigte Überweisungstransaktionen"
+  }
 }

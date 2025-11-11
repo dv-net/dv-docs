@@ -86,5 +86,17 @@
   "Go home": "मुखपृष्ठ पर जाएँ",
   "Cloud vs on-premises": "क्लाउड बनाम ऑन-प्रिमाइसेस",
   "Description": "विवरण",
-  "Installation with docker": "डोकर के साथ स्थापना"
+  "Installation with docker": "डोकर के साथ स्थापना",
+  "jsonTitles": {
+    "Get external exchange balances": "बाहरी एक्सचेंज बैलेंस प्राप्त करें",
+    "Get external processing wallet balances": "बाहरी प्रोसेसिंग वॉलेट बैलेंस प्राप्त करें",
+    "Get store currencies list": "स्टोर करेंसी सूची प्राप्त करें",
+    "Get store currency rate": "स्टोर करेंसी दर प्राप्त करें",
+    "Create wallet with address": "पते के साथ वॉलेट बनाएं",
+    "Get external hot wallet balances": "बाहरी हॉट वॉलेट शेष प्राप्त करें",
+    "Initialize withdrawal from processing": "प्रोसेसिंग से निकासी आरंभ करें",
+    "Get withdrawal from processing": "प्रोसेसिंग से निकासी प्राप्त करें",
+    "Delete withdrawal from processing": "प्रोसेसिंग से निकासी हटाएं",
+    "Get unconfirmed transfer transactions": "अपुष्ट हस्तांतरण लेनदेन प्राप्त करें"
+  }
 }

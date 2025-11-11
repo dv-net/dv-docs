@@ -86,5 +86,17 @@
   "Go home": "홈으로 가기",
   "Cloud vs on-premises": "클라우드와 온프레미스",
   "Description": "설명",
-  "Installation with docker": "도커로 설치"
+  "Installation with docker": "도커로 설치",
+  "jsonTitles": {
+    "Get external exchange balances": "외부 거래소 잔액 가져오기",
+    "Get external processing wallet balances": "외부 처리 지갑 잔액 가져오기",
+    "Get store currencies list": "상점 통화 목록 가져오기",
+    "Get store currency rate": "상점 통화 환율 가져오기",
+    "Create wallet with address": "결제자를 위한 결제 지갑 생성",
+    "Get external hot wallet balances": "외부 핫 월렛 잔액 가져오기",
+    "Initialize withdrawal from processing": "처리에서 출금 초기화",
+    "Get withdrawal from processing": "처리에서 출금 정보 가져오기",
+    "Delete withdrawal from processing": "처리에서 출금 삭제",
+    "Get unconfirmed transfer transactions": "확인되지 않은 전송 거래 받기"
+  }
 }

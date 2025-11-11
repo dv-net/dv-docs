@@ -86,5 +86,17 @@
   "Go home": "اذهب إلى الصفحة الرئيسية",
   "Cloud vs on-premises": "السحابة مقابل المحلية",
   "Description": "وصف",
-  "Installation with docker": "التثبيت مع عامل ميناء"
+  "Installation with docker": "التثبيت مع عامل ميناء",
+  "jsonTitles": {
+    "Get external exchange balances": "الحصول على أرصدة الصرف الخارجية",
+    "Get external processing wallet balances": "الحصول على رصيد محفظة المعالجة الخارجية",
+    "Get store currencies list": "الحصول على قائمة عملات المتجر",
+    "Get store currency rate": "الحصول على سعر عملة المتجر",
+    "Create wallet with address": "إنشاء محافظ للدفع للمدفوع",
+    "Get external hot wallet balances": "الحصول على أرصدة المحافظ الساخنة الخارجية",
+    "Initialize withdrawal from processing": "إنشاء سحب للأموال من محفظة المعالجة",
+    "Get withdrawal from processing": "الحصول على معلومات حول السحب من محفظة المعالجة",
+    "Delete withdrawal from processing": "حذف السحب من المعالجة",
+    "Get unconfirmed transfer transactions": "احصل على معاملات تحويل غير مؤكدة"
+  }
 }
