@@ -86,5 +86,17 @@
   "Cloud vs on-premises": "Сравнение установки на сервер и Cloud решения",
   "Description": "Описание",
   "Installation with docker": "Установка с docker",
-  "DV.net Api request logging": "Логирование запросов к API DV.net"
+  "DV.net Api request logging": "Логирование запросов к API DV.net",
+  "jsonTitles": {
+    "Get external exchange balances": "Получить внешние валютные балансы",
+    "Get external processing wallet balances": "Получить баланс процессингового кошелька",
+    "Get store currencies list": "Получить список валют магазина",
+    "Get store currency rate": "Получить курс валюты магазина",
+    "Create wallet with address": "Создать кошельки для оплаты плательщику",
+    "Get external hot wallet balances": "Получить балансы горячих кошельков",
+    "Initialize withdrawal from processing": "Создать вывод средств с процессингового кошелька",
+    "Get withdrawal from processing": "Получить информацию о выводе с процессингового кошелька",
+    "Delete withdrawal from processing": "Удалить вывод с процессингового кошелька",
+    "Get unconfirmed transfer transactions": "Получить неподтверждённые транзакции для трансфера"
+  }
 }

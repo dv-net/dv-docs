@@ -86,5 +86,17 @@
   "Go home": "返回首页",
   "Cloud vs on-premises": "云与本地部署",
   "Description": "描述",
-  "Installation with docker": "使用docker安装"
+  "Installation with docker": "使用docker安装",
+  "jsonTitles": {
+    "Get external exchange balances": "获取外部交易余额",
+    "Get external processing wallet balances": "获取外部处理钱包余额",
+    "Get store currencies list": "获取商店货币列表",
+    "Get store currency rate": "获取商店货币汇率",
+    "Create wallet with address": "使用地址创建钱包",
+    "Get external hot wallet balances": "获取外部热钱包余额",
+    "Initialize withdrawal from processing": "初始化处理提款",
+    "Get withdrawal from processing": "获取处理提款",
+    "Delete withdrawal from processing": "从处理中删除提现",
+    "Get unconfirmed transfer transactions": "获取未确认的转账交易"
+  }
 }

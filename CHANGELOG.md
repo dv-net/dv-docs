@@ -2,7 +2,10 @@
 
 ## [Unreleased]
 
-- After reading fix
+## [0.0.15] - 2025-11-11
+
+- Documentation about unconfirmed transactions
+- Minor fixes
 
 ## [0.0.14] - 2025-11-06
 

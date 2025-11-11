@@ -823,6 +823,52 @@
                     }
                 ]
             }
+        },
+        "/v1/external/transactions/unconfirmed/transfer": {
+            "get": {
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ],
+                "tags": [
+                    "Store"
+                ],
+                "description": "अपुष्ट हस्तांतरण लेनदेन प्राप्त करें",
+                "summary": "अपुष्ट हस्तांतरण लेनदेन प्राप्त करें",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-UnconfirmedTransactionResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIError"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -1282,6 +1328,20 @@
                     }
                 }
             },
+            "JSONResponse-UnconfirmedTransactionResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/UnconfirmedTransactionResponse"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
             "JSONResponse-string": {
                 "type": "object",
                 "properties": {
@@ -1526,6 +1586,54 @@
                     },
                     "wallet_id": {
                         "type": "string"
+                    }
+                }
+            },
+            "UnconfirmedTransactionResponse": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number"
+                    },
+                    "amount_usd": {
+                        "type": "number"
+                    },
+                    "bc_uniq_key": {
+                        "type": "string"
+                    },
+                    "blockchain": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "currency_id": {
+                        "type": "string"
+                    },
+                    "from_address": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "network_created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "to_address": {
+                        "type": "string"
+                    },
+                    "tx_hash": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
                     }
                 }
             },

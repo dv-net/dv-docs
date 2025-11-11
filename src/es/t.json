@@ -86,5 +86,17 @@
   "Go home": "Ir al inicio",
   "Cloud vs on-premises": "Nube versus local",
   "Description": "Descripción",
-  "Installation with docker": "Instalación con ventana acoplable"
+  "Installation with docker": "Instalación con ventana acoplable",
+  "jsonTitles": {
+    "Get external exchange balances": "Obtener saldos de cambio externos",
+    "Get external processing wallet balances": "Obtener saldos de billetera de procesamiento externo",
+    "Get store currencies list": "Obtener lista de monedas de la tienda",
+    "Get store currency rate": "Obtener tasa de moneda de la tienda",
+    "Create wallet with address": "Crear billetera con dirección",
+    "Get external hot wallet balances": "Obtener saldos de billeteras calientes externas",
+    "Initialize withdrawal from processing": "Inicializar retiro del procesamiento",
+    "Get withdrawal from processing": "Obtener retiro del procesamiento",
+    "Delete withdrawal from processing": "Eliminar retiro del procesamiento",
+    "Get unconfirmed transfer transactions": "Obtenga transacciones de transferencia sin confirmar"
+  }
 }
