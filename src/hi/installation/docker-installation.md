@@ -28,7 +28,9 @@ Windows और macOS पर **Docker Desktop** उपयोगकर्ताओ
 `Enable host networking`
 *(Settings → Resources → Network में स्थित)*
 
-![Docker Desktop](../../assets/images/installation/docker-instalation.png)
+<a href="../../assets/images/installation/docker-instalation.png" target="_blank" rel="noopener noreferrer">
+  <img src="../../assets/images/installation/docker-instalation.png" alt="Docker Desktop" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
+</a>
 
 ## 🏗️ प्रोजेक्ट आर्किटेक्चर
 

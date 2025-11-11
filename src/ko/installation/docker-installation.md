@@ -28,7 +28,9 @@ Windows 및 macOS에서 **Docker Desktop**을 사용하는 경우, 다음 옵션
 `Enable host networking`
 *(Settings → Resources → Network에 위치)*
 
-![Docker Desktop](../../assets/images/installation/docker-instalation.png)
+<a href="../../assets/images/installation/docker-instalation.png" target="_blank" rel="noopener noreferrer">
+  <img src="../../assets/images/installation/docker-instalation.png" alt="Docker Desktop" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
+</a>
 
 ## 🏗️ 프로젝트 아키텍처
 
