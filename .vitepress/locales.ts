@@ -30,7 +30,6 @@ regions.forEach((region: RegionsType) => {
         { text: tHandler(region.slug, "Installation with docker"), link: `/${region.slug}/installation/docker-installation.md` },
         { text: tHandler(region.slug, "Installation"), link: `/${region.slug}/installation/installation.md` },
         { text: tHandler(region.slug, "Domain linking"), link: `/${region.slug}/installation/domain-linking.md` },
-        { text: tHandler(region.slug, "List of libraries for integrations"), link: `/${region.slug}/installation/list-of-libraries-for-integrations.md` },
       ],
     },
     {
