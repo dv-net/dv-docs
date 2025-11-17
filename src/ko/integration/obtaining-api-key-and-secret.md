@@ -1,3 +1,5 @@
 # API 키 및 비밀 키 가져오기
 
 API 키와 비밀 키는 프로젝트의 고급 설정에 있습니다.
+
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)

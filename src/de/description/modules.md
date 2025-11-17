@@ -13,12 +13,12 @@ Die Anwendung besteht aus drei Modulen:
 
 ## Zusätzliche Pakete
 
-Im Ökosystem existieren auch `dv-env`-Pakete für verschiedene Betriebssysteme, welche `postgres` und `redis` in einer
-speziell kompilierten und automatisch konfigurierbaren Weise enthalten.
+Im Ökosystem stehen zusätzliche Pakete und Werkzeuge zur Verfügung, die zur Installation und Konfiguration von zusätzlichen Diensten (PostgreSQL, Redis usw.) verwendet werden können. Ihre Zusammensetzung und Installationsmethoden können je nach Betriebssystem und spezifischem Build der Anwendung variieren.
 
 ## Anwendungsbereitstellung und Benutzerrechte
 
-Alle Module werden im Verzeichnis „/home/dv“ installiert und der Benutzer „dv:dv“ wird im Betriebssystem erstellt. Für
-`postgres` und `redis`, die mit dem Paket `dv-env` installiert wurden, behalten ihre ursprünglichen Benutzer, laufen
-aber auf nicht standardmäßigen
-Ports: „postgres“: „5433“, „redis“: „6380“. Der Autostart der Dienste erfolgt über „systemd“.
+Alle Anwendungsmodule werden im Verzeichnis `/home/dv` installiert.
+Das Betriebssystem erstellt automatisch den Systembenutzer `dv:dv`, der zum Ausführen der Anwendungsdienste und zur Verwaltung der Konfigurationsdateien verwendet wird.
+
+Dienste wie PostgreSQL und Redis werden mit den Standardwerkzeugen des Betriebssystems oder mit den im Lieferumfang der Anwendung enthaltenen Automatisierungswerkzeugen installiert. Sie verwenden normale Systemkonten und Standardports (sofern in der Konfiguration nicht anders angegeben).
+Der automatische Start der Dienste erfolgt über `systemd`.

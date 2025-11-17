@@ -11,12 +11,15 @@ The application consists of three modules:
 
 ## Additional packages
 
-In the ecosystem there are also `dv-env` packages for different operating systems, which include `postgres` and
-`redis` collected in a special way and configured automatically.
+The ecosystem provides additional packages and tools that can be used to install and configure auxiliary services (PostgreSQL, Redis, etc.). 
+Their composition and installation methods may vary depending on the operating system and the specific application build.
 
 
-## Application placement and user rights
+## Application Placement and User Permissions
 
-All modules are installed in the `/home/dv` directory, and the `dv:dv` user is created in the operating system. For
-`postgres` and `redis` installed using the `dv-env` package retain their original users, but they run on non-standard 
-ports: `postgres`: `5433`, `redis`: `6380`. Autostart of services is provided through `systemd`
+All application modules are installed in the `/home/dv` directory.
+A system user `dv:dv` is automatically created and used to run application services and manage configuration files.
+
+Services such as PostgreSQL and Redis are installed using standard operating system tools or automation tools supplied with the application. 
+They use regular system accounts and standard ports (unless otherwise specified in the configuration).
+Service autostart is handled via `systemd`.
