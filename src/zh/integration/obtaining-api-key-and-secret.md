@@ -1,3 +1,5 @@
 # 获取 API 密钥和密钥
 
 API 密钥和密钥位于您的项目的扩展设置中。
+
+![creatingDepositWallets.png](../../assets/images/integration/creating-deposit-wallets/creatingDepositWallets.png)

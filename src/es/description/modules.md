@@ -14,12 +14,12 @@ La aplicación consta de tres módulos:
 
 ## Paquetes adicionales
 
-En el ecosistema también existen paquetes `dv-env` para diferentes sistemas operativos, que incluyen `postgres` y
-`redis` empaquetados de forma especial y configurados automáticamente.
+El ecosistema proporciona paquetes y herramientas adicionales que pueden utilizarse para instalar y configurar servicios auxiliares (PostgreSQL, Redis, etc.). Su composición y métodos de instalación pueden variar según el sistema operativo y la compilación específica de la aplicación.
 
 ## Ubicación de la aplicación y derechos de usuario
 
-Todos los módulos se instalan en el directorio `/home/dv`, y se crea el usuario `dv:dv` en el sistema operativo. Para
-`postgres` y `redis` instalados mediante el paquete `dv-env`, se conservan sus usuarios originales, pero se ejecutan en
-puertos no estándar:
-`postgres`: `5433`, `redis`: `6380`. El inicio automático de los servicios se gestiona mediante `systemd`.
+Todos los módulos de la aplicación se instalan en el directorio `/home/dv`.
+El sistema crea automáticamente el usuario `dv:dv`, que se utiliza para ejecutar los servicios de la aplicación y gestionar los archivos de configuración.
+
+Servicios como PostgreSQL y Redis se instalan mediante las herramientas estándar del sistema operativo o mediante herramientas de automatización proporcionadas con la aplicación. Utilizan cuentas del sistema y puertos estándar (a menos que se especifique lo contrario en la configuración).
+El inicio automático de los servicios está gestionado por `systemd`.
