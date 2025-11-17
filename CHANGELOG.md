@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+
+## [0.0.17] - 2025-11-17
+
 - docs: update packages and services section, remove dv-env reference
 
 ## [0.0.16] - 2025-11-17
