@@ -28,7 +28,7 @@ For **Docker Desktop** users on Windows and macOS, you need to enable the follow
 `Enable host networking`
 *(Located in Settings → Resources → Network)*
 
-<a href="../../assets/images/installation/docker-instalation.png" target="_blank" rel="noopener noreferrer">
+<a href="/assets/images/installation/docker-instalation.png" target="_blank" rel="noopener noreferrer">
   <img src="../../assets/images/installation/docker-instalation.png" alt="Docker Desktop" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
 </a>
 
