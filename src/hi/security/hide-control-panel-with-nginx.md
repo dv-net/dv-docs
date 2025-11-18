@@ -40,6 +40,10 @@ http:
 सिस्टम सेटिंग्स में प्रोसेसिंग सिस्टम से मर्चेंट सर्वर के लिए **Callback URL** को अपडेट करें ताकि वह
 भुगतान फॉर्म के लिए कॉन्फ़िगर किए गए बाहरी पते की ओर इशारा करे (उदाहरण: `https://pay.some-domain.com`)।
 
+<a href="../../assets/images/security/processing-callback-setup.png" target="_blank" rel="noopener noreferrer" onclick="event.preventDefault(); const img = this.querySelector('img'); const openImage = () => { try { const canvas = document.createElement('canvas'); canvas.width = img.naturalWidth; canvas.height = img.naturalHeight; const ctx = canvas.getContext('2d'); ctx.drawImage(img, 0, 0); const dataUrl = canvas.toDataURL('image/png'); const w = window.open('', '_blank'); if (w) { w.document.write('<html><head><title>प्रोसेसिंग कॉलबैक सेटअप</title><style>body{margin:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#000;}img{max-width:100%;max-height:100%;object-fit:contain;}</style></head><body><img src=\'' + dataUrl + '\' alt=\'प्रोसेसिंग कॉलबैक सेटअप\' /></body></html>'); w.document.close(); } } catch(e) { window.open(this.href, '_blank'); } }; if (img && img.complete && img.naturalWidth > 0) { openImage(); } else if (img) { img.onload = openImage; img.onerror = () => window.open(this.href, '_blank'); } else { window.open(this.href, '_blank'); } return false;">
+  <img src="../../assets/images/security/processing-callback-setup.png" alt="प्रोसेसिंग कॉलबैक सेटअप" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
+</a>
+
 ## 3\. Nginx कॉन्फ़िगरेशन
 
 हम **तीन अलग-अलग Nginx कॉन्फ़िगरेशन फ़ाइलें** (वर्चुअल होस्ट) बनाएंगे, प्रत्येक अपने-अपने डोमेन/सबडोमेन के लिए ज़िम्मेदार होगी

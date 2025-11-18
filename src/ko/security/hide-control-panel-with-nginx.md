@@ -36,6 +36,10 @@ http:
 
 처리 시스템에서 머천트 서버로의 **콜백 URL**을 시스템 설정에서 업데이트하여, 결제 폼에 대해 구성한 외부 주소(예: `https://pay.some-domain.com`)를 가리키도록 해야 합니다.
 
+<a href="../../assets/images/security/processing-callback-setup.png" target="_blank" rel="noopener noreferrer" onclick="event.preventDefault(); const img = this.querySelector('img'); const openImage = () => { try { const canvas = document.createElement('canvas'); canvas.width = img.naturalWidth; canvas.height = img.naturalHeight; const ctx = canvas.getContext('2d'); ctx.drawImage(img, 0, 0); const dataUrl = canvas.toDataURL('image/png'); const w = window.open('', '_blank'); if (w) { w.document.write('<html><head><title>프로세싱 콜백 설정</title><style>body{margin:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#000;}img{max-width:100%;max-height:100%;object-fit:contain;}</style></head><body><img src=\'' + dataUrl + '\' alt=\'프로세싱 콜백 설정\' /></body></html>'); w.document.close(); } } catch(e) { window.open(this.href, '_blank'); } }; if (img && img.complete && img.naturalWidth > 0) { openImage(); } else if (img) { img.onload = openImage; img.onerror = () => window.open(this.href, '_blank'); } else { window.open(this.href, '_blank'); } return false;">
+  <img src="../../assets/images/security/processing-callback-setup.png" alt="프로세싱 콜백 설정" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
+</a>
+
 ## 3. Nginx 설정
 
 각각 고유한 도메인/서브도메인과 접근 규칙을 가지는 **세 개의 개별 Nginx 설정 파일**(가상 호스트)을 만듭니다.

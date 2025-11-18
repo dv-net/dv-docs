@@ -64,7 +64,9 @@ journalctl -u dv-merchant --since "1 hour ago" | grep 'DV-API'
 
 بالإضافة إلى ذلك، يمكن عرض آخر 1000 إدخال من السجلات وتصفيتها مباشرةً في واجهة تطبيق الويب:
 
-![api-requests-logging.png](../../assets/images/security/api-requests-logging.png)
+<a href="../../assets/images/security/api-requests-logging.png" target="_blank" rel="noopener noreferrer" onclick="event.preventDefault(); const img = this.querySelector('img'); const openImage = () => { try { const canvas = document.createElement('canvas'); canvas.width = img.naturalWidth; canvas.height = img.naturalHeight; const ctx = canvas.getContext('2d'); ctx.drawImage(img, 0, 0); const dataUrl = canvas.toDataURL('image/png'); const w = window.open('', '_blank'); if (w) { w.document.write('<html><head><title>مراقبة الطلبات إلى API</title><style>body{margin:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#000;}img{max-width:100%;max-height:100%;object-fit:contain;}</style></head><body><img src=\'' + dataUrl + '\' alt=\'مراقبة الطلبات إلى API\' /></body></html>'); w.document.close(); } } catch(e) { window.open(this.href, '_blank'); } }; if (img && img.complete && img.naturalWidth > 0) { openImage(); } else if (img) { img.onload = openImage; img.onerror = () => window.open(this.href, '_blank'); } else { window.open(this.href, '_blank'); } return false;">
+  <img src="../../assets/images/security/api-requests-logging.png" alt="مراقبة الطلبات إلى API" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
+</a>
 
 ## إعداد متقدم لتجميع السجلات
 

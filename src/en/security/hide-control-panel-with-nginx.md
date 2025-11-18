@@ -41,6 +41,10 @@ http:
 You must update the **Callback URL** from the processing system to the merchant server in the system settings so it 
 points to the external address configured for the Payment Form (e.g., `https://pay.some-domain.com`).
 
+<a href="../../assets/images/security/processing-callback-setup.png" target="_blank" rel="noopener noreferrer" onclick="event.preventDefault(); const img = this.querySelector('img'); const openImage = () => { try { const canvas = document.createElement('canvas'); canvas.width = img.naturalWidth; canvas.height = img.naturalHeight; const ctx = canvas.getContext('2d'); ctx.drawImage(img, 0, 0); const dataUrl = canvas.toDataURL('image/png'); const w = window.open('', '_blank'); if (w) { w.document.write('<html><head><title>Processing Callback Setup</title><style>body{margin:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#000;}img{max-width:100%;max-height:100%;object-fit:contain;}</style></head><body><img src=\'' + dataUrl + '\' alt=\'Processing Callback Setup\' /></body></html>'); w.document.close(); } } catch(e) { window.open(this.href, '_blank'); } }; if (img && img.complete && img.naturalWidth > 0) { openImage(); } else if (img) { img.onload = openImage; img.onerror = () => window.open(this.href, '_blank'); } else { window.open(this.href, '_blank'); } return false;">
+  <img src="../../assets/images/security/processing-callback-setup.png" alt="Processing Callback Setup" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
+</a>
+
 ## 3\. Nginx Configuration
 
 We'll create **three separate Nginx configuration files** (virtual hosts), each responsible for its own domain/subdomain 
