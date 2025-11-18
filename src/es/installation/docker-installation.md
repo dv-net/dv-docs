@@ -28,7 +28,7 @@ Para los usuarios de **Docker Desktop** en Windows y macOS, debes habilitar la s
 `Enable host networking`
 *(Ubicada en Settings → Resources → Network)*
 
-<a href="/assets/images/installation/docker-instalation.png" target="_blank" rel="noopener noreferrer">
+<a href="../../assets/images/installation/docker-instalation.png" target="_blank" rel="noopener noreferrer" onclick="event.preventDefault(); fetch(this.href).then(r => r.blob()).then(blob => { const url = URL.createObjectURL(blob); window.open(url, '_blank'); }).catch(() => window.open(this.href, '_blank')); return false;">
   <img src="../../assets/images/installation/docker-instalation.png" alt="Docker Desktop" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
 </a>
 
