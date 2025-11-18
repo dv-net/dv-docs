@@ -1,8 +1,7 @@
 # Systemanforderungen
 
-Die Anwendungsarchitektur ermöglicht die Installation der Module `dv-merchant` und `dv-processing` auf verschiedenen
-Servern. Die Systemanforderungen sind für die Installationsvariante auf einem einzelnen Server mit einem sauberen
-Betriebssystem unter Verwendung des `dv-env`-Pakets angegeben.
+Die Architektur der Anwendung ermöglicht es, die Module `dv-merchant` und `dv-processing` auf unterschiedlichen Servern zu installieren; die Systemanforderungen beziehen sich auf die Variante, bei der alles auf einem einzigen Server mit einem frischen Betriebssystem installiert wird.
+
 
 - 4GB RAM
 - 4 Core CPU
@@ -12,16 +11,15 @@ Betriebssystem unter Verwendung des `dv-env`-Pakets angegeben.
 
 Unterstützte Betriebssystemversionen:
 
-- CentOS 9
-- Debian 12
-- Ubuntu 22.04
-- Ubuntu 24.04
+- CentOS 8, 9, 10
+- Debian 11, 12, 13
+- Ubuntu 22.04, 24.04
 - Freie Ports 80, 8080, 9000 (können durch die Konfigurationsdatei überschrieben werden)
 - Offener Port 80
 
 ## Softwareanforderungen
 
-Wenn das System ohne das `dv-env`-Paket installiert wird, müssen folgende Komponenten im System installiert sein:
+Für eine getrennte Installation werden benötigt:
 
-- Postgres Version 16 oder höher
-- Redis Version 6.2 oder höher
+- Postgres 16+
+- Redis 6.2+

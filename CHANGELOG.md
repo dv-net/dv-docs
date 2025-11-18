@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+- Updated documentation: added translations for architecture note and system requirements.
+
+
 ## [0.0.17] - 2025-11-17
 
 - docs: update packages and services section, remove dv-env reference
