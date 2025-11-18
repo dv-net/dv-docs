@@ -2,8 +2,9 @@
 
 ## [Unreleased]
 
-- Updated documentation: added translations for architecture note and system requirements.
+## [0.0.18] - 2025-11-18
 
+- Updated documentation: added translations for architecture note and system requirements.
 
 ## [0.0.17] - 2025-11-17
 
