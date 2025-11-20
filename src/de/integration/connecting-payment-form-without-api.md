@@ -1,27 +1,27 @@
-# Einbindung des Zahlungsformulars ohne API-Nutzung
+# Ein Zahlungsformular ohne API-Integration anbinden
 
-Sie können das Zahlungsformular ohne API-Integration einbinden, indem Sie die folgenden einfachen Schritte ausführen:
+Sie können ein Zahlungsformular ohne API-Integration anbinden, indem Sie diese einfachen Schritte befolgen.
 
-## 1. Finden Sie die UUID Ihres Shops
+Ein Beispiel für die Integration finden Sie auch [in diesem Repository](https://github.com/dv-net/simple-payment-form)
 
-Loggen Sie sich in das persönliche Konto Ihres Projekts ein und gehen Sie zum Abschnitt **Einstellungen**.
-Dort finden Sie die **UUID** (eindeutige Kennung) Ihres Shops.
+## 1. Zahlungslink Ihres Shops finden
 
-## 2. Erstellen Sie den Zahlungslink
+Melden Sie sich in Ihrem Projektkonto an und gehen Sie zu **Projekte**, **Bearbeiten**, **Erweiterte Einstellungen**.
 
-Verwenden Sie das folgende Format, um einen Zahlungslink zu generieren:
+Dort finden Sie den **Link zum Zahlungsformular ohne API**, in dem die **UUID** (eindeutige Kennung) Ihres Shops enthalten ist.
 
-### Wo:
+## 2. Zahlungslink anpassen
 
-- `{your-domain-or-subdomain}` — Ihre registrierte Domain oder Subdomain.
-- `{store-uuid}` — die UUID Ihres Shops (im persönlichen Konto angegeben).
-- `{client-id}` — die eindeutige Kennung des Kunden, die Sie bei der Linkgenerierung vergeben. Sie wird benötigt, um die
-  Zahlung zu verfolgen und sie dem entsprechenden Kunden-Wallet zuzuordnen.
+Verwenden Sie das folgende Format, um einen Zahlungslink zu erzeugen:
 
-> ⚠️ **Wichtig:** Die `client-id` muss für jede Kunden-Session eindeutig sein, um eine korrekte Verfolgung und
-> Identifizierung zu gewährleisten.
+### Dabei gilt:
+
+- `{your-domain-or-subdomain}` ist Ihre registrierte Domain oder Subdomain.
+- `{store-uuid}` ist die UUID Ihres Shops (im Shop-Link angegeben).
+- `{client-id}` ist eine eindeutige Kundenkennung, die Sie bei der Link-Generierung vergeben. Sie wird benötigt, um die Zahlung nachzuverfolgen und sie dem gewünschten Kunden-Wallet zuzuordnen.
+
+> ⚠️ **Wichtig:** `client-id` muss für jede Kundensitzung eindeutig sein, um eine korrekte Nachverfolgung und Identifizierung sicherzustellen.
 
 ---
 
-Nach der Generierung des Links können Sie den Kunden entweder darauf weiterleiten oder ihn in eine Schaltfläche auf
-Ihrer Website einbetten.
+Sobald der Link erzeugt wurde, können Sie den Kunden entweder darauf weiterleiten oder ihn als Button auf Ihrer Website einbinden.

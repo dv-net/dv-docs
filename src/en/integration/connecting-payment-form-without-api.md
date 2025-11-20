@@ -1,6 +1,8 @@
 # Connecting a payment form without using API
 
-You can connect a payment form without API integration by following these simple steps:
+You can connect a payment form without API integration by following these simple steps.
+
+Also, you can see an example of integration [in this repository](https://github.com/dv-net/simple-payment-form)
 
 ## 1. Find your store's payment link
 

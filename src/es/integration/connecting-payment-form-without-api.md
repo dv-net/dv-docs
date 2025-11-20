@@ -1,23 +1,27 @@
-# Conexión de un Formulario de Pago sin Usar la API
+# Conectar un formulario de pago sin usar la API
 
-Puedes conectar un formulario de pago sin necesidad de integrar la API siguiendo estos sencillos pasos:
+Puedes conectar un formulario de pago sin integración con la API siguiendo estos sencillos pasos.
 
-## 1. Encuentra el UUID de tu Tienda
+Además, puedes ver un ejemplo de integración [en este repositorio](https://github.com/dv-net/simple-payment-form)
 
-Inicia sesión en la cuenta personal de tu proyecto y navega a la sección de **Configuración**.  
-Allí encontrarás el **UUID** (identificador único) de tu tienda.
+## 1. Encuentra el enlace de pago de tu tienda
 
-## 2. Genera un Enlace de Pago
+Inicia sesión en tu cuenta del proyecto y ve a **Proyectos**, **Editar**, **Configuración avanzada**.
 
-Utiliza el siguiente formato para generar un enlace de pago:
+Allí encontrarás el **enlace al formulario de pago sin API**, dentro del cual se encuentra el **UUID** (identificador único) de tu tienda.
 
-### Donde:
-- `{your-domain-or-subdomain}` — Tu dominio o subdominio registrado.
-- `{store-uuid}` — El UUID de tu tienda (obtenido desde tu cuenta personal).
-- `{client-id}` — Un identificador único que asignas al cliente al generar el enlace de pago. Este ID se usa para rastrear el pago y asociarlo con el monedero correcto del cliente.
+## 2. Modifica el enlace de pago
 
-> ⚠️ **Importante:** El `client-id` debe ser único para cada sesión del cliente para garantizar un seguimiento preciso y la correcta asociación del monedero.
+Usa el siguiente formato para generar un enlace de pago:
+
+### Dónde:
+
+- `{your-domain-or-subdomain}` es tu dominio o subdominio registrado.
+- `{store-uuid}` es el UUID de tu tienda (especificado en el enlace de la tienda).
+- `{client-id}` es un identificador único del cliente que asignas al generar el enlace. Es necesario para rastrear el pago y vincularlo a la billetera del cliente deseado.
+
+> ⚠️ **Importante:** `client-id` debe ser único para cada sesión del cliente para garantizar un seguimiento e identificación correctos.
 
 ---
 
-Después de generar el enlace, puedes redirigir al cliente a él o integrarlo en un botón en tu sitio web.
+Una vez generado el enlace, puedes redirigir al cliente a él o incorporarlo en un botón en tu sitio.
