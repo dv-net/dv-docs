@@ -13,6 +13,7 @@
 ## [0.0.16] - 2025-11-17
 
 - Added zoom when clicking on an image in docs DV-3752
+- Remove unnecessary page about integration
 
 ## [0.0.15] - 2025-11-11
 
