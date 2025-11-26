@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Link to the simple payment form demo
+
 ## [0.0.18] - 2025-11-18
 
 - Updated documentation: added translations for architecture note and system requirements.
