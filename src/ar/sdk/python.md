@@ -1,212 +1,823 @@
-# **دمج DV.net مع تطبيق Python الخاص بك باستخدام dv-net-client**
+# DV.net Python SDK (`dv_net_client`)
 
-يوفر مكتبة dv-net-client طريقة مريحة للتعامل مع واجهة برمجة تطبيقات DV.net مباشرة من تطبيقات Python الخاصة بك. سواء كنت تبني واجهة خلفية للويب، أو سكربت، أو أي نظام يعتمد على Python، فإن هذا العميل يبسط مهام مثل إنشاء طلبات الدفع (الفواتير) والتعامل مع تحديثات الحالة عبر خطافات الويب (Webhooks).  
-سيرشدك هذا الدليل عبر الخطوات الأساسية للبدء باستخدام dv-net-client.  
-**المتطلبات الأساسية:**
+عميل بايثون للتكامل مع بوابة الدفع DV.net.
 
-* Python 3.8 أو أعلى مثبت.
-* pip (مدير حزم Python).
-* حساب DV.net نشط.
-* فهم أساسي للغة Python (بما في ذلك asyncio إذا كنت تستخدم العميل غير المتزامن).
+- يدعم نسختي العميل المتزامن وغير المتزامن.
+- جميع الطرق تعيد كائنات DTO مُقننة النوع (dataclass)، وليس قواميس «خام».
+- توجد أدوات جاهزة للعمل مع الويبهوكات والتحقق من توقيع الطلبات.
 
-### **الخطوة 1: تثبيت مكتبة عميل DV.net**
+الحزمة: `dv_net_client`.
 
-الخطوة الأولى هي تثبيت الحزمة باستخدام pip. افتح الطرفية أو موجه الأوامر وشغّل:  
+---
 
-`pip install dv-net-client`
+## التثبيت
 
-يقوم هذا الأمر بتنزيل وتثبيت أحدث إصدار من مكتبة العميل وتبعياتها.
-
-### **الخطوة 2: الحصول على بيانات اعتماد واجهة DV.net**
-
-للتواصل مع واجهة DV.net، ستحتاج إلى ثلاثة عناصر من حسابك في DV.net:
-
-1. **API URL:** عنوان URL الأساسي لن instance DV.net الخاص بك (مثال: https://api.your-dv-instance.com).
-2. **API Key:** مفتاح API العام الخاص بك.
-3. **API Secret:** سر API الخاص بك.
-
-يمكنك إنشاء هذه البيانات من لوحة تحكم حساب DV.net، عادةً ضمن قسم "API Keys" أو "Developer".  
-**مهم:** احتفظ بسر API بسرية ولا تفصح عنه في أكواد الواجهة الأمامية أو المستودعات العامة.
-
-### **الخطوة 3: تهيئة العميل**
-
-توفّر المكتبة عميلاً متزامناً وآخر غير متزامن. اختر ما يناسب بنية تطبيقك.  
-**العميل المتزامن:**  
-مناسب للسكربتات التقليدية أو أطر الويب مثل Flask/Django إذا لم تكن تستخدم مسارات async.
-
-```python
-from dv_net_client import Client
-
-API_URL = "YOUR_DV_NET_API_URL"  # Replace with your actual API URL  
-API_KEY = "YOUR_API_KEY"        # Replace with your API Key  
-API_SECRET = "YOUR_API_SECRET"    # Replace with your API Secret
-
-# Initialize the synchronous client  
-client = Client(host=API_URL, api_key=API_KEY, api_secret=API_SECRET)
-
-# You can now use the 'client' object to make API calls  
-# Example: Get available currencies  
-try:  
-currencies_response = client.get_currencies()  
-print("Available Currencies:", currencies_response.currencies)  
-except Exception as e:  
-print(f"An error occurred: {e}")
+```bash
+pip install dv-net-client
 ```
 
-**العميل غير المتزامن:**  
-مثالي للتطبيقات التي تستخدم asyncio مثل FastAPI وStarlette أو السكربتات غير المتزامنة.  
+للعميل غير المتزامن تحتاج أيضاً إلى `aiohttp`:
 
-```python
-import asyncio  
-from dv_net_client import AsyncClient
-
-API_URL = "YOUR_DV_NET_API_URL"  # Replace with your actual API URL  
-API_KEY = "YOUR_API_KEY"        # Replace with your API Key  
-API_SECRET = "YOUR_API_SECRET"    # Replace with your API Secret
-
-async def main():  
-# Initialize the asynchronous client  
-async_client = AsyncClient(host=API_URL, api_key=API_KEY, api_secret=API_SECRET)
-
-    # You can now use the 'async_client' object to make API calls  
-    # Example: Get available currencies asynchronously  
-    try:  
-        currencies_response = await async_client.get_currencies()  
-        print("Available Currencies:", currencies_response.currencies)  
-    except Exception as e:  
-        print(f"An error occurred: {e}")  
-    finally:  
-        # Important: Close the client session when done  
-        await async_client.close()
-
-if __name__ == "__main__":  
-asyncio.run(main())
+```bash
+pip install aiohttp
 ```
-### **الخطوة 4: إنشاء طلب دفع (فاتورة)**
 
-يُعد إنشاء الفاتورة حالة استخدام شائعة. ستحتاج إلى توفير تفاصيل مثل المبلغ والعملة، وبشكل اختياري معرّف الطلب من نظامك.  
+---
+
+## المفاهيم الأساسية
+
+### المضيف و x-api-key
+
+تُرسل جميع الطلبات إلى واجهة DV.net عبر مضيف أساسي، مثلاً:
 
 ```python
-from dv_net_client import Client  
-from dv_net_client.dto.merchant_client import CreateInvoiceDto # Import the DTO
+DV_HOST = "https://cloud.dv.net"
+```
 
-# Assume 'client' is initialized as shown in Step 3
+يتم التفويض عبر ترويسة HTTP باسم `x-api-key` (مفتاح واجهة برمجة التطبيقات العام للمتجر):
 
-# Define the invoice details using the DTO  
-invoice_data = CreateInvoiceDto(  
-amount=10.50,               # The amount for the invoice  
-currency_code="USD",        # The fiat currency code (e.g., USD, EUR)  
-order_id="MY_ORDER_123",    # Your internal order ID (optional but recommended)  
-description="Payment for Order #MY_ORDER_123" # Optional description  
-# Add other optional parameters like return_url, success_url if needed  
+```python
+DV_API_KEY = "ВАШ_X_API_KEY"
+```
+
+يمكن تمرير هذه المعاملات:
+
+- مرة واحدة في مُنشئ العميل؛
+- أو لكل طريقة (مع تجاوز قيم المُنشئ).
+
+إذا لم يتم تحديد `host` أو `x_api_key` لا في المُنشئ ولا في الطريقة، سيتم رمي الاستثناءين:
+
+- `DvNetUndefinedHostException`
+- `DvNetUndefinedXApiKeyException`
+
+---
+
+## العملاء
+
+يوفر SDK نوعين من العميل:
+
+```python
+from dv_net_client import MerchantClient, AsyncMerchantClient
+```
+
+### عميل متزامن
+
+```python
+from dv_net_client import MerchantClient
+
+client = MerchantClient(
+    host="https://cloud.dv.net",
+    x_api_key="ВАШ_X_API_KEY",
+)
+```
+
+يُستخدم افتراضياً `UrllibHttpClient` (مبني على مكتبة بايثون المعيارية `urllib`).
+
+### عميل غير متزامن
+
+```python
+from dv_net_client import AsyncMerchantClient
+
+client = AsyncMerchantClient(
+    host="https://cloud.dv.net",
+    x_api_key="ВАШ_X_API_KEY",
+)
+```
+
+يُستخدم افتراضياً `AiohttpHttpClient` (مبني على `aiohttp`).
+
+> العملاء لا يطبّقون مدير سياق (`with` / `async with`).  
+> يُنصح بإنشاء نسخة واحدة عند بدء التطبيق وإعادة استخدامها.
+
+---
+
+## الأخطاء والاستثناءات
+
+الاستثناءات الرئيسية في الوحدة:
+
+```python
+from dv_net_client.exceptions import (
+    DvNetException,
+    DvNetRequestException,
+    DvNetInvalidRequestException,
+    DvNetServerException,
+    DvNetNetworkException,
+    DvNetInvalidResponseDataException,
+    DvNetInvalidWebhookException,
+    DvNetUndefinedHostException,
+    DvNetUndefinedXApiKeyException,
+)
+```
+
+- `DvNetInvalidRequestException` — خطأ في الطلب (4xx).
+- `DvNetServerException` — خطأ من طرف DV.net (5xx).
+- `DvNetNetworkException` — مشاكل شبكة، انتهاء مهلة، إلخ.
+- `DvNetInvalidResponseDataException` — تعذر مطابقة الاستجابة مع DTO المتوقع.
+- `DvNetInvalidWebhookException` — تنسيق ويبهوك غير صحيح أو غير معروف.
+
+يُنصح بتغليف استدعاءات العميل في `try/except` مع التسجيل (logging).
+
+---
+
+## طرق العميل
+
+أدناه وصف للطرق المشتركة بين `MerchantClient` و`AsyncMerchantClient`.  
+التواقيع متطابقة، باستثناء أن النسخة غير المتزامنة تُعلَّم بالكلمة المفتاحية `async` ويتم استدعاؤها عبر `await`.
+
+تُؤخذ أنواع DTO من `dv_net_client.dto.merchant_client`.
+
+---
+
+### 1. `get_exchange_balances`
+
+الحصول على رصيد المتجر الإجمالي عبر جميع العملات والشبكات (exchange-balance).
+
+```python
+total_balance = await async_client.get_exchange_balances()
+# أو
+total_balance = client.get_exchange_balances()
+```
+
+**التوقيع:**
+
+```python
+get_exchange_balances(
+    x_api_key: Optional[str] = None,
+    host: Optional[str] = None,
+) -> TotalExchangeBalanceResponse
+```
+
+**يُرجع:** `TotalExchangeBalanceResponse`:
+
+- `total_usd: str` — الرصيد الإجمالي بالدولار الأمريكي.
+- `exchange_balance: List[ExchangeBalanceDto]`
+
+`ExchangeBalanceDto` يحتوي على:
+
+- `amount: str` — الرصيد بالعملة.
+- `amount_usd: str` — ما يعادله بالدولار الأمريكي.
+- `currency: str` — رمز العملة.
+
+**مثال (async):**
+
+```python
+from dv_net_client import AsyncMerchantClient
+
+DV_HOST = "https://cloud.dv.net"
+DV_API_KEY = "ВАШ_X_API_KEY"
+
+client = AsyncMerchantClient(host=DV_HOST, x_api_key=DV_API_KEY)
+
+balance = await client.get_exchange_balances()
+print("Total USD:", balance.total_usd)
+for item in balance.exchange_balance:
+    print(f"{item.currency}: {item.amount} ({item.amount_usd} USD)")
+```
+
+---
+
+### 2. `get_external_wallet`
+
+إنشاء (أو الحصول على الموجود) محفظة/رابط دفع لمستخدم محدد.
+
+```python
+wallet = await async_client.get_external_wallet(
+    store_external_id="user_123",
+    amount="10.00",
+    currency="USD",
+)
+```
+
+**التوقيع:**
+
+```python
+get_external_wallet(
+    store_external_id: str,
+    email: Optional[str] = None,
+    ip: Optional[str] = None,
+    amount: Optional[str] = None,
+    currency: Optional[str] = None,
+    x_api_key: Optional[str] = None,
+    host: Optional[str] = None,
+) -> ExternalAddressesResponse
+```
+
+المعاملات:
+
+- `store_external_id` — المعرّف الداخلي الخاص بك للمستخدم (إلزامي).
+- `email` — بريد المستخدم الإلكتروني (اختياري).
+- `ip` — عنوان IP للمستخدم (اختياري).
+- `amount` — مبلغ الشحن (كسلسلة، مثلاً `"5.00"`).
+- `currency` — رمز العملة، مثلاً `"USD"`.
+
+**يُرجع:** `ExternalAddressesResponse`:
+
+- `pay_url: str` — رابط الدفع.
+- `address: List[AddressDto]` — قائمة العناوين الفردية.
+- `amount_usd: str` — المبلغ بالدولار الأمريكي.
+- `rates: List[str]` — معلومات عن أسعار الصرف.
+- حقول خدمية (`id`, `store_id`, `store_external_id`, `created_at`, `updated_at` إلخ).
+
+**مثال (async):**
+
+```python
+resp = await client.get_external_wallet(
+    store_external_id="user_123",
+    amount="5.00",
+    currency="USD",
+    email="user@example.com",
+    ip="203.0.113.10",
 )
 
-try:  
-# Create the invoice  
-invoice_response = client.create_invoice(invoice_data)
-
-    print(f"Invoice created successfully!")  
-    print(f"Invoice ID: {invoice_response.invoice_id}")  
-    print(f"Payment URL: {invoice_response.payment_url}") # Redirect customer here
-
-    # Store invoice_response.invoice_id with your order MY_ORDER_123  
-    # Redirect the user to invoice_response.payment_url
-
-except Exception as e:  
-print(f"Failed to create invoice: {e}")
+print("Pay URL:", resp.pay_url)
+for addr in resp.address:
+    print(f"{addr.currency_id} ({addr.blockchain}): {addr.address}")
 ```
-*(بالنسبة للعميل غير المتزامن، استخدم `await async_client.create_invoice(invoice_data)` داخل دالة async).*
 
-### **الخطوة 5: التعامل مع خطافات الويب (Webhooks)**
+---
 
-تُعد خطافات الويب ضرورية لتلقي التحديثات الفورية حول حالات الدفع (مثل عند دفع الفاتورة). يرسل DV.net طلبات POST إلى عنوان URL تقوم بتكوينه في حساب DV.net الخاص بك.  
-**الأمان:** من الضروري التحقق من أن طلبات webhook الواردة صادرة فعلاً من DV.net. يوفر dv-net-client أداة لذلك باستخدام Webhook Secret الذي تحدده.
+### 3. `get_processing_wallets_balances`
 
-1. **تهيئة Webhook في DV.net:**
-    * انتقل إلى Project -> مشروعك -> Edit.
-    * احصل على مفتاح API والمفتاح السري من الصفحة
-    * اضبط عناوين URL للويب هوك للأحداث التي تريد تلقيها (مثال: Confirmed transactions وUnconfirmed transaction وWithdrawal).
-2. **التحقق من صحة الـ Webhook ومعالجته في تطبيقك:**
+رصيد المحافظ «المعالجة» (حيث تتم معالجة المعاملات الواردة).
 
 ```python
-from fastapi import FastAPI, Request, Header, HTTPException # Example using FastAPI  
-import uvicorn  
-from dv_net_client.utils import verify_webhook_signature # Utility for verification  
-from dv_net_client.mappers import WebhookMapper # Mapper to parse data  
-from dv_net_client.dto.webhook import WebhookType # Enum for webhook types
-
-# --- Configuration ---  
-DV_NET_WEBHOOK_SECRET = "YOUR_WEBHOOK_SECRET" # Replace with your actual secret
-
-app = FastAPI()
-
-@app.post("/webhooks/dvnet") # Your Payload URL endpoint  
-async def handle_dvnet_webhook(request: Request, x_dv_signature: str = Header(None)):  
-if not x_dv_signature:  
-raise HTTPException(status_code=400, detail="Missing X-DV-Signature header")
-
-    # Get raw body bytes  
-    raw_body = await request.body()
-
-    # 1. Verify the signature  
-    if not verify_webhook_signature(  
-        signature=x_dv_signature,  
-        payload=raw_body,  
-        secret=DV_NET_WEBHOOK_SECRET  
-    ):  
-        print("Webhook signature verification failed!")  
-        raise HTTPException(status_code=400, detail="Invalid signature")
-
-    print("Webhook signature verified successfully.")
-
-    # 2. Parse the webhook data  
-    try:  
-        webhook_data = WebhookMapper.map_webhook(raw_body.decode('utf-8')) # Decode bytes to string  
-    except Exception as e:  
-        print(f"Error parsing webhook data: {e}")  
-        raise HTTPException(status_code=400, detail="Invalid webhook payload")
-
-    # 3. Process based on webhook type  
-    print(f"Received webhook type: {webhook_data.type}")
-
-    if webhook_data.type == WebhookType.CONFIRMED:  
-        # Payment is confirmed (equivalent to payment.completed or invoice.paid)  
-        invoice_id = webhook_data.invoice_id  
-        order_id = webhook_data.order_id # The order_id you sent when creating the invoice  
-        print(f"Payment confirmed for Invoice ID: {invoice_id}, Order ID: {order_id}")  
-        # --- Update your order status in your database here ---  
-        # Find the order associated with 'order_id' or 'invoice_id'  
-        # Mark the order as paid/completed.  
-        # Maybe send a confirmation email to the customer.  
-        pass
-
-    elif webhook_data.type == WebhookType.UNCONFIRMED:  
-        # Payment detected but waiting for blockchain confirmations (optional handling)  
-        invoice_id = webhook_data.invoice_id  
-        print(f"Payment unconfirmed for Invoice ID: {invoice_id}")  
-        # You might update the order status to "Pending Confirmation"  
-        pass
-
-    elif webhook_data.type == WebhookType.WITHDRAWAL:  
-        # Related to withdrawal operations, not typically invoice payments  
-        print(f"Received withdrawal webhook: {webhook_data}")  
-        pass
-
-    else:  
-        # Handle other types or unknown types if necessary  
-        print(f"Received unhandled webhook type: {webhook_data.type}")  
-        pass
-
-    # Return a 2xx status code to acknowledge receipt  
-    return {"status": "received"}
-
-# --- Running the Server (Example) ---  
-# if __name__ == "__main__":  
-#     uvicorn.run(app, host="0.0.0.0", port=8000)  
-# Remember to run this behind a proper web server (like Nginx) and use HTTPS in production.
+processing_balances = await async_client.get_processing_wallets_balances()
 ```
-*(يستخدم هذا المثال FastAPI، ولكن يمكن استخدام الدوال verify_webhook_signature وWebhookMapper.map_webhook مع Flask أو Django أو أي إطار عمل Python آخر. ستحتاج فقط إلى تكييف كيفية الوصول إلى جسم الطلب والرؤوس).*
 
-### **الخلاصة**
+**التوقيع:**
 
-يوفّر dv-net-client واجهات متزامنة وغير متزامنة للتفاعل مع واجهة DV.net، بالإضافة إلى أدوات أساسية للتحقق من خطافات الويب. باتباع هذه الخطوات، يمكنك دمج مدفوعات DV.net بالعملات المشفرة في تطبيق Python الخاص بك بكفاءة وأمان. تذكّر الرجوع إلى كود المصدر الخاص بالمكتبة أو توثيقها للاطلاع على جميع الطرق وكيانات DTO المتاحة.
+```python
+get_processing_wallets_balances(
+    x_api_key: Optional[str] = None,
+    host: Optional[str] = None,
+) -> ProcessingWalletsBalancesResponse
+```
+
+**يُرجع:** `ProcessingWalletsBalancesResponse`:
+
+- `balances: List[ProcessingWalletBalanceDto]`
+
+يشمل `ProcessingWalletBalanceDto` على سبيل المثال:
+
+- `balance: str`
+- `balance_usd: str`
+- `currency: CurrencyShortDto` (الرمز، الاسم، البلوكشين)
+- حقول تقنية إضافية.
+
+---
+
+### 4. `get_store_currencies`
+
+قائمة العملات المتاحة للمتجر.
+
+```python
+currencies = await async_client.get_store_currencies()
+```
+
+**التوقيع:**
+
+```python
+get_store_currencies(
+    x_api_key: Optional[str] = None,
+    host: Optional[str] = None,
+) -> CurrenciesResponse
+```
+
+**يُرجع:** `CurrenciesResponse`:
+
+- `currencies: List[CurrencyDto]`
+
+يحتوي `CurrencyDto` على:
+
+- `id: str` — معرّف العملة بالشكل `"USDT.Tron"`.
+- `code: str` — الرمز المختصر، مثل `"USDT"`.
+- `name: str` — اسم قابل للقراءة.
+- `blockchain: str` — الشبكة (مثلاً `"Tron"`).
+- `precision: int` وحقول أخرى.
+
+**مثال:**
+
+```python
+currencies = await client.get_store_currencies()
+for cur in currencies.currencies:
+    print(f"{cur.code} ({cur.id}) — сеть: {cur.blockchain}")
+```
+
+---
+
+### 5. `get_store_currency_rate`
+
+الحصول على سعر صرف عملة محددة.
+
+```python
+rate = await async_client.get_store_currency_rate("USDT.Tron")
+```
+
+**التوقيع:**
+
+```python
+get_store_currency_rate(
+    currency_id: str,
+    x_api_key: Optional[str] = None,
+    host: Optional[str] = None,
+) -> CurrencyRateResponse
+```
+
+المعاملات:
+
+- `currency_id` — المعرّف من `get_store_currencies`، مثلاً `"USDT.Tron"`.
+
+**يُرجع:** `CurrencyRateResponse`:
+
+- `code: str` — رمز العملة.
+- `rate` — السعر (نوع ديناميكي، غالباً سلسلة/رقم).
+- حقول إضافية (المصدر، عملة التسعير، إلخ).
+
+---
+
+### 6. `get_withdrawal_processing_status`
+
+حالة عملية سحب قيد المعالجة.
+
+```python
+status = await async_client.get_withdrawal_processing_status(withdrawal_id)
+```
+
+**التوقيع:**
+
+```python
+get_withdrawal_processing_status(
+    withdrawal_id: str,
+    x_api_key: Optional[str] = None,
+    host: Optional[str] = None,
+) -> ProcessingWithdrawalResponse
+```
+
+المعاملات:
+
+- `withdrawal_id` — معرّف السحب الذي تم الحصول عليه سابقاً (مثلاً من `WithdrawalWebhookResponse` أو استجابة `initialize_transfer`).
+
+**يُرجع:** `ProcessingWithdrawalResponse`:
+
+- `id: str`
+- `status: str`
+- `amount: str`
+- `amount_usd: str`
+- `currency_id: str`
+- `created_at`, `updated_at` وغيرها.
+
+---
+
+### 7. `initialize_transfer`
+
+تهيئة سحب الأموال من رصيد المتجر إلى محفظة خارجية.
+
+```python
+withdrawal = await async_client.initialize_transfer(
+    address_to="TExm...",
+    currency_id="USDT.Tron",
+    amount="100.0",
+    request_id="unique_id_1",
+)
+```
+
+**التوقيع:**
+
+```python
+initialize_transfer(
+    address_to: str,
+    currency_id: str,
+    amount: str,
+    request_id: str,
+    x_api_key: Optional[str] = None,
+    host: Optional[str] = None,
+) -> WithdrawalResponse
+```
+
+المعاملات:
+
+- `address_to` — عنوان المستلم (المحفظة).
+- `currency_id` — معرّف العملة بالشكل `"USDT.Tron"`.
+- `amount` — مبلغ السحب (كسلسلة).
+- `request_id` — معرّفك الفريد للطلب (لضمان عدم التكرار وربط الطلب بنظامك).
+
+**يُرجع:** `WithdrawalResponse`:
+
+- `id: str` — معرّف السحب في DV.net.
+- `address_from: str` — عنوان المرسل.
+- `address_to: str` — عنوان المستلم.
+- `amount: str`, `amount_usd: str`.
+- `currency_id: str`.
+- `store_id: str`.
+- `created_at: datetime`.
+- `transfer_id: Optional[str]` — قد تكون `None` بينما العملية قيد التنفيذ.
+
+---
+
+### 8. `get_hot_wallet_balances`
+
+رصيد المحافظ «الساخنة».
+
+```python
+hot_wallets = await async_client.get_hot_wallet_balances()
+```
+
+**التوقيع:**
+
+```python
+get_hot_wallet_balances(
+    x_api_key: Optional[str] = None,
+    host: Optional[str] = None,
+) -> List[AccountDto]
+```
+
+**يُرجع:** قائمة `AccountDto`:
+
+- `balance: str`
+- `balance_usd: str`
+- `count: int` — عدد العناوين.
+- `count_with_balance: int` — عدد العناوين ذات الرصيد غير الصفري.
+- `currency: CurrencyShortDto` (الرمز، الاسم، البلوكشين).
+
+---
+
+### 9. `delete_withdrawal_from_processing`
+
+إلغاء سحب قيد المعالجة.
+
+```python
+await async_client.delete_withdrawal_from_processing(withdrawal_id)
+```
+
+**التوقيع:**
+
+```python
+delete_withdrawal_from_processing(
+    withdrawal_id: str,
+    x_api_key: Optional[str] = None,
+    host: Optional[str] = None,
+) -> None
+```
+
+المعاملات:
+
+- `withdrawal_id` — معرّف السحب المطلوب إلغاؤه.
+
+الاستثناءات:
+
+- عند حدوث خطأ (غير موجود، مُكتمل بالفعل، خطأ خادم، إلخ) سيتم رمي أحد: `DvNetRequestException` / `DvNetServerException` / `DvNetNetworkException`.
+
+---
+
+## الويبهوكات
+
+تحتوي الوحدة `dv_net_client.mappers` على `WebhookMapper` الذي يحوّل JSON الوارد من الويبهوك إلى أحد كائنات DTO من `dv_net_client.dto.webhook`.
+
+```python
+from dv_net_client.mappers import WebhookMapper
+from dv_net_client.dto.webhook import (
+    ConfirmedWebhookResponse,
+    UnconfirmedWebhookResponse,
+    WithdrawalWebhookResponse,
+)
+```
+
+### `WebhookMapper.map_webhook`
+
+**التوقيع:**
+
+```python
+map_webhook(data: Dict[str, Any]) -> Any
+```
+
+الخوارزمية:
+
+- إذا كان في `data` الحقل `withdrawal_id` — يُرجع `WithdrawalWebhookResponse`.
+- إذا كان هناك الحقل `type` — يُرجع `ConfirmedWebhookResponse`.
+- إذا كان هناك الحقل `unconfirmed_type` — يُرجع `UnconfirmedWebhookResponse`.
+- خلاف ذلك يتم رمي `DvNetInvalidWebhookException`.
+
+### كائنات DTO للويبهوك
+
+```python
+@dataclass
+class TransactionDto:
+    tx_id: str
+    tx_hash: str
+    bc_uniq_key: str
+    created_at: datetime
+    currency: str
+    currency_id: str
+    blockchain: str
+    amount: str
+    amount_usd: str
+```
+
+```python
+@dataclass
+class WalletDto:
+    id: str
+    store_external_id: str
+```
+
+```python
+@dataclass
+class ConfirmedWebhookResponse:
+    type: str
+    status: str
+    created_at: datetime
+    paid_at: datetime
+    amount: str
+    transactions: TransactionDto
+    wallet: WalletDto
+```
+
+```python
+@dataclass
+class UnconfirmedWebhookResponse:
+    type: str
+    status: str
+    created_at: datetime
+    paid_at: datetime
+    amount: str
+    transactions: TransactionDto
+    wallet: WalletDto
+```
+
+```python
+@dataclass
+class WithdrawalWebhookResponse:
+    type: str
+    created_at: datetime
+    paid_at: datetime
+    amount: str
+    transactions: TransactionDto
+    withdrawal_id: str
+```
+
+### مثال على معالجة الويبهوك
+
+```python
+from dv_net_client.mappers import WebhookMapper
+from dv_net_client.dto.webhook import ConfirmedWebhookResponse
+
+mapper = WebhookMapper()
+
+def handle_webhook(data: dict):
+    webhook = mapper.map_webhook(data)
+
+    if isinstance(webhook, ConfirmedWebhookResponse) and webhook.status == "completed":
+        user_id = webhook.wallet.store_external_id
+        amount_usd = webhook.transactions.amount_usd
+        tx_id = webhook.transactions.tx_id
+
+        # бизнес-логика пополнения
+        print(f"Платёж от {user_id}: {amount_usd} USD, tx_id={tx_id}")
+```
+
+---
+
+## الأدوات (`MerchantUtilsManager`)
+
+تحتوي الفئة `MerchantUtilsManager` من `dv_net_client.utils` على طرق مساعدة.
+
+```python
+from dv_net_client.utils import MerchantUtilsManager
+
+utils = MerchantUtilsManager()
+```
+
+### `check_sign`
+
+التحقق من توقيع طلبات DV.net (الويبهوكات).
+
+**التوقيع:**
+
+```python
+check_sign(
+    client_signature: str,
+    client_key: str,
+    request_body: Union[Dict[str, Any], str, bytes],
+) -> bool
+```
+
+الخوارزمية:
+
+1. يتم تحويل جسم الطلب إلى سلسلة:
+    - `dict` → `json.dumps(..., sort_keys=True, separators=(',', ':'))`
+    - `bytes` → `.decode('utf-8')`
+    - `str` — دون تغيير.
+2. يتم ربط `string_body + client_key`.
+3. يُحسب SHA-256 بصيغة hex.
+4. تتم مقارنة الناتج مع `client_signature` عبر `hmac.compare_digest`.
+
+**مثال (aiohttp):**
+
+```python
+from aiohttp import web
+from dv_net_client.utils import MerchantUtilsManager
+
+utils = MerchantUtilsManager()
+SECRET_KEY = "ВАШ_SECRET_KEY"
+
+async def handle_webhook(request: web.Request):
+    raw_body = await request.text()
+    signature = request.headers.get("X-Signature", "")
+
+    if not utils.check_sign(signature, SECRET_KEY, raw_body):
+        return web.Response(status=403, text="invalid signature")
+
+    data = await request.json()
+    ...
+```
+
+### `generate_link`
+
+طريقة مساعدة لإنشاء رابط وفق النمط `host/store_uuid/client_id?email=...`.
+
+**التوقيع:**
+
+```python
+generate_link(host: str, store_uuid: str, client_id: str, email: str) -> str
+```
+
+---
+
+## مثال دمج الدفع في بوت تيليغرام
+
+فيما يلي مثال مبسّط لدمج الدفع عبر DV.net في بوت تيليغرام باستخدام `python-telegram-bot` (v20+) مع `AsyncMerchantClient` وخادم aiohttp للويبهوكات.
+
+### المهمة
+
+- الأمر `/pay` يعطي المستخدم رابط دفع من DV.net.
+- مسار HTTP منفصل يستقبل ويبهوكات DV.net:
+    - يتحقق من التوقيع؛
+    - يحوّل الويبهوك إلى DTO؛
+    - عند الدفع الناجح يرسل رسالة للمستخدم في تيليغرام.
+
+### التبعيات
+
+```bash
+pip install python-telegram-bot aiohttp dv-net-client
+```
+
+### الإعداد
+
+```python
+# config.py (пример)
+
+TG_TOKEN = "ВАШ_TELEGRAM_TOKEN"
+DV_HOST = "https://cloud.dv.net"
+DV_API_KEY = "ВАШ_X_API_KEY"
+DV_SECRET_KEY = "ВАШ_SECRET_KEY_ИЗ_КАБИНЕТА"  # для проверки подписи вебхуков
+
+WEBHOOK_PORT = 7623
+WEBHOOK_PATH = "/dv/webhook"
+```
+
+### كود البوت + الويبهوك
+
+```python
+import logging
+from aiohttp import web
+from telegram import Update
+from telegram.constants import ParseMode
+from telegram.ext import (
+    Application,
+    CommandHandler,
+    ContextTypes,
+)
+
+from dv_net_client import AsyncMerchantClient
+from dv_net_client.mappers import WebhookMapper
+from dv_net_client.dto.webhook import ConfirmedWebhookResponse
+from dv_net_client.utils import MerchantUtilsManager
+
+from config import (
+    TG_TOKEN, DV_HOST, DV_API_KEY, DV_SECRET_KEY,
+    WEBHOOK_PORT, WEBHOOK_PATH,
+)
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Инициализация SDK
+dv_client = AsyncMerchantClient(host=DV_HOST, x_api_key=DV_API_KEY)
+webhook_mapper = WebhookMapper()
+utils_manager = MerchantUtilsManager()
+
+
+# 1. Команда /pay — создание платёжной ссылки
+async def cmd_pay(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    msg = await update.message.reply_text("Генерирую платёжную ссылку...")
+
+    try:
+        resp = await dv_client.get_external_wallet(
+            store_external_id=str(user_id),
+            amount="5.00",     # сумма платежа
+            currency="USD",    # валюта
+        )
+
+        if resp and resp.pay_url:
+            text = (
+                "<b>Счёт на оплату</b>
+
+"
+                "Сумма: 5.00 USD
+"
+                f"Ссылка на оплату: {resp.pay_url}"
+            )
+            await msg.edit_text(text, parse_mode=ParseMode.HTML)
+        else:
+            await msg.edit_text("Не удалось получить платёжную ссылку.")
+    except Exception as e:
+        logger.exception("DV API error")
+        await msg.edit_text(f"Ошибка DV API: {e}")
+
+
+# 2. HTTP-обработчик вебхуков DV.net
+async def dv_webhook_handler(request: web.Request):
+    # Проверка подписи
+    raw_body = await request.text()
+    signature = request.headers.get("X-Signature", "")
+
+    if not utils_manager.check_sign(signature, DV_SECRET_KEY, raw_body):
+        logger.warning("Invalid DV webhook signature")
+        return web.Response(status=403, text="invalid signature")
+
+    # Разбор JSON
+    try:
+        data = await request.json()
+    except Exception:
+        return web.Response(status=400, text="invalid json")
+
+    # Маппинг вебхука в DTO
+    try:
+        webhook = webhook_mapper.map_webhook(data)
+    except Exception as e:
+        logger.error(f"Webhook mapping failed: {e}")
+        return web.json_response({"success": True})
+
+    # Обработка подтверждённого платежа
+    if isinstance(webhook, ConfirmedWebhookResponse) and webhook.status == "completed":
+        try:
+            user_id = int(webhook.wallet.store_external_id)
+        except ValueError:
+            logger.error("Invalid store_external_id in webhook")
+            return web.json_response({"success": True})
+
+        amount_usd = webhook.transactions.amount_usd
+
+        app: Application = request.app["bot_app"]
+        await app.bot.send_message(
+            chat_id=user_id,
+            text=f"Оплата получена. Начислено: {amount_usd} USD.",
+            parse_mode=ParseMode.HTML,
+        )
+
+    return web.json_response({"success": True})
+
+
+# 3. Настройка запуска Telegram-бота и aiohttp-сервера
+async def on_startup(application: Application):
+    # aiohttp-приложение для приёма вебхуков DV.net
+    web_app = web.Application()
+    web_app["bot_app"] = application
+    web_app.router.add_post(WEBHOOK_PATH, dv_webhook_handler)
+
+    runner = web.AppRunner(web_app)
+    await runner.setup()
+    site = web.TCPSite(runner, "0.0.0.0", WEBHOOK_PORT)
+    await site.start()
+
+    logger.info("DV webhook server started on port %s", WEBHOOK_PORT)
+
+
+def main():
+    app = Application.builder().token(TG_TOKEN).build()
+
+    # Телеграм-хендлеры
+    app.add_handler(CommandHandler("pay", cmd_pay))
+
+    # При инициализации бота поднимаем и HTTP-сервер для вебхуков
+    app.post_init = on_startup
+
+    app.run_polling()
+
+
+if __name__ == "__main__":
+    main()
+```
+
+### مخطط تبادل مختصر
+
+1. يرسل المستخدم الأمر `/pay` في تيليغرام.
+2. يستدعي البوت `AsyncMerchantClient.get_external_wallet(...)` ويرسل للمستخدم `pay_url`.
+3. يُتم المستخدم الدفع عبر الرابط.
+4. يرسل DV.net ويبهوك إلى `http://<your-server>:7623/dv/webhook`:
+    - يتم التحقق من التوقيع عبر `MerchantUtilsManager.check_sign`;
+    - يُحوَّل JSON عبر `WebhookMapper.map_webhook`;
+    - عند `ConfirmedWebhookResponse` بالحالة `"completed"` يحصل البوت على `store_external_id` والمبلغ، ينفّذ منطق العمل (مثلاً زيادة الرصيد في قاعدة البيانات) ويرسل رسالة للمستخدم.
+
+---
