@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.0.19] - 2025-11-26
+
+- Update python docs and add telegramm example
+- Add extended route docs
 - Link to the simple payment form demo
 
 ## [0.0.18] - 2025-11-18

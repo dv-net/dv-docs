@@ -96,6 +96,8 @@
     "Initialize withdrawal from processing": "처리에서 출금 초기화",
     "Get withdrawal from processing": "처리에서 출금 정보 가져오기",
     "Delete withdrawal from processing": "처리에서 출금 삭제",
-    "Get unconfirmed transfer transactions": "확인되지 않은 전송 거래 받기"
+    "Get unconfirmed transfer transactions": "확인되지 않은 전송 거래 받기",
+    "Get extended list of store currencies": "매장 통화 확장 목록 가져오기",
+    "Get extended list of store currencies grouped by tokens and blockchains": "토큰 및 블록체인별로 그룹화된 매장 통화의 확장 목록을 가져옵니다."
   }
 }

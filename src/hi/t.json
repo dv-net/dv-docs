@@ -96,6 +96,8 @@
     "Initialize withdrawal from processing": "प्रोसेसिंग से निकासी आरंभ करें",
     "Get withdrawal from processing": "प्रोसेसिंग से निकासी प्राप्त करें",
     "Delete withdrawal from processing": "प्रोसेसिंग से निकासी हटाएं",
-    "Get unconfirmed transfer transactions": "अपुष्ट हस्तांतरण लेनदेन प्राप्त करें"
+    "Get unconfirmed transfer transactions": "अपुष्ट हस्तांतरण लेनदेन प्राप्त करें",
+    "Get extended list of store currencies": "स्टोर मुद्राओं की विस्तृत सूची प्राप्त करें",
+    "Get extended list of store currencies grouped by tokens and blockchains": "टोकन और ब्लॉकचेन द्वारा समूहीकृत स्टोर मुद्राओं की विस्तृत सूची प्राप्त करें"
   }
 }

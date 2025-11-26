@@ -220,6 +220,62 @@
                 ]
             }
         },
+        "/v1/external/store/currencies-extended": {
+            "get": {
+                "tags": [
+                    "Store"
+                ],
+                "summary": "매장 통화 확장 목록 가져오기",
+                "description": "토큰 및 블록체인별로 그룹화된 매장 통화의 확장 목록을 가져옵니다.",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Store API key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-CurrenciesExtendedResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ]
+            }
+        },
         "/v1/external/store/currencies/{id}/rate": {
             "get": {
                 "tags": [
@@ -271,6 +327,62 @@
                         "description": "Internal Server Error",
                         "content": {
                             "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ]
+            }
+        },
+        "/v1/external/transactions/unconfirmed/transfer": {
+            "get": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "확인되지 않은 전송 거래 받기",
+                "description": "확인되지 않은 전송 거래 받기",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Store API key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-UnconfirmedTransactionResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/APIErrors"
                                 }
@@ -823,52 +935,6 @@
                     }
                 ]
             }
-        },
-        "/v1/external/transactions/unconfirmed/transfer": {
-            "get": {
-                "security": [
-                    {
-                        "XApiKey": []
-                    }
-                ],
-                "tags": [
-                    "Store"
-                ],
-                "description": "확인되지 않은 전송 거래 받기",
-                "summary": "확인되지 않은 전송 거래 받기",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/JSONResponse-UnconfirmedTransactionResponse"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/APIError"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/APIError"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     },
     "components": {
@@ -959,6 +1025,29 @@
                     },
                     "tron_data": {
                         "$ref": "#/components/schemas/TronData"
+                    }
+                }
+            },
+            "BlockchainGroup": {
+                "type": "object",
+                "properties": {
+                    "currencies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "icon": {
+                        "$ref": "#/components/schemas/CurrencyIcon"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "tokens": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             },
@@ -1058,6 +1147,29 @@
                     }
                 }
             },
+            "CurrenciesExtendedResponse": {
+                "type": "object",
+                "properties": {
+                    "blockchains": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BlockchainGroup"
+                        }
+                    },
+                    "currencies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CurrencyExtendedItem"
+                        }
+                    },
+                    "tokens": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TokenGroup"
+                        }
+                    }
+                }
+            },
             "CurrencyDTO": {
                 "type": "object",
                 "properties": {
@@ -1075,6 +1187,44 @@
                     },
                     "sort_order": {
                         "type": "integer"
+                    }
+                }
+            },
+            "CurrencyExtendedItem": {
+                "type": "object",
+                "properties": {
+                    "blockchain": {
+                        "type": "string"
+                    },
+                    "blockchain_icon": {
+                        "$ref": "#/components/schemas/CurrencyIcon"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "contract_address": {
+                        "type": "string"
+                    },
+                    "explorer_link": {
+                        "type": "string"
+                    },
+                    "has_balance": {
+                        "type": "boolean"
+                    },
+                    "icon": {
+                        "$ref": "#/components/schemas/CurrencyIcon"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "min_confirmation": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "token_icon": {
+                        "$ref": "#/components/schemas/CurrencyIcon"
                     }
                 }
             },
@@ -1122,6 +1272,9 @@
                         "type": "boolean"
                     },
                     "is_evm_like": {
+                        "type": "boolean"
+                    },
+                    "is_stable_coin": {
                         "type": "boolean"
                     },
                     "name": {
@@ -1221,6 +1374,20 @@
                     }
                 }
             },
+            "JSONResponse-CurrenciesExtendedResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/CurrenciesExtendedResponse"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
             "JSONResponse-CurrencyRate": {
                 "type": "object",
                 "properties": {
@@ -1280,6 +1447,20 @@
                     }
                 }
             },
+            "JSONResponse-UnconfirmedTransactionResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/UnconfirmedTransactionResponse"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
             "JSONResponse-WithdrawalFromProcessingDto": {
                 "type": "object",
                 "properties": {
@@ -1322,20 +1503,6 @@
                         "items": {
                             "$ref": "#/components/schemas/SummaryDTO"
                         }
-                    },
-                    "message": {
-                        "type": "string"
-                    }
-                }
-            },
-            "JSONResponse-UnconfirmedTransactionResponse": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "integer"
-                    },
-                    "data": {
-                        "$ref": "#/components/schemas/UnconfirmedTransactionResponse"
                     },
                     "message": {
                         "type": "string"
@@ -1452,6 +1619,29 @@
                     }
                 }
             },
+            "TokenGroup": {
+                "type": "object",
+                "properties": {
+                    "blockchains": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "currencies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "icon": {
+                        "$ref": "#/components/schemas/CurrencyIcon"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
             "TransferKind": {
                 "type": "string",
                 "enum": [
@@ -1551,44 +1741,6 @@
                     }
                 }
             },
-            "WalletAddressResponse": {
-                "type": "object",
-                "properties": {
-                    "address": {
-                        "type": "string"
-                    },
-                    "blockchain": {
-                        "type": "string"
-                    },
-                    "created_at": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "currency_id": {
-                        "type": "string"
-                    },
-                    "deleted_at": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "dirty": {
-                        "type": "boolean"
-                    },
-                    "id": {
-                        "type": "string"
-                    },
-                    "updated_at": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "user_id": {
-                        "type": "string"
-                    },
-                    "wallet_id": {
-                        "type": "string"
-                    }
-                }
-            },
             "UnconfirmedTransactionResponse": {
                 "type": "object",
                 "properties": {
@@ -1634,6 +1786,44 @@
                     "updated_at": {
                         "type": "string",
                         "format": "date-time"
+                    }
+                }
+            },
+            "WalletAddressResponse": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "type": "string"
+                    },
+                    "blockchain": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "currency_id": {
+                        "type": "string"
+                    },
+                    "deleted_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "dirty": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "user_id": {
+                        "type": "string"
+                    },
+                    "wallet_id": {
+                        "type": "string"
                     }
                 }
             },

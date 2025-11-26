@@ -96,6 +96,8 @@
     "Initialize withdrawal from processing": "Создать вывод средств с процессингового кошелька",
     "Get withdrawal from processing": "Получить информацию о выводе с процессингового кошелька",
     "Delete withdrawal from processing": "Удалить вывод с процессингового кошелька",
-    "Get unconfirmed transfer transactions": "Получить неподтверждённые транзакции для трансфера"
+    "Get unconfirmed transfer transactions": "Получить неподтверждённые транзакции для трансфера",
+    "Get extended list of store currencies": "Получить расширенный список валют магазина",
+    "Get extended list of store currencies grouped by tokens and blockchains": "Получить расширенный список валют магазина, группированный по токенам и по блокчейнам"
   }
 }
