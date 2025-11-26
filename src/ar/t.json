@@ -96,6 +96,8 @@
     "Initialize withdrawal from processing": "إنشاء سحب للأموال من محفظة المعالجة",
     "Get withdrawal from processing": "الحصول على معلومات حول السحب من محفظة المعالجة",
     "Delete withdrawal from processing": "حذف السحب من المعالجة",
-    "Get unconfirmed transfer transactions": "احصل على معاملات تحويل غير مؤكدة"
+    "Get unconfirmed transfer transactions": "احصل على معاملات تحويل غير مؤكدة",
+    "Get extended list of store currencies": "احصل على قائمة موسعة بعملات المتجر",
+    "Get extended list of store currencies grouped by tokens and blockchains": "احصل على قائمة موسعة بعملات المتجر مجمعة حسب الرموز المميزة وسلاسل الكتل"
   }
 }

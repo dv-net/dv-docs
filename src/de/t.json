@@ -96,6 +96,8 @@
     "Initialize withdrawal from processing": "Auszahlung von der Verarbeitung initiieren",
     "Get withdrawal from processing": "Auszahlungsinformationen von der Verarbeitung abrufen",
     "Delete withdrawal from processing": "Abhebung aus der Verarbeitung löschen",
-    "Get unconfirmed transfer transactions": "Erhalten Sie unbestätigte Überweisungstransaktionen"
+    "Get unconfirmed transfer transactions": "Erhalten Sie unbestätigte Überweisungstransaktionen",
+    "Get extended list of store currencies": "Erhalten Sie eine erweiterte Liste der Shop-Währungen",
+    "Get extended list of store currencies grouped by tokens and blockchains": "Erhalten Sie eine erweiterte Liste der Geschäftswährungen, gruppiert nach Token und Blockchains"
   }
 }

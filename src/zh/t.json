@@ -96,6 +96,8 @@
     "Initialize withdrawal from processing": "初始化处理提款",
     "Get withdrawal from processing": "获取处理提款",
     "Delete withdrawal from processing": "从处理中删除提现",
-    "Get unconfirmed transfer transactions": "获取未确认的转账交易"
+    "Get unconfirmed transfer transactions": "获取未确认的转账交易",
+    "Get extended list of store currencies": "获取商店货币的扩展列表",
+    "Get extended list of store currencies grouped by tokens and blockchains": "获取按代币和区块链分组的商店货币的扩展列表"
   }
 }

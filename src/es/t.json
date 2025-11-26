@@ -96,6 +96,8 @@
     "Initialize withdrawal from processing": "Inicializar retiro del procesamiento",
     "Get withdrawal from processing": "Obtener retiro del procesamiento",
     "Delete withdrawal from processing": "Eliminar retiro del procesamiento",
-    "Get unconfirmed transfer transactions": "Obtenga transacciones de transferencia sin confirmar"
+    "Get unconfirmed transfer transactions": "Obtenga transacciones de transferencia sin confirmar",
+    "Get extended list of store currencies": "Obtenga una lista ampliada de monedas de la tienda",
+    "Get extended list of store currencies grouped by tokens and blockchains": "Obtenga una lista ampliada de monedas de la tienda agrupadas por tokens y blockchains"
   }
 }

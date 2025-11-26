@@ -95,6 +95,8 @@
         "Initialize withdrawal from processing": "Initialize withdrawal from processing",
         "Get withdrawal from processing": "Get withdrawal from processing",
         "Delete withdrawal from processing": "Delete withdrawal from processing",
-        "Get unconfirmed transfer transactions": "Get unconfirmed transfer transactions"
+        "Get unconfirmed transfer transactions": "Get unconfirmed transfer transactions",
+        "Get extended list of store currencies": "Get extended list of store currencies",
+        "Get extended list of store currencies grouped by tokens and blockchains": "Get extended list of store currencies grouped by tokens and blockchains"
     }
 }
