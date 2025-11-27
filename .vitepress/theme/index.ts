@@ -29,11 +29,11 @@ export default {
         messages: translationMapper,
       },
       jsonViewer: {
-        deep: 1,
+          deep: Infinity,
       },
       schemaViewer: {
-        deep: 1,
-      },
+          deep: Infinity
+      }
     })
 
     app.component('LocaleSelect', LocaleSelect)
