@@ -19,7 +19,7 @@ export default defineConfig({
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },],
     ['link', { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap', rel: 'stylesheet' }],
     // logo and favicon
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    // ['link', { rel: 'icon', href: '/favicon.ico' }],
     // Google Analytics
     ...(gTagIdAnalytics
         ? [[

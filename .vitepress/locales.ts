@@ -116,7 +116,7 @@ Object.keys(translationMapper).forEach(slug => {
         quote: tHandler(slug, "But if you don't change your direction, and if you keep looking, you may end up where you are heading."),
         linkText: tHandler(slug, 'Go home')
       },
-      logo: '/favicon.ico',
+      // logo: '/favicon.ico',
       sidebar: sidebarItems,
       nav: [{ component: 'LocaleSelect' }, { text: 'dv.net', link: 'https://dv.net' }],
       socialLinks: [{ icon: 'github', link: 'https://github.com/dv-net' }]
