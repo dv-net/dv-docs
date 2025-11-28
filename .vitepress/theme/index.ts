@@ -1,6 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import type {Theme} from 'vitepress'
-import {theme, useTheme} from '@dv.net/docs-vitepress-openapi/client'
+import {theme, useTheme, usePlayground} from '@dv.net/docs-vitepress-openapi/client'
 import regions from '../../scripts/regions.json'
 import LocaleSelect from './components/LocaleSelect.vue'
 import {translationMapper} from "../mappers";
@@ -23,6 +23,10 @@ export default {
     }
   },
   enhanceApp({ app }) {
+    const playground = usePlayground()
+      playground.setSecuritySchemeDefaultValues({
+          apiKey: 'm8GOjP8qXsGgBZvmJb0jjFt6EZ3yz3lhPdbMhDicYAVdUfzYBIdEl6eEcGAivjrP',
+    })
     useTheme({
       i18n: {
         regions: regions,
