@@ -11,6 +11,10 @@
   },
   "servers": [
     {
+      "url": "https://demo.dv.net/api",
+      "description": "Demo API"
+    },
+    {
       "url": "/api"
     }
   ],
