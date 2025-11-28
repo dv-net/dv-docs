@@ -294,7 +294,9 @@
                         "description": "Currency ID",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "BTC.Bitcoin",
+                            "x-playground-example": "BTC.Bitcoin"
                         }
                     },
                     {
