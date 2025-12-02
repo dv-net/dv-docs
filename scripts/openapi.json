@@ -26,16 +26,7 @@
         ],
         "summary": "Get external exchange balances",
         "description": "Get external exchange balances",
-        "parameters": [
-          {
-            "name": "api_key",
-            "in": "query",
-            "description": "Store API key",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -83,14 +74,6 @@
         "summary": "Get external processing wallet balances",
         "description": "Get external processing wallet balances",
         "parameters": [
-          {
-            "name": "api_key",
-            "in": "query",
-            "description": "Store API key",
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "blockchains",
             "in": "query",
@@ -175,16 +158,7 @@
         ],
         "summary": "Get store currencies list",
         "description": "Get store currencies list",
-        "parameters": [
-          {
-            "name": "api_key",
-            "in": "query",
-            "description": "Store API key",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -231,16 +205,7 @@
         ],
         "summary": "Get extended list of store currencies",
         "description": "Get extended list of store currencies grouped by tokens and blockchains",
-        "parameters": [
-          {
-            "name": "api_key",
-            "in": "query",
-            "description": "Store API key",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -298,14 +263,6 @@
               "example": "BTC.Bitcoin",
               "x-playground-example": "BTC.Bitcoin"
             }
-          },
-          {
-            "name": "api_key",
-            "in": "query",
-            "description": "Store API key",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -354,16 +311,7 @@
         ],
         "summary": "Get unconfirmed transfer transactions",
         "description": "Get unconfirmed transfer transactions",
-        "parameters": [
-          {
-            "name": "api_key",
-            "in": "query",
-            "description": "Store API key",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -411,14 +359,6 @@
         "summary": "Create wallet with address",
         "description": "Create wallet with address",
         "parameters": [
-          {
-            "name": "api_key",
-            "in": "query",
-            "description": "Store API key",
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "amount",
             "in": "query",
@@ -510,16 +450,7 @@
         ],
         "summary": "Create wallet with address",
         "description": "Create wallet with address",
-        "parameters": [
-          {
-            "name": "api_key",
-            "in": "query",
-            "description": "Store API key",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "description": "Create wallet",
           "content": {
@@ -580,14 +511,6 @@
         "description": "Get external hot wallet balances",
         "parameters": [
           {
-            "name": "api_key",
-            "in": "query",
-            "description": "Store API key",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "min_balance",
             "in": "query",
             "schema": {
@@ -641,17 +564,7 @@
         ],
         "summary": "Initialize withdrawal from processing",
         "description": "Initialize withdrawal from processing",
-        "parameters": [
-          {
-            "name": "api_key",
-            "in": "query",
-            "description": "Store API key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "description": "Init withdrawal",
           "content": {
@@ -751,15 +664,6 @@
         "summary": "Get withdrawal from processing",
         "description": "Get withdrawal from processing",
         "parameters": [
-          {
-            "name": "api_key",
-            "in": "query",
-            "description": "Store API key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "id",
             "in": "path",
@@ -865,14 +769,6 @@
         "summary": "Delete withdrawal from processing",
         "description": "Delete withdrawal from processing",
         "parameters": [
-          {
-            "name": "api_key",
-            "in": "query",
-            "description": "Store API key",
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "id",
             "in": "path",
@@ -1897,14 +1793,8 @@
       }
     },
     "securitySchemes": {
-      "BearerAuth": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
       "XApiKey": {
         "type": "apiKey",
-        "description": "Store API key",
         "name": "X-Api-Key",
         "in": "header"
       }

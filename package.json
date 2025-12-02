@@ -14,7 +14,8 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "docs:genTranslation": "node scripts/generateTranslation.mjs",
-    "docs:genDoc": "node scripts/generateDocs.mjs"
+    "docs:genDoc": "node scripts/generateDocs.mjs",
+    "docs:removeApiKey": "node scripts/removeApiKeyParams.mjs"
   },
   "dependencies": {
     "@dv.net/docs-vitepress-openapi": "1.0.8",
