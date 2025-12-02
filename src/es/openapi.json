@@ -26,16 +26,7 @@
                 ],
                 "summary": "Obtener saldos de cambio externos",
                 "description": "Obtener saldos de cambio externos",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -83,14 +74,6 @@
                 "summary": "Obtener saldos de billetera de procesamiento externo",
                 "description": "Obtener saldos de billetera de procesamiento externo",
                 "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "blockchains",
                         "in": "query",
@@ -175,16 +158,7 @@
                 ],
                 "summary": "Obtener lista de monedas de la tienda",
                 "description": "Obtener lista de monedas de la tienda",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -231,16 +205,7 @@
                 ],
                 "summary": "Obtenga una lista ampliada de monedas de la tienda",
                 "description": "Obtenga una lista ampliada de monedas de la tienda agrupadas por tokens y blockchains",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -298,14 +263,6 @@
                             "example": "BTC.Bitcoin",
                             "x-playground-example": "BTC.Bitcoin"
                         }
-                    },
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -354,16 +311,7 @@
                 ],
                 "summary": "Obtenga transacciones de transferencia sin confirmar",
                 "description": "Obtenga transacciones de transferencia sin confirmar",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -411,14 +359,6 @@
                 "summary": "Crear billetera con dirección",
                 "description": "Crear billetera con dirección",
                 "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "amount",
                         "in": "query",
@@ -510,16 +450,7 @@
                 ],
                 "summary": "Crear billetera con dirección",
                 "description": "Crear billetera con dirección",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "requestBody": {
                     "description": "Create wallet",
                     "content": {
@@ -580,14 +511,6 @@
                 "description": "Obtener saldos de billeteras calientes externas",
                 "parameters": [
                     {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "min_balance",
                         "in": "query",
                         "schema": {
@@ -641,17 +564,7 @@
                 ],
                 "summary": "Inicializar retiro del procesamiento",
                 "description": "Inicializar retiro del procesamiento",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "requestBody": {
                     "description": "Init withdrawal",
                     "content": {
@@ -751,15 +664,6 @@
                 "summary": "Obtener retiro del procesamiento",
                 "description": "Obtener retiro del procesamiento",
                 "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -865,14 +769,6 @@
                 "summary": "Eliminar retiro del procesamiento",
                 "description": "Eliminar retiro del procesamiento",
                 "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -1897,14 +1793,8 @@
             }
         },
         "securitySchemes": {
-            "BearerAuth": {
-                "type": "apiKey",
-                "name": "Authorization",
-                "in": "header"
-            },
             "XApiKey": {
                 "type": "apiKey",
-                "description": "Store API key",
                 "name": "X-Api-Key",
                 "in": "header"
             }

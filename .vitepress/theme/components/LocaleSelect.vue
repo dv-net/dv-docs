@@ -33,9 +33,12 @@ const handleClickOutside = (event: MouseEvent) => {
 
 watch(() => route.path, () => {
   if (route.path === '/') {
-    selectLocale(regions[0])
+    currentLocale.value = regions[0]
+    themeConfig.setI18nConfig({locale: regions[0].slug})
   } else if (route.path.slice(1, 3)) {
-    selectLocale(regions.find(region => region.slug === route.path.slice(1, 3)) || regions[0])
+    const region = regions.find(region => region.slug === route.path.slice(1, 3)) || regions[0]
+    currentLocale.value = region
+    themeConfig.setI18nConfig({locale: region.slug})
   }
 }, {immediate: true})
 

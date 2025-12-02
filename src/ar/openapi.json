@@ -26,16 +26,7 @@
                 ],
                 "summary": "الحصول على أرصدة الصرف الخارجية",
                 "description": "الحصول على أرصدة الصرف الخارجية",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -83,14 +74,6 @@
                 "summary": "الحصول على رصيد محفظة المعالجة الخارجية",
                 "description": "الحصول على رصيد محفظة المعالجة الخارجية",
                 "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "blockchains",
                         "in": "query",
@@ -175,16 +158,7 @@
                 ],
                 "summary": "الحصول على قائمة عملات المتجر",
                 "description": "الحصول على قائمة عملات المتجر",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -231,16 +205,7 @@
                 ],
                 "summary": "احصل على قائمة موسعة بعملات المتجر",
                 "description": "احصل على قائمة موسعة بعملات المتجر مجمعة حسب الرموز المميزة وسلاسل الكتل",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -298,14 +263,6 @@
                             "example": "BTC.Bitcoin",
                             "x-playground-example": "BTC.Bitcoin"
                         }
-                    },
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -354,16 +311,7 @@
                 ],
                 "summary": "احصل على معاملات تحويل غير مؤكدة",
                 "description": "احصل على معاملات تحويل غير مؤكدة",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -411,14 +359,6 @@
                 "summary": "إنشاء محافظ للدفع للمدفوع",
                 "description": "إنشاء محافظ للدفع للمدفوع",
                 "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "amount",
                         "in": "query",
@@ -510,16 +450,7 @@
                 ],
                 "summary": "إنشاء محافظ للدفع للمدفوع",
                 "description": "إنشاء محافظ للدفع للمدفوع",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "requestBody": {
                     "description": "Create wallet",
                     "content": {
@@ -580,14 +511,6 @@
                 "description": "الحصول على أرصدة المحافظ الساخنة الخارجية",
                 "parameters": [
                     {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "min_balance",
                         "in": "query",
                         "schema": {
@@ -641,17 +564,7 @@
                 ],
                 "summary": "إنشاء سحب للأموال من محفظة المعالجة",
                 "description": "إنشاء سحب للأموال من محفظة المعالجة",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "requestBody": {
                     "description": "Init withdrawal",
                     "content": {
@@ -751,15 +664,6 @@
                 "summary": "الحصول على معلومات حول السحب من محفظة المعالجة",
                 "description": "الحصول على معلومات حول السحب من محفظة المعالجة",
                 "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -865,14 +769,6 @@
                 "summary": "حذف السحب من المعالجة",
                 "description": "حذف السحب من المعالجة",
                 "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -1897,14 +1793,8 @@
             }
         },
         "securitySchemes": {
-            "BearerAuth": {
-                "type": "apiKey",
-                "name": "Authorization",
-                "in": "header"
-            },
             "XApiKey": {
                 "type": "apiKey",
-                "description": "Store API key",
                 "name": "X-Api-Key",
                 "in": "header"
             }

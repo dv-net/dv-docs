@@ -26,16 +26,7 @@
                 ],
                 "summary": "Externe Börsensalden abrufen",
                 "description": "Externe Börsensalden abrufen",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -83,14 +74,6 @@
                 "summary": "Externe Verarbeitungsguthaben abrufen",
                 "description": "Externe Verarbeitungsguthaben abrufen",
                 "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "blockchains",
                         "in": "query",
@@ -175,16 +158,7 @@
                 ],
                 "summary": "Liste der Shop-Währungen abrufen",
                 "description": "Liste der Shop-Währungen abrufen",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -231,16 +205,7 @@
                 ],
                 "summary": "Erhalten Sie eine erweiterte Liste der Shop-Währungen",
                 "description": "Erhalten Sie eine erweiterte Liste der Geschäftswährungen, gruppiert nach Token und Blockchains",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -298,14 +263,6 @@
                             "example": "BTC.Bitcoin",
                             "x-playground-example": "BTC.Bitcoin"
                         }
-                    },
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -354,16 +311,7 @@
                 ],
                 "summary": "Erhalten Sie unbestätigte Überweisungstransaktionen",
                 "description": "Erhalten Sie unbestätigte Überweisungstransaktionen",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -411,14 +359,6 @@
                 "summary": "Zahlungs-Wallets für den Zahler erstellen",
                 "description": "Zahlungs-Wallets für den Zahler erstellen",
                 "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "amount",
                         "in": "query",
@@ -510,16 +450,7 @@
                 ],
                 "summary": "Zahlungs-Wallets für den Zahler erstellen",
                 "description": "Zahlungs-Wallets für den Zahler erstellen",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "requestBody": {
                     "description": "Create wallet",
                     "content": {
@@ -580,14 +511,6 @@
                 "description": "Externe Hot-Wallet-Salden abrufen",
                 "parameters": [
                     {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "min_balance",
                         "in": "query",
                         "schema": {
@@ -641,17 +564,7 @@
                 ],
                 "summary": "Auszahlung von der Verarbeitung initiieren",
                 "description": "Auszahlung von der Verarbeitung initiieren",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "requestBody": {
                     "description": "Init withdrawal",
                     "content": {
@@ -751,15 +664,6 @@
                 "summary": "Auszahlungsinformationen von der Verarbeitung abrufen",
                 "description": "Auszahlungsinformationen von der Verarbeitung abrufen",
                 "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -865,14 +769,6 @@
                 "summary": "Abhebung aus der Verarbeitung löschen",
                 "description": "Abhebung aus der Verarbeitung löschen",
                 "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "query",
-                        "description": "Store API key",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -1897,14 +1793,8 @@
             }
         },
         "securitySchemes": {
-            "BearerAuth": {
-                "type": "apiKey",
-                "name": "Authorization",
-                "in": "header"
-            },
             "XApiKey": {
                 "type": "apiKey",
-                "description": "Store API key",
                 "name": "X-Api-Key",
                 "in": "header"
             }
