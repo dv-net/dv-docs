@@ -5,11 +5,13 @@ import regions from '../../scripts/regions.json'
 import LocaleSelect from './components/LocaleSelect.vue'
 import {translationMapper} from "../mappers";
 import '@dv.net/docs-vitepress-openapi/dist/style.css'
+import Layout from './Layout.vue'
 import {onMounted} from 'vue'
 
 export default {
   extends: {
     ...DefaultTheme,
+    Layout,
     setup() {
       onMounted(() => {
         const hash = decodeURIComponent(location.hash)

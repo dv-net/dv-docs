@@ -17,5 +17,4 @@ dist-ssr
 .env
 .vitepress/cache
 .vitepress/.temp
-
-.npmrc
+yarn.lock
