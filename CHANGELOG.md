@@ -2,15 +2,17 @@
 
 ## [Unreleased]
 
+- fix: gtag connection has been changed [DV-3975]
+
 ## [0.0.19] - 2025-11-26
 
-- Update python docs and add telegramm example
-- Add extended route docs
-- Link to the simple payment form demo
+- update: update python docs and add telegram example
+- feat: add extended route docs
+- feat: link to the simple payment form demo
 
 ## [0.0.18] - 2025-11-18
 
-- Updated documentation: added translations for architecture note and system requirements.
+- update: added translations for architecture note and system requirements
 
 ## [0.0.17] - 2025-11-17
 
@@ -18,110 +20,110 @@
 
 ## [0.0.16] - 2025-11-17
 
-- Added zoom when clicking on an image in docs DV-3752
-- Remove unnecessary page about integration
+- feat: added zoom when clicking on an image in docs [DV-3752]
+- remove: remove unnecessary page about integration
 
 ## [0.0.15] - 2025-11-11
 
-- Documentation about unconfirmed transactions
-- Minor fixes
+- docs: documentation about unconfirmed transactions
+- fix: minor fixes
 
 ## [0.0.14] - 2025-11-06
 
-- add sd js-sdk and php sdk
-- Improved documentation: fixed typos, text wrapping, and formatting
+- feat: add SDK js-sdk and php sdk
+- fix: improved documentation - fixed typos, text wrapping, and formatting
 
 ## [0.0.13] - 2025-10-13
 
-- Add docker setup instructions 
+- docs: add docker setup instructions
 
 ## [0.0.12] - 2025-10-10
 
-- Minor fixes
+- fix: minor fixes
 
 ## [0.0.11] - 2025-10-10
 
-- Added cloud and on-premises info
+- feat: added cloud and on-premises info
 
 ## [0.0.10] - 2025-10-08
 
-- Added integration examples [DV-3369]
+- feat: added integration examples [DV-3369]
 
 ## [0.0.9] - 2025-09-30
 
-- Added secure nginx configuration [DV-3408]
-- Added api.dv.net logging [DV-3372]
+- feat: added secure nginx configuration [DV-3408]
+- feat: added api.dv.net logging [DV-3372]
 
 ## [0.0.8] - 2025-09-16
 
-- Added security section [DV-3288]
-- Updated documentation [DV-2787]
-- Added Russian translation for "Delete withdrawal from processing" [DV-2816]
-- Added screenshots to "Creating deposit wallets" guide [DV-2673]
-- Added new screenshots for Binance integration [DV-2690]
-- Updated translation and documentation generation, fixed ID bug [DV-2579]
-- Added select component for array type in POST requests [DV-2585]
-- Added new screenshots for Bybit integration [DV-2694]
-- Added new exchanges integration page [DV-3067]
-- Updated documentation [DV-3062]
-- Updated system requirements [DV-2252]
+- feat: added security section [DV-3288]
+- update: updated documentation [DV-2787]
+- feat: added Russian translation for "Delete withdrawal from processing" [DV-2816]
+- feat: added screenshots to "Creating deposit wallets" guide [DV-2673]
+- feat: added new screenshots for Binance integration [DV-2690]
+- fix: updated translation and documentation generation, fixed ID bug [DV-2579]
+- feat: added select component for array type in POST requests [DV-2585]
+- feat: added new screenshots for Bybit integration [DV-2694]
+- feat: added new exchanges integration page [DV-3067]
+- update: updated documentation [DV-3062]
+- update: updated system requirements [DV-2252]
 
 ## [0.0.7] - 2025-07-10
 
-- Fixed images [DV-2137]
-- Fixed Russian text and updated title anchors for exchanges connection page [DV-2129]
-- Updated API documentation [DV-2266]
-- Added custom Google Analytics tag [DV-2255]
-- Added scroll functionality for exchange anchors [DV-2194]
-- Updated integration instructions [DV-2267]
-- Added descriptions for webhook parameters [DV-2439]
-- Fixed text in payment form without API guide [DV-2242]
-- Added new exchange integration guides: Bybit, Gate.io, MEXC [DV-2344]
-- Fixed documentation text [DV-2521]
-- Fixed exchange integration text [DV-2689]
-- Fixed webhooks documentation text [DV-2675]
-- Fixed Gate.io link [DV-2728]
-- Updated MEXC guide, added KuCoin tutorial [DV-2731]
+- fix: fixed images [DV-2137]
+- fix: fixed Russian text and updated title anchors for exchanges connection page [DV-2129]
+- update: updated API documentation [DV-2266]
+- feat: added custom Google Analytics tag [DV-2255]
+- feat: added scroll functionality for exchange anchors [DV-2194]
+- update: updated integration instructions [DV-2267]
+- feat: added descriptions for webhook parameters [DV-2439]
+- fix: fixed text in payment form without API guide [DV-2242]
+- feat: added new exchange integration guides: Bybit, Gate.io, MEXC [DV-2344]
+- fix: fixed documentation text [DV-2521]
+- fix: fixed exchange integration text [DV-2689]
+- fix: fixed webhooks documentation text [DV-2675]
+- fix: fixed Gate.io link [DV-2728]
+- update: updated MEXC guide, added KuCoin tutorial [DV-2731]
 
 ## [0.0.6] - 2025-05-26
 
-- Added new documentation section [DV-1458]
-- Migrated to remote vpoa library, updated language selector [DV-1980]
-- Added German and Estonian language support [DV-1870]
-- Added system translation integration in library [DV-2000]
-- Added new documentation topic [DV-2007]
-- Added topic-based translations to documentation [DV-2014]
-- Updated language selector [DV-2038]
-- Fixed Binance PNG images [DV-2054]
-- Added new documentation topic [DV-2081]
-- Improved JSON formatting [DV-2064]
-- Replaced "dvpay" with "dv-net" in all links [DV-2097]
+- feat: added new documentation section [DV-1458]
+- refactor: migrated to remote vpoa library, updated language selector [DV-1980]
+- feat: added German and Estonian language support [DV-1870]
+- feat: added system translation integration in library [DV-2000]
+- feat: added new documentation topic [DV-2007]
+- feat: added topic-based translations to documentation [DV-2014]
+- update: updated language selector [DV-2038]
+- fix: fixed Binance PNG images [DV-2054]
+- feat: added new documentation topic [DV-2081]
+- fix: improved JSON formatting [DV-2064]
+- refactor: replaced "dvpay" with "dv-net" in all links [DV-2097]
 
 ## [0.0.4] - 2025-04-25
 
-- Added English translations [DV-1866]
-- Fixed Russian text [DV-1871]
-- Generated new documentation, fixed script paths, updated Russian translations [DV-1889]
+- feat: added English translations [DV-1866]
+- fix: fixed Russian text [DV-1871]
+- fix: generated new documentation, fixed script paths, updated Russian translations [DV-1889]
 
 ## [0.0.3] - 2025-04-22
 
-- Fixed startup redirect, refactored code [DV-1474]
-- Added Google Analytics integration [DV-1522]
-- Added logo, favicon, and English installation instructions [DV-1641]
-- Updated project structure, refactored code, added README [DV-1526]
+- fix: fixed startup redirect, refactored code [DV-1474]
+- feat: added Google Analytics integration [DV-1522]
+- feat: added logo, favicon, and English installation instructions [DV-1641]
+- refactor: updated project structure, refactored code, added README [DV-1526]
 
 ## [0.0.2] - 2025-03-20
 
-- Added new documentation
-- Added translations for prev/next navigation buttons [DV-1260]
-- Fixed navbar styles [DV-1261]
+- feat: added new documentation
+- feat: added translations for prev/next navigation buttons [DV-1260]
+- fix: fixed navbar styles [DV-1261]
 
 ## [0.0.1] - 2025-02-28
 
-- Added menu items translation [DV-1256]
-- Added documentation articles [DV-1188]
-- Added CI/CD pipeline [DV-1122]
-- Added server directive configuration [DV-1049]
-- Synchronized regions and locales [DV-1048]
-- Moved vitepress-openapi to local repository [DV-1047]
-- Initial project setup [DV-972]
+- feat: added menu items translation [DV-1256]
+- feat: added documentation articles [DV-1188]
+- feat: added CI/CD pipeline [DV-1122]
+- feat: added server directive configuration [DV-1049]
+- fix: synchronized regions and locales [DV-1048]
+- refactor: moved vitepress-openapi to local repository [DV-1047]
+- feat: initial project setup [DV-972]
