@@ -2,6 +2,16 @@ MIT License
 
 Copyright (c) 2025 DV Docs
 
+---
+
+This project is a derivative work based on vitepress-openapi.
+
+Original work:
+Copyright (c) Enzo Notario and contributors
+Original repository: https://github.com/enzonotario/vitepress-openapi
+
+---
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -19,3 +29,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+## Modifications
+
+This derivative work includes the following modifications and additions:
+- Multilingual documentation support (English, Russian, German, Spanish, Chinese, Korean, Hindi, Arabic)
+- Enhanced documentation generation scripts
+- Custom integrations and features specific to DV Docs
+- Additional UI components and styling
+- Extended language selector and translation system
