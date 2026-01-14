@@ -12,6 +12,19 @@ Automatic generation of multilingual documentation from an OpenAPI specification
 
 ---
 
+## 📖 Attribution
+
+This project is a fork and derivative of [vitepress-openapi](https://github.com/enzonotario/vitepress-openapi) by [Enzo Notario](https://github.com/enzonotario). 
+
+We extend our gratitude to the original author and contributors for their excellent work. This project builds upon their foundation with additional features including multilingual support, enhanced documentation generation, and custom integrations.
+
+**Original Project:** [vitepress-openapi](https://github.com/enzonotario/vitepress-openapi)  
+**Original Author:** [Enzo Notario](https://github.com/enzonotario)
+
+> **Note on Package Naming:** This project uses the package `@dv.net/docs-vitepress-openapi` as a dependency, which is a modified version of the original `vitepress-openapi` package. We acknowledge that the naming similarity may cause confusion, and we are committed to maintaining clear attribution and distinction from the original project.
+
+---
+
 ## 🚀 Quick Start
 
 1️⃣ **Install dependencies**
@@ -141,6 +154,10 @@ env VITE_GA_ID=G-XXXXXXXXXX
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### License Note
+
+This project is a derivative work based on [vitepress-openapi](https://github.com/enzonotario/vitepress-openapi), which is also licensed under the MIT License. The original copyright notice and license terms are preserved in the LICENSE file.
 
 <br>
 
