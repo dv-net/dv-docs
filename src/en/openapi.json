@@ -363,7 +363,7 @@
                         "name": "amount",
                         "in": "query",
                         "schema": {
-                            "type": "number"
+                            "type": "string"
                         }
                     },
                     {
@@ -514,7 +514,7 @@
                         "name": "min_balance",
                         "in": "query",
                         "schema": {
-                            "type": "number"
+                            "type": "string"
                         }
                     }
                 ],
