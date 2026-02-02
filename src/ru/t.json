@@ -65,6 +65,7 @@
   "Connecting exchanges": "Подключение биржи",
   "Exchanges": "Биржи",
   "Exchanges integration": "Интеграция биржи",
+  "Proxying requests to exchanges": "Проксирование запросов к биржам",
   "Security": "Безопасность",
   "Package signature verification": "Верификация подписи пакета",
   "Application update history": "Аудит истории обновлений",

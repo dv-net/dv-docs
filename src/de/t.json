@@ -65,6 +65,7 @@
   "Connecting exchanges": "Börsen verbinden",
   "Exchanges": "Börsen",
   "Exchanges integration": "Integration der Börse",
+  "Proxying requests to exchanges": "Proxy-Anfragen an Börsen",
   "Security": "Sicherheit",
   "Package signature verification": "Paket signaturprüfung verifizierung",
   "Application update history": "Historie der Anwendungsaktualisierungen",
