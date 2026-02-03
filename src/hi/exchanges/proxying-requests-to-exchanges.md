@@ -12,8 +12,6 @@ DV Merchant मुद्रा दरों को प्राप्त कर�
 
 > **ध्यान दें:** कॉन्फ़िगरेशन उदाहरण `/home/dv/merchant/configs/config.template.yaml` फ़ाइल में या [GitHub रिपॉजिटरी](https://github.com/dv-net/dv-merchant/blob/main/configs/config.template.yaml) में मिल सकते हैं।
 
----
-
 ## त्वरित आरंभ
 
 ### 1. कॉन्फ़िगरेशन फ़ाइल खोलें
@@ -55,8 +53,6 @@ sudo journalctl -u dv-merchant -n 50
   <img src="../../assets/images/exchanges/exrate/exrate-logs.png" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
 </a>
 
----
-
 ## यह कैसे काम करता है
 
 ### 1. सीधे कनेक्शन का प्रयास
@@ -84,8 +80,6 @@ DV Merchant → प्रॉक्सी 1 ❌ (त्रुटि)
             ↓
             → प्रॉक्सी 2 → api.exchange.com ✅
 ```
-
----
 
 ## संचालन का सत्यापन
 
@@ -127,8 +121,6 @@ sudo journalctl -u dv-merchant -f | grep '"level":"error"'
 **प्रश्न: क्या होगा यदि सभी प्रॉक्सी विफल हो जाएं?**
 
 उत्तर: एप्लिकेशन कैश्ड डेटा के साथ काम करना जारी रखेगा। कैश टीटीएल ~ 10 मिनट है।
-
----
 
 ## सहयोग
 

@@ -12,8 +12,6 @@ If direct access to exchanges is available, proxies are **not used**, even if th
 
 > **Note:** Configuration examples can be found in the file `/home/dv/merchant/configs/config.template.yaml` or in the [GitHub repository](https://github.com/dv-net/dv-merchant/blob/main/configs/config.template.yaml).
 
----
-
 ## Quick Start
 
 ### 1. Open the configuration file
@@ -55,8 +53,6 @@ sudo journalctl -u dv-merchant -n 50
   <img src="../../assets/images/exchanges/exrate/exrate-logs.png" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
 </a>
 
----
-
 ## How It Works
 
 ### 1. Attempting a direct connection
@@ -84,8 +80,6 @@ DV Merchant → Proxy 1 ❌ (error)
             ↓
             → Proxy 2 → api.exchange.com ✅
 ```
-
----
 
 ## Verifying Operation
 
@@ -127,8 +121,6 @@ A: Yes, slightly. Requests through a proxy are usually slower than direct ones.
 **Q: What if all proxies fail?**
 
 A: The application will continue to work with cached data. The cache TTL is ~10 minutes.
-
----
 
 ## Support
 

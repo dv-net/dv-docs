@@ -12,8 +12,6 @@ DV Merchant поддерживает проксирование запросов
 
 > **Примечание:** Примеры конфигурации можно посмотреть в файле `/home/dv/merchant/configs/config.template.yaml` или в [GitHub репозитории](https://github.com/dv-net/dv-merchant/blob/main/configs/config.template.yaml).
 
----
-
 ## Быстрый старт
 
 ### 1\. Откройте конфигурационный файл
@@ -55,8 +53,6 @@ sudo journalctl -u dv-merchant -n 50
   <img src="../../assets/images/exchanges/exrate/exrate-logs.png" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
 </a>
 
----
-
 ## Как это работает
 
 ### 1\. Попытка прямого подключения
@@ -84,8 +80,6 @@ DV Merchant → Прокси 1 ❌ (ошибка)
             ↓
             → Прокси 2 → api.exchange.com ✅
 ```
-
----
 
 ## Проверка работы
 
@@ -127,8 +121,6 @@ A: Да, незначительно. Запросы через прокси об
 **Q: Что если все прокси упадут?**
 
 A: Приложение продолжит работать на закешированных данных. TTL кеша составляет \~10 минут.
-
----
 
 ## Поддержка
 

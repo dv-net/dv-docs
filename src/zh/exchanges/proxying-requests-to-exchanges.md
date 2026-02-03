@@ -12,8 +12,6 @@ DV Merchant 支持代理对交易所 API 的请求以获取货币汇率。这在
 
 > **注意：** 可以在文件 `/home/dv/merchant/configs/config.template.yaml` 或 [GitHub 存储库](https://github.com/dv-net/dv-merchant/blob/main/configs/config.template.yaml)中找到配置示例。
 
----
-
 ## 快速入门
 
 ### 1. 打开配置文件
@@ -55,8 +53,6 @@ sudo journalctl -u dv-merchant -n 50
   <img src="../../assets/images/exchanges/exrate/exrate-logs.png" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
 </a>
 
----
-
 ## 工作原理
 
 ### 1. 尝试直接连接
@@ -84,8 +80,6 @@ DV Merchant → 代理 1 ❌ (错误)
             ↓
             → 代理 2 → api.exchange.com ✅
 ```
-
----
 
 ## 验证操作
 
@@ -127,8 +121,6 @@ sudo journalctl -u dv-merchant -f | grep '"level":"error"'
 **问：如果所有代理都失败了怎么办？**
 
 答：应用程序将继续使用缓存数据工作。缓存 TTL 约为 10 分钟。
-
----
 
 ## 支持
 

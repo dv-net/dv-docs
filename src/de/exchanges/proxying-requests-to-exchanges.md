@@ -12,8 +12,6 @@ Wenn ein direkter Zugriff auf die Börsen verfügbar ist, werden Proxys **nicht 
 
 > **Hinweis:** Konfigurationsbeispiele finden Sie in der Datei `/home/dv/merchant/configs/config.template.yaml` oder im [GitHub-Repository](https://github.com/dv-net/dv-merchant/blob/main/configs/config.template.yaml).
 
----
-
 ## Schnellstart
 
 ### 1. Öffnen Sie die Konfigurationsdatei
@@ -55,8 +53,6 @@ sudo journalctl -u dv-merchant -n 50
   <img src="../../assets/images/exchanges/exrate/exrate-logs.png" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
 </a>
 
----
-
 ## Wie es funktioniert
 
 ### 1. Versuch einer direkten Verbindung
@@ -84,8 +80,6 @@ DV Merchant → Proxy 1 ❌ (Fehler)
             ↓
             → Proxy 2 → api.exchange.com ✅
 ```
-
----
 
 ## Überprüfung des Betriebs
 
@@ -127,8 +121,6 @@ A: Ja, geringfügig. Anfragen über einen Proxy sind in der Regel langsamer als 
 **F: Was ist, wenn alle Proxys ausfallen?**
 
 A: Die Anwendung wird weiterhin mit zwischengespeicherten Daten arbeiten. Die Cache-TTL beträgt ca. 10 Minuten.
-
----
 
 ## Unterstützung
 

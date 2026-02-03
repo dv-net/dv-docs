@@ -12,8 +12,6 @@
 
 > **ملاحظة:** يمكن العثور على أمثلة التكوين في الملف `/home/dv/merchant/configs/config.template.yaml` أو في [مستودع GitHub](https://github.com/dv-net/dv-merchant/blob/main/configs/config.template.yaml).
 
----
-
 ## بداية سريعة
 
 ### 1. افتح ملف التكوين
@@ -55,8 +53,6 @@ sudo journalctl -u dv-merchant -n 50
   <img src="../../assets/images/exchanges/exrate/exrate-logs.png" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
 </a>
 
----
-
 ## كيف يعمل
 
 ### 1. محاولة اتصال مباشر
@@ -84,8 +80,6 @@ DV Merchant → الوكيل 1 ❌ (خطأ)
             ↓
             → الوكيل 2 → api.exchange.com ✅
 ```
-
----
 
 ## التحقق من التشغيل
 
@@ -127,8 +121,6 @@ sudo journalctl -u dv-merchant -f | grep '"level":"error"'
 **س: ماذا لو فشلت جميع الوكلاء؟**
 
 ج: سيستمر التطبيق في العمل مع البيانات المخزنة مؤقتًا. يبلغ TTL لذاكرة التخزين المؤقت حوالي 10 دقائق.
-
----
 
 ## الدعم
 

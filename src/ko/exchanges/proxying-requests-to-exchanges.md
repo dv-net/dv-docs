@@ -12,8 +12,6 @@ DV Merchant는 환율을 가져오기 위해 거래소 API로 요청을 프록�
 
 > **참고:** 구성 예는 `/home/dv/merchant/configs/config.template.yaml` 파일 또는 [GitHub 저장소](https://github.com/dv-net/dv-merchant/blob/main/configs/config.template.yaml)에서 찾을 수 있습니다.
 
----
-
 ## 빠른 시작
 
 ### 1. 구성 파일 열기
@@ -55,8 +53,6 @@ sudo journalctl -u dv-merchant -n 50
   <img src="../../assets/images/exchanges/exrate/exrate-logs.png" style="max-width: 100%; cursor: zoom-in;" loading="lazy" />
 </a>
 
----
-
 ## 작동 방식
 
 ### 1. 직접 연결 시도
@@ -84,8 +80,6 @@ DV Merchant → 프록시 1 ❌ (오류)
             ↓
             → 프록시 2 → api.exchange.com ✅
 ```
-
----
 
 ## 작동 확인
 
@@ -127,8 +121,6 @@ A: 예, 약간입니다. 프록시를 통한 요청은 일반적으로 직접 �
 **Q: 모든 프록시가 실패하면 어떻게 됩니까?**
 
 A: 응용 프로그램은 캐시된 데이터로 계속 작동합니다. 캐시 TTL은 약 10분입니다.
-
----
 
 ## 지원
 
