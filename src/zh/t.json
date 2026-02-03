@@ -65,6 +65,7 @@
   "Connecting exchanges": "连接交易所",
   "Exchanges": "交易所",
   "Exchanges integration": "交易所整合",
+  "Proxying requests to exchanges": "代理对交易所的请求",
   "Security": "安全",
   "Package signature verification": "软件包签名验证",
   "Application update history": "应用更新历史",

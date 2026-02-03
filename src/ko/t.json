@@ -65,6 +65,7 @@
   "Connecting exchanges": "거래소 연결 중",
   "Exchanges": "거래소",
   "Exchanges integration": "거래소 통합",
+  "Proxying requests to exchanges": "거래소로 요청 프록시",
   "Security": "보안",
   "Package signature verification": "패키지 서명 검증",
   "Application update history": "애플리케이션 업데이트 이력",

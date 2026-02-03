@@ -74,6 +74,7 @@ regions.forEach((region: RegionsType) => {
       collapsed: false,
       items: [
         { text: tHandler(region.slug, "Exchanges integration"), link: `/${region.slug}/exchanges/exchange-integration.md` },
+        { text: tHandler(region.slug, "Proxying requests to exchanges"), link: `/${region.slug}/exchanges/proxying-requests-to-exchanges.md` },
         { text: "Binance", link: `/${region.slug}/exchanges/binance.md` },
         { text: "OKX", link: `/${region.slug}/exchanges/okx.md` },
         { text: "Bitget", link: `/${region.slug}/exchanges/bitget.md` },
