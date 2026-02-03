@@ -2,7 +2,8 @@
 
 ## [Unreleased]
 
-## [0.0.20]
+## [0.0.20] - 2026-02-03
+
 - feat: add proxying requests to exchanges documentation
 - fix: curl output in two endpoints has been fixed [DV-4067]
 - fix: gtag connection has been changed [DV-3975]
