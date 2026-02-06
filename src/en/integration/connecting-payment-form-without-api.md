@@ -1,4 +1,4 @@
-## Connecting the Payment Form Without Using the API
+# Connecting the Payment Form Without Using the API
 
 You can connect the payment form without API integration by following these simple steps.
 

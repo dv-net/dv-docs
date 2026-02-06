@@ -1,4 +1,4 @@
-## Conectar el formulario de pago sin usar la API
+# Conectar el formulario de pago sin usar la API
 
 Puedes conectar el formulario de pago sin integración de API siguiendo estos sencillos pasos.
 

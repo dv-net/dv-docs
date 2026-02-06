@@ -1,4 +1,4 @@
-## Anbindung des Zahlungsformulars ohne Verwendung der API
+# Anbindung des Zahlungsformulars ohne Verwendung der API
 
 Sie können das Zahlungsformular ohne API-Integration anbinden, indem Sie diese einfachen Schritte befolgen.
 
