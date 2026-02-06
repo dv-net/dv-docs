@@ -1,5 +1,3 @@
-Конечно, вот перевод:
-
 ## Connecting the Payment Form Without Using the API
 
 You can connect the payment form without API integration by following these simple steps.
@@ -39,7 +37,3 @@ Example:
 `https://demo.dv.net/pay/store/0cbffe2b-d2a5-433d-94f5-77ce93a7c0eb/<your client ID>`
 
 After generating the link, you can either redirect the client to it or embed it into a button on your website.
-
------
-
-Я могу перевести другие технические тексты или помочь с объяснением этих шагов, если потребуется.

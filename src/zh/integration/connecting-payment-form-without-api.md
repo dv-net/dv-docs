@@ -37,5 +37,3 @@
 `https://demo.dv.net/pay/store/0cbffe2b-d2a5-433d-94f5-77ce93a7c0eb/<your client ID>`
 
 生成链接后，你可以将客户重定向到该链接，或将其嵌入到你的网站按钮中。
-
------

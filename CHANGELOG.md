@@ -2,7 +2,10 @@
 
 ## [Unreleased]
 
+- fix: remove unnecessary translations from the connecting-payment-form-without-api page [DV-4160]
+
 ## [0.0.20]
+
 - feat: add proxying requests to exchanges documentation
 - fix: curl output in two endpoints has been fixed [DV-4067]
 - fix: gtag connection has been changed [DV-3975]

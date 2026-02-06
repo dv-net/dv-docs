@@ -1,5 +1,3 @@
-Natürlich, hier ist die Übersetzung:
-
 ## Anbindung des Zahlungsformulars ohne Verwendung der API
 
 Sie können das Zahlungsformular ohne API-Integration anbinden, indem Sie diese einfachen Schritte befolgen.
@@ -39,7 +37,3 @@ Beispiel:
 `https://demo.dv.net/pay/store/0cbffe2b-d2a5-433d-94f5-77ce93a7c0eb/<your client ID>`
 
 Nachdem Sie den Link generiert haben, können Sie den Kunden entweder dorthin weiterleiten oder ihn in eine Schaltfläche auf Ihrer Website einbinden.
-
------
-
-Ich kann auch andere technische Texte übersetzen oder bei der Erläuterung dieser Schritte helfen, falls erforderlich.

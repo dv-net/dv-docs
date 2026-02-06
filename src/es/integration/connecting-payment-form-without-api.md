@@ -1,5 +1,3 @@
-Por supuesto, aquí está la traducción:
-
 ## Conectar el formulario de pago sin usar la API
 
 Puedes conectar el formulario de pago sin integración de API siguiendo estos sencillos pasos.
@@ -39,7 +37,3 @@ Ejemplo:
 `https://demo.dv.net/pay/store/0cbffe2b-d2a5-433d-94f5-77ce93a7c0eb/<your client ID>`
 
 Después de generar el enlace, puedes redirigir al cliente a él o integrarlo en un botón en tu sitio web.
-
------
-
-Puedo traducir otros textos técnicos o ayudar a explicar estos pasos, si es necesario.
