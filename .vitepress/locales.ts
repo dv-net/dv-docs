@@ -86,6 +86,14 @@ regions.forEach((region: RegionsType) => {
       ],
     },
     {
+      text: tHandler(region.slug, "Advanced Troubleshooting"),
+      collapsible: true,
+      collapsed: false,
+      items: [
+        { text: tHandler(region.slug, "Re-reading a Block from Blockchain"), link: `/${region.slug}/advanced-troubleshooting/re-reading-block-from-blockchain.md` },
+      ],
+    },
+    {
       text: tHandler(region.slug, "API Integration"),
       collapsible: true,
       collapsed: false,

@@ -64,6 +64,8 @@
   "Connecting a payment form without API": "API 없이 결제 양식 연결",
   "Connecting exchanges": "거래소 연결 중",
   "Exchanges": "거래소",
+  "Advanced Troubleshooting": "고급 문제 해결",
+  "Re-reading a Block from Blockchain": "블록체인에서 블록 다시 읽기",
   "Exchanges integration": "거래소 통합",
   "Proxying requests to exchanges": "거래소로 요청 프록시",
   "Security": "보안",

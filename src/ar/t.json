@@ -64,6 +64,8 @@
   "Connecting a payment form without API": "ربط نموذج الدفع بدون API",
   "Connecting exchanges": "ربط البورصات",
   "Exchanges": "البورصات",
+  "Advanced Troubleshooting": "استكشاف الأخطاء المتقدم",
+  "Re-reading a Block from Blockchain": "إعادة قراءة كتلة من البلوكشين",
   "Exchanges integration": "البورصات",
   "Proxying requests to exchanges": "طلبات الوكيل إلى البورصات",
   "Security": "الأمن",

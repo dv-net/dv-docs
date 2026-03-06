@@ -64,6 +64,8 @@
   "Connecting a payment form without API": "Einbindung eines Zahlungsformulars ohne API",
   "Connecting exchanges": "Börsen verbinden",
   "Exchanges": "Börsen",
+  "Advanced Troubleshooting": "Erweiterte Fehlerbehebung",
+  "Re-reading a Block from Blockchain": "Block erneut aus der Blockchain lesen",
   "Exchanges integration": "Integration der Börse",
   "Proxying requests to exchanges": "Proxy-Anfragen an Börsen",
   "Security": "Sicherheit",
