@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.0.21] - 2026-03-13
+
 - fix: remove unnecessary translations from the connecting-payment-form-without-api page [DV-4160]
 - feat: add Advanced Troubleshooting section and “Re-reading a Block from Blockchain” page (all locales) [DV-4240]
 
