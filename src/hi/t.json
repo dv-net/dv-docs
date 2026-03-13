@@ -64,6 +64,8 @@
   "Connecting a payment form without API": "API के बिना भुगतान फ़ॉर्म कनेक्ट करना",
   "Connecting exchanges": "एक्सचेंज जोड़ना",
   "Exchanges": "बाज़ारें",
+  "Advanced Troubleshooting": "उन्नत समस्या निवारण",
+  "Re-reading a Block from Blockchain": "ब्लॉकचेन से ब्लॉक को फिर से पढ़ना",
   "Exchanges integration": "एक्सचेंज एकीकरण",
   "Proxying requests to exchanges": "एक्सचेंजों के लिए प्रॉक्सी अनुरोध",
   "Security": "सुरक्षा",

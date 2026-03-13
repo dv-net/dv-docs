@@ -64,6 +64,8 @@
   "Connecting a payment form without API": "Подключение платежной формы без API",
   "Connecting exchanges": "Подключение биржи",
   "Exchanges": "Биржи",
+  "Advanced Troubleshooting": "Расширенная диагностика",
+  "Re-reading a Block from Blockchain": "Повторное чтение блока из блокчейна",
   "Exchanges integration": "Интеграция биржи",
   "Proxying requests to exchanges": "Проксирование запросов к биржам",
   "Security": "Безопасность",

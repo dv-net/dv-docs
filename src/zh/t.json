@@ -64,6 +64,8 @@
   "Connecting a payment form without API": "無需 API 即可連接付款表單",
   "Connecting exchanges": "连接交易所",
   "Exchanges": "交易所",
+  "Advanced Troubleshooting": "高级故障排除",
+  "Re-reading a Block from Blockchain": "从区块链重新读取区块",
   "Exchanges integration": "交易所整合",
   "Proxying requests to exchanges": "代理对交易所的请求",
   "Security": "安全",
