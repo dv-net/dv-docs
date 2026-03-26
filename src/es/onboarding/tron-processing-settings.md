@@ -9,7 +9,7 @@ Cuando retiras USDT (TRC-20) desde un monedero de depósito, es una llamada a un
 Puedes evitar estos costes o reducirlos notablemente eligiendo el modo adecuado.
 
 ::: info ¿Quieres los detalles?
-Qué son Energy y Bandwidth y cómo funciona la delegación en TRON: [Red TRON: descripción general](/es/integration/tron-processing-overview).
+Qué son Energy y Bandwidth y cómo funciona la delegación en TRON: [Red TRON: descripción general](/es/onboarding/tron-processing-overview).
 :::
 
 ## Modo 1 - Burn TRX

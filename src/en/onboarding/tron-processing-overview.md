@@ -60,5 +60,5 @@ Delegation allows you to transfer Energy or Bandwidth from one account to anothe
 This is what the **Delegate** mode in DV Merchant processing settings relies on: you freeze TRX on your main wallet and delegate Energy to the processing wallet address.
 
 ::: tip More
-How to choose the processing mode is described in [TRON processing settings](/en/integration/tron-processing-settings).
+How to choose the processing mode is described in [TRON processing settings](/en/onboarding/tron-processing-settings).
 :::

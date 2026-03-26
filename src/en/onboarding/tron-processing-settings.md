@@ -9,7 +9,7 @@ When you withdraw USDT (TRC-20) from a deposit wallet, it is a smart-contract ca
 You can avoid these costs or reduce them significantly by selecting the right mode.
 
 ::: info Want the details?
-Learn what Energy and Bandwidth are and how delegation works in TRON in [TRON network overview](/en/integration/tron-processing-overview).
+Learn what Energy and Bandwidth are and how delegation works in TRON in [TRON network overview](/en/onboarding/tron-processing-overview).
 :::
 
 ## Mode 1 - Burn TRX

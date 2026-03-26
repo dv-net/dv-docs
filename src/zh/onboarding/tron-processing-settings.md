@@ -9,7 +9,7 @@
 你可以通过选择合适的模式来避免或显著降低这些费用。
 
 ::: info 想了解原理？
-关于 TRON 的 Energy、Bandwidth 以及资源委托机制，见 [TRON 网络概览](/zh/integration/tron-processing-overview)。
+关于 TRON 的 Energy、Bandwidth 以及资源委托机制，见 [TRON 网络概览](/zh/onboarding/tron-processing-overview)。
 :::
 
 ## 模式 1 - Burn TRX

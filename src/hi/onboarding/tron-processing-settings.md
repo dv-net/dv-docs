@@ -9,7 +9,7 @@
 सही मोड चुनकर आप इन खर्चों से बच सकते हैं या इन्हें काफी कम कर सकते हैं।
 
 ::: info डिटेल्स समझना चाहते हैं?
-Energy, Bandwidth और TRON में delegation कैसे काम करता है, देखें: [TRON नेटवर्क - ओवरव्यू](/hi/integration/tron-processing-overview).
+Energy, Bandwidth और TRON में delegation कैसे काम करता है, देखें: [TRON नेटवर्क - ओवरव्यू](/hi/onboarding/tron-processing-overview).
 :::
 
 ## मोड 1 - Burn TRX

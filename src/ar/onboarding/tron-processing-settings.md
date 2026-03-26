@@ -9,7 +9,7 @@
 يمكنك تجنّب هذه التكاليف أو تقليلها بشكل كبير عبر اختيار الوضع المناسب.
 
 ::: info هل تريد التفاصيل؟
-لفهم Energy و Bandwidth وكيف تعمل آلية التفويض في TRON، راجع [نظرة عامة على شبكة TRON](/ar/integration/tron-processing-overview).
+لفهم Energy و Bandwidth وكيف تعمل آلية التفويض في TRON، راجع [نظرة عامة على شبكة TRON](/ar/onboarding/tron-processing-overview).
 :::
 
 ## الوضع 1 - Burn TRX

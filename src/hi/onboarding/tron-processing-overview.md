@@ -60,5 +60,5 @@ Delegation आपको tokens ट्रांसफर किए बिना E
 DV Merchant सेटिंग्स में **Delegate** मोड इसी पर आधारित है: आप अपने मुख्य वॉलेट पर TRX freeze करते हैं और प्रोसेसिंग वॉलेट address पर Energy delegate करते हैं।
 
 ::: tip और जानकारी
-कौन-सा प्रोसेसिंग मोड चुनना है, देखें: [TRON प्रोसेसिंग सेटिंग्स](/hi/integration/tron-processing-settings).
+कौन-सा प्रोसेसिंग मोड चुनना है, देखें: [TRON प्रोसेसिंग सेटिंग्स](/hi/onboarding/tron-processing-settings).
 :::

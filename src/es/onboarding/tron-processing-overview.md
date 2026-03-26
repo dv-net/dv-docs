@@ -60,5 +60,5 @@ La delegación permite transferir Energy o Bandwidth de una cuenta a otra sin tr
 Esto es la base del modo **Delegate** en la configuración de procesamiento de DV Merchant: congelas TRX en tu monedero principal y delegas Energy a la dirección del monedero de procesamiento.
 
 ::: tip Más información
-Cómo elegir el modo de procesamiento: [Configuración del procesamiento TRON](/es/integration/tron-processing-settings).
+Cómo elegir el modo de procesamiento: [Configuración del procesamiento TRON](/es/onboarding/tron-processing-settings).
 :::

@@ -60,5 +60,5 @@ Energy 用于执行 **智能合约**。所有 TRC-20 代币转账（USDT、USDC 
 这也是 DV Merchant 中 **Delegate** 模式的基础：你在主钱包冻结 TRX，并将 Energy 委托给处理钱包地址。
 
 ::: tip 更多
-如何选择处理模式，请参见 [TRON 处理设置](/zh/integration/tron-processing-settings)。
+如何选择处理模式，请参见 [TRON 处理设置](/zh/onboarding/tron-processing-settings)。
 :::

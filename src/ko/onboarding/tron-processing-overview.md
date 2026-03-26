@@ -60,5 +60,5 @@ Energy는 네트워크 전체 동결 TRX 중 자신의 비중에 비례합니다
 이 메커니즘이 DV Merchant 설정의 **Delegate** 모드 기반입니다. 메인 지갑에서 TRX를 동결하고, Energy를 프로세싱 지갑 주소로 위임합니다.
 
 ::: tip 더 알아보기
-프로세싱 모드를 선택하는 방법은 [TRON 프로세싱 설정](/ko/integration/tron-processing-settings)에서 확인하세요.
+프로세싱 모드를 선택하는 방법은 [TRON 프로세싱 설정](/ko/onboarding/tron-processing-settings)에서 확인하세요.
 :::

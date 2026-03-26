@@ -9,7 +9,7 @@ Wenn Sie USDT (TRC-20) aus einer Einzahlungs-Wallet abheben, ist das ein Smart-C
 Diese Kosten können Sie vermeiden oder deutlich reduzieren, indem Sie den passenden Modus wählen.
 
 ::: info Details verstehen?
-Was Energy und Bandwidth sind und wie Delegation in TRON funktioniert, steht im Artikel [TRON-Netzwerk - Überblick](/de/integration/tron-processing-overview).
+Was Energy und Bandwidth sind und wie Delegation in TRON funktioniert, steht im Artikel [TRON-Netzwerk - Überblick](/de/onboarding/tron-processing-overview).
 :::
 
 ## Modus 1 - Burn TRX

@@ -60,5 +60,5 @@
 هذا ما يعتمد عليه وضع **Delegate** في إعدادات معالجة DV Merchant: تقوم بتجميد TRX على محفظتك الرئيسية وتفويض Energy إلى عنوان محفظة المعالجة.
 
 ::: tip المزيد
-كيفية اختيار وضع المعالجة موضح في [إعدادات معالجة TRON](/ar/integration/tron-processing-settings).
+كيفية اختيار وضع المعالجة موضح في [إعدادات معالجة TRON](/ar/onboarding/tron-processing-settings).
 :::

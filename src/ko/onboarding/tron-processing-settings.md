@@ -9,7 +9,7 @@
 적절한 모드를 선택하면 이러한 비용을 피하거나 크게 낮출 수 있습니다.
 
 ::: info 자세히 알고 싶나요?
-TRON의 Energy, Bandwidth, 그리고 위임(delegation) 방식은 [TRON 네트워크 개요](/ko/integration/tron-processing-overview)에서 확인하세요.
+TRON의 Energy, Bandwidth, 그리고 위임(delegation) 방식은 [TRON 네트워크 개요](/ko/onboarding/tron-processing-overview)에서 확인하세요.
 :::
 
 ## 모드 1 - Burn TRX

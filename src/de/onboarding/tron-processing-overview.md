@@ -60,5 +60,5 @@ Delegation ermöglicht das Übertragen von Energy oder Bandwidth von einem Konto
 Darauf basiert der **Delegate**-Modus in den DV-Merchant-Prozessing-Einstellungen: Sie frieren TRX auf Ihrer Haupt-Wallet ein und delegieren Energy an die Prozessing-Wallet-Adresse.
 
 ::: tip Mehr dazu
-Wie Sie den Prozessing-Modus auswählen, steht in [TRON-Prozessing-Einstellungen](/de/integration/tron-processing-settings).
+Wie Sie den Prozessing-Modus auswählen, steht in [TRON-Prozessing-Einstellungen](/de/onboarding/tron-processing-settings).
 :::
