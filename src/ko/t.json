@@ -89,6 +89,8 @@
   "Cloud vs on-premises": "클라우드와 온프레미스",
   "Description": "설명",
   "Installation with docker": "도커로 설치",
+  "TRON processing settings": "TRON 프로세싱 설정",
+  "TRON network overview": "TRON 네트워크 개요",
   "jsonTitles": {
     "Get external exchange balances": "외부 거래소 잔액 가져오기",
     "Get external processing wallet balances": "외부 처리 지갑 잔액 가져오기",

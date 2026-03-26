@@ -89,6 +89,8 @@
   "Cloud vs on-premises": "Nube versus local",
   "Description": "Descripción",
   "Installation with docker": "Instalación con ventana acoplable",
+  "TRON processing settings": "Configuración del procesamiento TRON",
+  "TRON network overview": "Red TRON: descripción general",
   "jsonTitles": {
     "Get external exchange balances": "Obtener saldos de cambio externos",
     "Get external processing wallet balances": "Obtener saldos de billetera de procesamiento externo",

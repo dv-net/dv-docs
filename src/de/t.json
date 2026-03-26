@@ -89,6 +89,8 @@
   "Cloud vs on-premises": "Cloud vs. On-Premises",
   "Description": "Beschreibung",
   "Installation with docker": "Installation mit Docker",
+  "TRON processing settings": "TRON-Prozessing-Einstellungen",
+  "TRON network overview": "TRON-Netzwerk - Überblick",
   "jsonTitles": {
     "Get external exchange balances": "Externe Börsensalden abrufen",
     "Get external processing wallet balances": "Externe Verarbeitungsguthaben abrufen",

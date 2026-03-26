@@ -43,6 +43,8 @@ regions.forEach((region: RegionsType) => {
         { text: tHandler(region.slug, "Webhooks"), link: `/${region.slug}/integration/webhooks.md` },
         { text: tHandler(region.slug, "Webhook signature verification"), link: `/${region.slug}/integration/webhook-signature-verification.md` },
         { text: tHandler(region.slug, "Integration examples"), link: `/${region.slug}/integration/integrationExamples.md` },
+        { text: tHandler(region.slug, "TRON processing settings"), link: `/${region.slug}/integration/tron-processing-settings.md` },
+        { text: tHandler(region.slug, "TRON network overview"), link: `/${region.slug}/integration/tron-processing-overview.md` },
       ],
     },
     {

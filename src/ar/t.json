@@ -89,6 +89,8 @@
   "Cloud vs on-premises": "السحابة مقابل المحلية",
   "Description": "وصف",
   "Installation with docker": "التثبيت مع عامل ميناء",
+  "TRON processing settings": "إعدادات معالجة TRON",
+  "TRON network overview": "نظرة عامة على شبكة TRON",
   "jsonTitles": {
     "Get external exchange balances": "الحصول على أرصدة الصرف الخارجية",
     "Get external processing wallet balances": "الحصول على رصيد محفظة المعالجة الخارجية",

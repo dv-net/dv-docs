@@ -89,6 +89,8 @@
   "Description": "Описание",
   "Installation with docker": "Установка с docker",
   "DV.net Api request logging": "Логирование запросов к API DV.net",
+  "TRON processing settings": "Настройки процессинга TRON",
+  "TRON network overview": "Блокчейн TRON - как устроена сеть",
   "jsonTitles": {
     "Get external exchange balances": "Получить внешние валютные балансы",
     "Get external processing wallet balances": "Получить баланс процессингового кошелька",

@@ -89,6 +89,8 @@
   "Cloud vs on-premises": "云与本地部署",
   "Description": "描述",
   "Installation with docker": "使用docker安装",
+  "TRON processing settings": "TRON 处理设置",
+  "TRON network overview": "TRON 网络概览",
   "jsonTitles": {
     "Get external exchange balances": "获取外部交易余额",
     "Get external processing wallet balances": "获取外部处理钱包余额",
