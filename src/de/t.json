@@ -91,7 +91,11 @@
   "Description": "Beschreibung",
   "Installation with docker": "Installation mit Docker",
   "TRON processing settings": "TRON-Prozessing-Einstellungen",
-  "TRON network overview": "TRON-Netzwerk - Überblick",
+    "TRON network overview": "TRON-Netzwerk - Überblick",
+    "Wrong network deposit": "Einzahlung in falschem Netzwerk",
+    "Export private keys": "Privatschlüssel exportieren",
+    "Seed phrase: export, import, and address lookup": "Seed-Phrase: Export, Import und Adresssuche",
+    "Import keys into a crypto wallet": "Import in eine Krypto-Wallet",
   "jsonTitles": {
     "Get external exchange balances": "Externe Börsensalden abrufen",
     "Get external processing wallet balances": "Externe Verarbeitungsguthaben abrufen",
