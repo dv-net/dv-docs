@@ -46,6 +46,15 @@ regions.forEach((region: RegionsType) => {
       ],
     },
     {
+      text: tHandler(region.slug, "Onboarding"),
+      collapsible: true,
+      collapsed: false,
+      items: [
+        { text: tHandler(region.slug, "TRON processing settings"), link: `/${region.slug}/onboarding/tron-processing-settings.md` },
+        { text: tHandler(region.slug, "TRON network overview"), link: `/${region.slug}/onboarding/tron-processing-overview.md` },
+      ],
+    },
+    {
         text: tHandler(region.slug, "SDK"),
         collapsible: true,
         collapsed: false,

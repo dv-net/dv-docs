@@ -56,6 +56,7 @@
   "System requirements": "सिस्टम आवश्यकताएँ",
   "Domain linking": "डोमेन लिंकिंग",
   "Integration": "एकीकरण",
+  "Onboarding": "ऑनबोर्डिंग",
   "Obtaining an API key and secret": "API कुंजी और गुप्त जानकारी प्राप्त करना",
   "Creating deposit wallets": "डिपॉज़िट वॉलेट बनाना",
   "Webhooks": "वेबहुक",
@@ -89,6 +90,8 @@
   "Cloud vs on-premises": "क्लाउड बनाम ऑन-प्रिमाइसेस",
   "Description": "विवरण",
   "Installation with docker": "डोकर के साथ स्थापना",
+  "TRON processing settings": "TRON प्रोसेसिंग सेटिंग्स",
+  "TRON network overview": "TRON नेटवर्क - ओवरव्यू",
   "jsonTitles": {
     "Get external exchange balances": "बाहरी एक्सचेंज बैलेंस प्राप्त करें",
     "Get external processing wallet balances": "बाहरी प्रोसेसिंग वॉलेट बैलेंस प्राप्त करें",

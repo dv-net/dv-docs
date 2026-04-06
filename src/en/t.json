@@ -55,6 +55,7 @@
     "System requirements": "System requirements",
     "Domain linking": "Domain linking",
     "Integration": "Integration",
+    "Onboarding": "Onboarding",
     "Integration examples": "Integration examples",
     "Obtaining an API key and secret": "Obtaining an API key and secret",
     "Creating deposit wallets": "Creating deposit wallets",
@@ -88,6 +89,8 @@
     "Cloud vs on-premises": "Cloud vs on-premises",
     "Description": "Description",
     "Installation with docker": "Installation with docker",
+    "TRON processing settings": "TRON processing settings",
+    "TRON network overview": "TRON network overview",
     "jsonTitles": {
         "Get external exchange balances": "Get external exchange balances",
         "Get external processing wallet balances": "Get external processing wallet balances",

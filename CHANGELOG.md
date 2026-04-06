@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+- feat: add TRON processing documentation pages (settings and network overview) for all supported locales [DV-4278]
+
+
 ## [0.0.21] - 2026-03-13
 
 - fix: remove unnecessary translations from the connecting-payment-form-without-api page [DV-4160]
