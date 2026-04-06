@@ -91,7 +91,11 @@
   "Installation with docker": "Установка с docker",
   "DV.net Api request logging": "Логирование запросов к API DV.net",
   "TRON processing settings": "Настройки процессинга TRON",
-  "TRON network overview": "Блокчейн TRON - как устроена сеть",
+    "TRON network overview": "Блокчейн TRON - как устроена сеть",
+    "Wrong network deposit": "Депозит в неподдерживаемой сети",
+    "Export private keys": "Экспорт приватных ключей",
+    "Seed phrase: export, import, and address lookup": "Сид-фраза: экспорт, импорт и поиск адресов",
+    "Import keys into a crypto wallet": "Импорт ключей в криптовалютный кошелёк",
   "jsonTitles": {
     "Get external exchange balances": "Получить внешние валютные балансы",
     "Get external processing wallet balances": "Получить баланс процессингового кошелька",

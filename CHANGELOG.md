@@ -3,7 +3,7 @@
 ## [Unreleased]
 
 - feat: add TRON processing documentation pages (settings and network overview) for all supported locales [DV-4278]
-
+- feat: add and localize onboarding recovery guides (wrong-network deposit, key export, seed phrase, wallet import) [DV-4289]
 
 ## [0.0.21] - 2026-03-13
 

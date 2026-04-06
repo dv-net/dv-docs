@@ -91,7 +91,11 @@
   "Description": "설명",
   "Installation with docker": "도커로 설치",
   "TRON processing settings": "TRON 프로세싱 설정",
-  "TRON network overview": "TRON 네트워크 개요",
+    "TRON network overview": "TRON 네트워크 개요",
+    "Wrong network deposit": "지원하지 않는 네트워크 입금",
+    "Export private keys": "개인 키 내보내기",
+    "Seed phrase: export, import, and address lookup": "시드 구문: 내보내기, 가져오기 및 주소 찾기",
+    "Import keys into a crypto wallet": "암호화폐 지갑으로 키 가져오기",
   "jsonTitles": {
     "Get external exchange balances": "외부 거래소 잔액 가져오기",
     "Get external processing wallet balances": "외부 처리 지갑 잔액 가져오기",
