@@ -52,6 +52,10 @@ regions.forEach((region: RegionsType) => {
       items: [
         { text: tHandler(region.slug, "TRON processing settings"), link: `/${region.slug}/onboarding/tron-processing-settings.md` },
         { text: tHandler(region.slug, "TRON network overview"), link: `/${region.slug}/onboarding/tron-processing-overview.md` },
+        { text: tHandler(region.slug, "Wrong network deposit"), link: `/${region.slug}/onboarding/wrong-network-deposit.md` },
+        { text: tHandler(region.slug, "Export private keys"), link: `/${region.slug}/onboarding/export-keys.md` },
+        { text: tHandler(region.slug, "Seed phrase: export, import, and address lookup"), link: `/${region.slug}/onboarding/seed-phrase.md` },
+        { text: tHandler(region.slug, "Import keys into a crypto wallet"), link: `/${region.slug}/onboarding/wallets-import.md` },
       ],
     },
     {

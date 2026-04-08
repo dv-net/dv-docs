@@ -6,7 +6,6 @@
 - fix: move recovery onboarding guides to FAQ and sync TRON fee/energy updates across locales [DV-4278]
 - feat: add and localize onboarding recovery guides (wrong-network deposit, key export, seed phrase, wallet import) [DV-4289]
 
-
 ## [0.0.21] - 2026-03-13
 
 - fix: remove unnecessary translations from the connecting-payment-form-without-api page [DV-4160]
