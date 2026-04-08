@@ -21,7 +21,7 @@ Energy **smart contracts** चलाने पर खर्च होती ह�
 - Energy का कोई मुफ्त लिमिट नहीं है - इसे TRX freeze करके या rent करके मिलता है।
 - Energy कम होने पर नेटवर्क deficit को TRX burn करके पूरा करता है।
 - Burn rate: **1 Energy ~= 0.00021 TRX**।
-- एक सामान्य USDT transfer लगभग **30,000-65,000 Energy** खर्च करता है, जो TRX burn से भुगतान करने पर करीब **$1-2** पड़ सकता है।
+- एक सामान्य USDT transfer लगभग **65,000-130,000 Energy** खर्च करता है, जो TRX burn से भुगतान करने पर करीब **$2-5** पड़ सकता है।
 
 ### Resources की तुलना
 

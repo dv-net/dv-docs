@@ -21,7 +21,7 @@ Energy is spent when executing **smart contracts**. All TRC-20 token transfers (
 - There is no free Energy limit - you obtain it by freezing TRX or renting.
 - If there is not enough Energy, the network burns TRX to cover the deficit.
 - Burn rate: **1 Energy ~= 0.00021 TRX**.
-- A typical USDT transfer consumes roughly **30,000-65,000 Energy**, which can cost around **$1-2** when paid by burning TRX.
+- A typical USDT transfer consumes roughly **65,000-130,000 Energy**, which can cost around **$2-5** when paid by burning TRX.
 
 ### Resource comparison
 

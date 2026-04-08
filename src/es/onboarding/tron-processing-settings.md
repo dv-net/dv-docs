@@ -4,7 +4,7 @@ En la página **Configuración del procesamiento TRON**, eliges qué recursos se
 
 ## Por qué existen costes
 
-Cuando retiras USDT (TRC-20) desde un monedero de depósito, es una llamada a un smart contract en la red TRON. Para ejecutarla se necesita **Energy**. Si el monedero no tiene Energy disponible, la red cubre el déficit quemando TRX: aproximadamente **$1-2 por transacción**.
+Cuando retiras USDT (TRC-20) desde un monedero de depósito, es una llamada a un smart contract en la red TRON. Para ejecutarla se necesita **Energy**. Si el monedero no tiene Energy disponible, la red cubre el déficit quemando TRX: aproximadamente **$2-5 por transacción** (alrededor de **65.000-130.000 Energy**).
 
 Puedes evitar estos costes o reducirlos notablemente eligiendo el modo adecuado.
 
@@ -16,7 +16,7 @@ Qué son Energy y Bandwidth y cómo funciona la delegación en TRON: [Red TRON: 
 
 En cada retiro de USDT desde un monedero de depósito, se quema automáticamente TRX del balance del monedero de procesamiento.
 
-**Coste:** ~$1-2 por transferencia.
+**Coste:** ~$2-5 por transferencia.
 
 **Qué debes hacer:** mantener suficiente TRX en el monedero; el resto ocurre automáticamente.
 
@@ -28,7 +28,7 @@ La Energy se alquila automáticamente al proveedor DaVinci Merchant y se delega 
 
 **Coste:** **aprox. 2x más barato** que Burn TRX.
 
-**Qué debes hacer:** nada. El sistema calcula la Energy necesaria y paga el alquiler desde tu balance cuando ocurre el retiro.
+**Qué debes hacer:** nada. Por ahora compartimos gratuitamente el excedente de Energy, pero algunas transferencias pueden tardar varias horas.
 
 **Cuándo elegirlo:** la mejor opción por defecto para la mayoría de merchants. No requiere conocimientos técnicos, funciona out of the box y es notablemente más barato que quemar TRX.
 

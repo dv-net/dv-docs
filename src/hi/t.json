@@ -91,7 +91,11 @@
   "Description": "विवरण",
   "Installation with docker": "डोकर के साथ स्थापना",
   "TRON processing settings": "TRON प्रोसेसिंग सेटिंग्स",
-  "TRON network overview": "TRON नेटवर्क - ओवरव्यू",
+    "TRON network overview": "TRON नेटवर्क - ओवरव्यू",
+    "Wrong network deposit": "गलत नेटवर्क में जमा",
+    "Export private keys": "निजी कुंजी निर्यात",
+    "Seed phrase: export, import, and address lookup": "सीड वाक्यांश: निर्यात, आयात और पता खोज",
+    "Import keys into a crypto wallet": "क्रिप्टो वॉलेट में कुंजी आयात",
   "jsonTitles": {
     "Get external exchange balances": "बाहरी एक्सचेंज बैलेंस प्राप्त करें",
     "Get external processing wallet balances": "बाहरी प्रोसेसिंग वॉलेट बैलेंस प्राप्त करें",

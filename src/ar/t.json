@@ -91,7 +91,11 @@
   "Description": "وصف",
   "Installation with docker": "التثبيت مع عامل ميناء",
   "TRON processing settings": "إعدادات معالجة TRON",
-  "TRON network overview": "نظرة عامة على شبكة TRON",
+    "TRON network overview": "نظرة عامة على شبكة TRON",
+    "Wrong network deposit": "إيداع على شبكة غير مدعومة",
+    "Export private keys": "تصدير المفاتيح الخاصة",
+    "Seed phrase: export, import, and address lookup": "عبارة الاسترداد: التصدير والاستيراد والعثور على العناوين",
+    "Import keys into a crypto wallet": "استيراد المفاتيح إلى محفظة مشفرة",
   "jsonTitles": {
     "Get external exchange balances": "الحصول على أرصدة الصرف الخارجية",
     "Get external processing wallet balances": "الحصول على رصيد محفظة المعالجة الخارجية",

@@ -103,6 +103,17 @@ regions.forEach((region: RegionsType) => {
       ],
     },
     {
+      text: "FAQ",
+      collapsible: true,
+      collapsed: false,
+      items: [
+        { text: tHandler(region.slug, "Wrong network deposit"), link: `/${region.slug}/onboarding/wrong-network-deposit.md` },
+        { text: tHandler(region.slug, "Export private keys"), link: `/${region.slug}/onboarding/export-keys.md` },
+        { text: tHandler(region.slug, "Seed phrase: export, import, and address lookup"), link: `/${region.slug}/onboarding/seed-phrase.md` },
+        { text: tHandler(region.slug, "Import keys into a crypto wallet"), link: `/${region.slug}/onboarding/wallets-import.md` },
+      ],
+    },
+    {
       text: tHandler(region.slug, "API Integration"),
       collapsible: true,
       collapsed: false,

@@ -91,7 +91,11 @@
   "Description": "描述",
   "Installation with docker": "使用docker安装",
   "TRON processing settings": "TRON 处理设置",
-  "TRON network overview": "TRON 网络概览",
+    "TRON network overview": "TRON 网络概览",
+    "Wrong network deposit": "错误网络的入账",
+    "Export private keys": "导出私钥",
+    "Seed phrase: export, import, and address lookup": "助记词：导出、导入与地址查找",
+    "Import keys into a crypto wallet": "将密钥导入加密钱包",
   "jsonTitles": {
     "Get external exchange balances": "获取外部交易余额",
     "Get external processing wallet balances": "获取外部处理钱包余额",
