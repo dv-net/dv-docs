@@ -21,7 +21,7 @@ Energy se consume al ejecutar **smart contracts**. Todas las transferencias de t
 - No existe un límite gratuito de Energy; se obtiene congelando TRX o alquilándola.
 - Si no hay suficiente Energy, la red quema TRX para cubrir el déficit.
 - Tasa de quema: **1 Energy ~= 0.00021 TRX**.
-- Una transferencia típica de USDT consume alrededor de **30.000-65.000 Energy**, lo que puede costar cerca de **$1-2** si se paga quemando TRX.
+- Una transferencia típica de USDT consume alrededor de **65.000-130.000 Energy**, lo que puede costar cerca de **$2-5** si se paga quemando TRX.
 
 ### Comparación de recursos
 

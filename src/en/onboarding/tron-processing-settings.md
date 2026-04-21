@@ -4,7 +4,7 @@ On the **TRON processing settings** page, you choose which resources will be use
 
 ## Why there are costs
 
-When you withdraw USDT (TRC-20) from a deposit wallet, it is a smart-contract call on the TRON network. It requires **Energy**. If the wallet has no Energy available, the network covers the deficit by burning TRX - roughly **$1-2 per transaction**.
+When you withdraw USDT (TRC-20) from a deposit wallet, it is a smart-contract call on the TRON network. It requires **Energy**. If the wallet has no Energy available, the network covers the deficit by burning TRX - roughly **$2-5 per transaction** (about **65,000-130,000 Energy**).
 
 You can avoid these costs or reduce them significantly by selecting the right mode.
 
@@ -16,7 +16,7 @@ Learn what Energy and Bandwidth are and how delegation works in TRON in [TRON ne
 
 For each USDT withdrawal from a deposit wallet, TRX is automatically burned from the processing wallet balance.
 
-**Cost:** ~$1-2 per transfer.
+**Cost:** ~$2-5 per transfer.
 
 **What you need to do:** keep enough TRX on the wallet - everything else happens automatically.
 
@@ -28,7 +28,7 @@ Energy is automatically rented from the DaVinci Merchant provider and delegated 
 
 **Cost:** **about 2x cheaper** than Burn TRX.
 
-**What you need to do:** nothing. The system selects the required amount of Energy and pays for the rent from your balance when the withdrawal happens.
+**What you need to do:** nothing. For now, we share excess Energy for free, but transfers may sometimes take a few hours.
 
 **When to choose:** the best default for most merchants. No technical knowledge required, works out of the box, and is noticeably cheaper than burning TRX.
 

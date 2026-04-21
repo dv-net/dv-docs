@@ -4,7 +4,7 @@ Auf der Seite **TRON-Prozessing-Einstellungen** wählen Sie, über welche Ressou
 
 ## Warum überhaupt Kosten entstehen
 
-Wenn Sie USDT (TRC-20) aus einer Einzahlungs-Wallet abheben, ist das ein Smart-Contract-Aufruf im TRON-Netzwerk. Dafür wird **Energy** benötigt. Wenn auf der Wallet keine Energy verfügbar ist, deckt das Netzwerk den Bedarf durch das Verbrennen von TRX - ungefähr **$1-2 pro Transaktion**.
+Wenn Sie USDT (TRC-20) aus einer Einzahlungs-Wallet abheben, ist das ein Smart-Contract-Aufruf im TRON-Netzwerk. Dafür wird **Energy** benötigt. Wenn auf der Wallet keine Energy verfügbar ist, deckt das Netzwerk den Bedarf durch das Verbrennen von TRX - ungefähr **$2-5 pro Transaktion** (ca. **65.000-130.000 Energy**).
 
 Diese Kosten können Sie vermeiden oder deutlich reduzieren, indem Sie den passenden Modus wählen.
 
@@ -16,7 +16,7 @@ Was Energy und Bandwidth sind und wie Delegation in TRON funktioniert, steht im 
 
 Bei jeder USDT-Abhebung aus einer Einzahlungs-Wallet wird automatisch TRX vom Prozessing-Wallet-Guthaben verbrannt.
 
-**Kosten:** ~$1-2 pro Überweisung.
+**Kosten:** ~$2-5 pro Überweisung.
 
 **Was Sie tun müssen:** halten Sie genügend TRX auf der Wallet - alles andere passiert automatisch.
 
@@ -28,7 +28,7 @@ Energy wird automatisch beim DaVinci-Merchant-Provider gemietet und vor jeder Tr
 
 **Kosten:** **etwa 2x günstiger** als Burn TRX.
 
-**Was Sie tun müssen:** nichts. Das System wählt die benötigte Energy-Menge und bezahlt die Miete aus Ihrem Guthaben, sobald die Abhebung erfolgt.
+**Was Sie tun müssen:** nichts. Derzeit teilen wir überschüssige Energy kostenlos, aber Überweisungen können manchmal einige Stunden dauern.
 
 **Wann wählen:** Standardempfehlung für die meisten Merchants. Keine technischen Kenntnisse nötig, funktioniert sofort und ist deutlich günstiger als TRX zu verbrennen.
 
