@@ -13,6 +13,12 @@ export default {
     ...DefaultTheme,
     Layout,
     setup() {
+      // Redirect root URL without locale (/) to the default English docs (/en/)
+      if (typeof window !== 'undefined' && !location.pathname.split('/').filter(Boolean)[0]) {
+        location.replace('/en/')
+        return
+      }
+
       onMounted(() => {
         const hash = decodeURIComponent(location.hash)
         if (hash) {

@@ -134,25 +134,13 @@ regions.forEach((region: RegionsType) => {
 
 export const sidebarItems = Object.fromEntries(sidebarItemsMap) as Record<string, SidebarItemType[]>
 
-// Add sidebar for root path using default locale (first region)
-const defaultRegion = regions[0]
-sidebarItems['/'] = sidebarItems[`/${defaultRegion.slug}/`] || []
-
-// Add root locale configuration
-locales.root = {
-    label: defaultRegion.name,
-    link: '/',
-    themeConfig: {
-        docFooter: {prev: translationMapper[defaultRegion.slug].prev, next: translationMapper[defaultRegion.slug].next},
-        sidebar: sidebarItems,
-        nav: [{component: 'LocaleSelect'}, {text: 'dv.net', link: 'https://dv.net'}],
-        socialLinks: [{icon: 'github', link: 'https://github.com/dv-net'}]
-    },
-}
-
 // preparing locales prev/next buttons
-Object.keys(translationMapper).forEach(slug => {
+regions.forEach((region: RegionsType) => {
+  const slug = region.slug
   locales[slug] = {
+    label: region.name,
+    link: `/${slug}/`,
+    lang: slug,
     themeConfig: {
       docFooter: { prev: tHandler(slug, "prev"), next: tHandler(slug, "next") },
       outline: { label: tHandler(slug, "On this page") },
