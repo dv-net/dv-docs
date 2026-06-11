@@ -2,14 +2,11 @@
 
 ## [Unreleased]
 
-## [0.0.22] - 2026-06-11
+## [0.0.21] - 2026-06-11
 
 - feat: add TRON processing documentation pages (settings and network overview) for all supported locales [DV-4278]
 - fix: move recovery onboarding guides to FAQ and sync TRON fee/energy updates across locales [DV-4278]
 - feat: add and localize onboarding recovery guides (wrong-network deposit, key export, seed phrase, wallet import) [DV-4289]
-
-## [0.0.21] - 2026-03-13
-
 - fix: remove unnecessary translations from the connecting-payment-form-without-api page [DV-4160]
 - feat: add Advanced Troubleshooting section and “Re-reading a Block from Blockchain” page (all locales) [DV-4240]
 
