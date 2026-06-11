@@ -1,6 +1,10 @@
 import {URL, fileURLToPath} from 'node:url'
+import {writeFileSync} from 'node:fs'
+import {join} from 'node:path'
 import {defineConfig, loadEnv} from 'vitepress'
 import {locales} from "./locales.js";
+
+const DEFAULT_LOCALE = 'en'
 
 const env = loadEnv('', process.cwd())
 const isProduction = env.VITE_NODE_ENV === 'production'
@@ -32,6 +36,15 @@ export default defineConfig({
   themeConfig: { nav: [{ component: 'LocaleSelect' }] },
   locales,
   head,
+  // All locales live in src/{locale}/ — VitePress does not create a page at /.
+  // buildEnd writes index.html so nginx does not return 403 on the site root.
+  buildEnd({ outDir }) {
+    writeFileSync(
+      join(outDir, 'index.html'),
+      `<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=/${DEFAULT_LOCALE}/"><script>location.replace('/${DEFAULT_LOCALE}/')</script></head></html>`,
+      'utf-8',
+    )
+  },
   vite: {
     resolve: {
       alias: {
