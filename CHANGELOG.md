@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.0.22] - 2026-06-15
+
+- feat: redirect `/` to browser locale with `/en/` fallback; require locale prefix in docs URLs [DV-4365]
+
 ## [0.0.21] - 2026-06-11
 
 - feat: add TRON processing documentation pages (settings and network overview) for all supported locales [DV-4278]

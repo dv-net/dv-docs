@@ -3,8 +3,7 @@ import {writeFileSync} from 'node:fs'
 import {join} from 'node:path'
 import {defineConfig, loadEnv} from 'vitepress'
 import {locales} from "./locales.js";
-
-const DEFAULT_LOCALE = 'en'
+import {buildRootRedirectHtml, resolveLocaleFromHeader} from './browserLocale.js'
 
 const env = loadEnv('', process.cwd())
 const isProduction = env.VITE_NODE_ENV === 'production'
@@ -36,16 +35,29 @@ export default defineConfig({
   themeConfig: { nav: [{ component: 'LocaleSelect' }] },
   locales,
   head,
-  // All locales live in src/{locale}/ — VitePress does not create a page at /.
-  // buildEnd writes index.html so nginx does not return 403 on the site root.
+  // Locales live in src/{locale}/ — there is no VitePress page at /.
+  // buildEnd writes index.html with a browser-locale redirect (nginx would return 403 without it).
+  // Dev uses the root-locale-redirect plugin below for the same behavior.
   buildEnd({ outDir }) {
-    writeFileSync(
-      join(outDir, 'index.html'),
-      `<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=/${DEFAULT_LOCALE}/"><script>location.replace('/${DEFAULT_LOCALE}/')</script></head></html>`,
-      'utf-8',
-    )
+    writeFileSync(join(outDir, 'index.html'), buildRootRedirectHtml(), 'utf-8')
   },
   vite: {
+    plugins: [{
+      name: 'root-locale-redirect',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          const pathname = req.url?.split('?')[0]?.replace(/\/+$/, '') || '/'
+          if (pathname !== '/') {
+            next()
+            return
+          }
+          const locale = resolveLocaleFromHeader(req.headers['accept-language'])
+          const query = req.url?.includes('?') ? req.url.slice(req.url.indexOf('?')) : ''
+          res.writeHead(302, { Location: `/${locale}/${query}` })
+          res.end()
+        })
+      },
+    }],
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./', import.meta.url)),
