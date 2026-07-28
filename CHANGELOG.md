@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- feat: expand merchant installation guide with firewall setup, domain linking, browser wizard, project configuration, and integration examples [DV-4416]
+
 ## [0.0.22] - 2026-06-15
 
 - feat: redirect `/` to browser locale with `/en/` fallback; require locale prefix in docs URLs [DV-4365]
