@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.0.23] - 2026-11-20
+
+- feat: document external refunds, dirty wallet addresses, and store-wide currency rates
+
 ## [0.0.22] - 2026-06-15
 
 - feat: redirect `/` to browser locale with `/en/` fallback; require locale prefix in docs URLs [DV-4365]

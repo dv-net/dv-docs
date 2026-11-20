@@ -19,6 +19,333 @@
         }
     ],
     "paths": {
+        "/v1/external/blocked-transactions/{id}/refund": {
+            "post": {
+                "tags": [
+                    "Refund"
+                ],
+                "summary": "Create a refund of a blocked transaction",
+                "description": "Creates a refund of a blocked transaction of the store. A refund to the sender of the deposit is scheduled without a code and sent after the cooldown (status scheduled). A refund to another address requires the code sent to the wallet email (send-code) and is sent after the store owner approves it (status pending_review)",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Blocked transaction ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Destination address and confirmation code",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExternalRefundCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-RefundRequestResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ],
+                "x-codegen-request-body-name": "request"
+            }
+        },
+        "/v1/external/blocked-transactions/{id}/refund/estimate": {
+            "post": {
+                "tags": [
+                    "Refund"
+                ],
+                "summary": "Estimate a refund of a blocked transaction",
+                "description": "Returns the estimated network fee and the amount to receive for a refund of a blocked transaction of the store. code_required is true when the address is not a sender of the deposit: send a confirmation code to the wallet email (send-code) and pass it on the refund creation. The fee is an estimate and may change by the time of sending",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Blocked transaction ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Destination address",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExternalRefundEstimateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-ExternalRefundEstimateResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ],
+                "x-codegen-request-body-name": "request"
+            }
+        },
+        "/v1/external/blocked-transactions/{id}/refund/send-code": {
+            "post": {
+                "tags": [
+                    "Refund"
+                ],
+                "summary": "Send a refund confirmation code",
+                "description": "Sends a one-time code to the wallet email. The code confirms a refund of the blocked transaction to a destination address which is not a sender of the deposit. Pass it when creating the refund. The code can be sent again once a minute",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Blocked transaction ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Destination address",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExternalRefundSendCodeRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ],
+                "x-codegen-request-body-name": "request"
+            }
+        },
         "/v1/external/exchange-balances": {
             "get": {
                 "tags": [
@@ -151,6 +478,73 @@
                 ]
             }
         },
+        "/v1/external/refunds/{id}": {
+            "get": {
+                "tags": [
+                    "Refund"
+                ],
+                "summary": "Get a refund request",
+                "description": "Returns a refund request of the store with its status",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Refund request ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-RefundRequestResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ]
+            }
+        },
         "/v1/external/store/currencies": {
             "get": {
                 "tags": [
@@ -245,33 +639,31 @@
                 ]
             }
         },
-        "/v1/external/store/currencies/{id}/rate": {
+        "/v1/external/store/currencies/rate": {
             "get": {
                 "tags": [
                     "Store"
                 ],
-                "summary": "Get store currency rate",
-                "description": "Get store currency rate",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Currency ID",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "example": "BTC.Bitcoin",
-                            "x-playground-example": "BTC.Bitcoin"
-                        }
-                    }
-                ],
+                "summary": "Get rates for all store currencies",
+                "description": "Get exchange rates for all currencies enabled on the store (rate is scale-adjusted; original_rate is without store rate_scale)",
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/JSONResponse-CurrencyRate"
+                                    "$ref": "#/components/schemas/JSONResponse-array_CurrencyRate"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
                                 }
                             }
                         }
@@ -279,17 +671,7 @@
                     "401": {
                         "description": "Unauthorized",
                         "content": {
-                            "*/*": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/APIErrors"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
-                        "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/APIErrors"
                                 }
@@ -500,6 +882,65 @@
                     }
                 ],
                 "x-codegen-request-body-name": "register"
+            }
+        },
+        "/v1/external/wallet/addresses/dirty": {
+            "post": {
+                "tags": [
+                    "Wallet"
+                ],
+                "summary": "Mark wallet address as dirty",
+                "description": "Marks the given wallet address as dirty so it will not be used for new payments",
+                "parameters": [],
+                "requestBody": {
+                    "description": "MarkIsDirtyRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MarkIsDirtyRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/JSONResponse-string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/APIErrors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "XApiKey": []
+                    }
+                ],
+                "x-codegen-request-body-name": "json"
             }
         },
         "/v1/external/wallet/balance/hot": {
@@ -866,6 +1307,23 @@
                     }
                 }
             },
+            "AmlBlockReason": {
+                "type": "object",
+                "properties": {
+                    "risk_type": {
+                        "type": "string",
+                        "description": "The rule's risk_type: a signal category, TOTAL_RISK_SCORE, SUM_OF_SIGNALS or RISK_LEVEL"
+                    },
+                    "threshold": {
+                        "type": "number",
+                        "description": "The rule's threshold. For RISK_LEVEL it is the level rank (none=0 ... critical=4)"
+                    },
+                    "value": {
+                        "type": "number",
+                        "description": "The checked value which reached the threshold. For RISK_LEVEL it is the level rank"
+                    }
+                }
+            },
             "Asset": {
                 "type": "object",
                 "properties": {
@@ -1150,6 +1608,9 @@
                     "code": {
                         "type": "string"
                     },
+                    "original_rate": {
+                        "type": "string"
+                    },
                     "rate": {
                         "type": "string"
                     },
@@ -1212,6 +1673,94 @@
                     },
                     "total_usd": {
                         "type": "number"
+                    }
+                }
+            },
+            "ExternalRefundCreateRequest": {
+                "type": "object",
+                "required": [
+                    "destination_address"
+                ],
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "One-time code sent to the wallet email. Required when the address is not a deposit sender"
+                    },
+                    "destination_address": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ExternalRefundEstimateRequest": {
+                "type": "object",
+                "required": [
+                    "destination_address"
+                ],
+                "properties": {
+                    "destination_address": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ExternalRefundEstimateResponse": {
+                "type": "object",
+                "properties": {
+                    "activation_required": {
+                        "type": "boolean"
+                    },
+                    "amount": {
+                        "type": "number"
+                    },
+                    "amount_to_receive": {
+                        "type": "string"
+                    },
+                    "blocked_transaction_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "code_required": {
+                        "type": "boolean"
+                    },
+                    "currency_id": {
+                        "type": "string"
+                    },
+                    "destination_address": {
+                        "type": "string"
+                    },
+                    "estimated_fee": {
+                        "type": "string"
+                    },
+                    "fee_balance": {
+                        "type": "string"
+                    },
+                    "fee_covered": {
+                        "type": "boolean"
+                    },
+                    "fee_currency_id": {
+                        "type": "string"
+                    },
+                    "fee_from_amount": {
+                        "type": "boolean"
+                    },
+                    "fee_shortage": {
+                        "type": "string"
+                    },
+                    "from_address": {
+                        "type": "string"
+                    },
+                    "requires_review": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "ExternalRefundSendCodeRequest": {
+                "type": "object",
+                "required": [
+                    "destination_address"
+                ],
+                "properties": {
+                    "destination_address": {
+                        "type": "string"
                     }
                 }
             },
@@ -1290,20 +1839,6 @@
                     }
                 }
             },
-            "JSONResponse-CurrencyRate": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "integer"
-                    },
-                    "data": {
-                        "$ref": "#/components/schemas/CurrencyRate"
-                    },
-                    "message": {
-                        "type": "string"
-                    }
-                }
-            },
             "JSONResponse-ExternalExchangeBalanceResponse": {
                 "type": "object",
                 "properties": {
@@ -1335,6 +1870,20 @@
                     }
                 }
             },
+            "JSONResponse-ExternalRefundEstimateResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/ExternalRefundEstimateResponse"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
             "JSONResponse-ProcessingWithdrawalResponse": {
                 "type": "object",
                 "properties": {
@@ -1343,6 +1892,20 @@
                     },
                     "data": {
                         "$ref": "#/components/schemas/ProcessingWithdrawalResponse"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "JSONResponse-RefundRequestResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/RefundRequestResponse"
                     },
                     "message": {
                         "type": "string"
@@ -1371,6 +1934,23 @@
                     },
                     "data": {
                         "$ref": "#/components/schemas/WithdrawalFromProcessingDto"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "JSONResponse-array_CurrencyRate": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CurrencyRate"
+                        }
                     },
                     "message": {
                         "type": "string"
@@ -1421,6 +2001,17 @@
                         "type": "string"
                     },
                     "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "MarkIsDirtyRequest": {
+                "type": "object",
+                "required": [
+                    "address"
+                ],
+                "properties": {
+                    "address": {
                         "type": "string"
                     }
                 }
@@ -1481,6 +2072,117 @@
                     },
                     "transfer_id": {
                         "type": "string"
+                    }
+                }
+            },
+            "RefundRequestResponse": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number"
+                    },
+                    "amount_usd": {
+                        "type": "number"
+                    },
+                    "auth_method": {
+                        "type": "string",
+                        "enum": [
+                            "email",
+                            "none",
+                            "api",
+                            "api_email"
+                        ]
+                    },
+                    "block_reasons": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AmlBlockReason"
+                        }
+                    },
+                    "blockchain": {
+                        "type": "string"
+                    },
+                    "blocked_transaction_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "currency_code": {
+                        "type": "string"
+                    },
+                    "currency_id": {
+                        "type": "string"
+                    },
+                    "destination_address": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "execute_after": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "from_address": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "last_error": {
+                        "type": "string"
+                    },
+                    "reviewed_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "risk_level": {
+                        "type": "string"
+                    },
+                    "score": {
+                        "type": "number"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "pending_review",
+                            "rejected",
+                            "processing",
+                            "scheduled",
+                            "canceled",
+                            "completed",
+                            "failed"
+                        ]
+                    },
+                    "store_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "to_address": {
+                        "type": "string"
+                    },
+                    "transaction_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "transfer_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "tx_hash": {
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "wallet_id": {
+                        "type": "string",
+                        "format": "uuid"
                     }
                 }
             },
