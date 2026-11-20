@@ -18,3 +18,8 @@ dist-ssr
 .vitepress/cache
 .vitepress/.temp
 yarn.lock
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
